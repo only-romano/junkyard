@@ -1,0 +1,5 @@
+hero.cast("haste", hero)
+hero.moveXY(40, 25)
+hero.buildXY("fence", 40, 20)
+hero.moveXY(40, 35)
+hero.buildXY("fence", 40, 52)

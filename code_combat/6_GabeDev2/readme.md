@@ -1,0 +1,36 @@
+### Game Development 2nd Island levels
+
+> Simple AI Scripting, Customizable Units and Goals
+
++ [Methods and objects of Game Development at Code Combat](https://github.com/katitek/Code-Combat/tree/master/0_Review/000_gamedev)
+
++ Premium Levels
+    + [Accounts Department](248-Accounts_Department/)
+    + [Adventure Time](239-Adventure_Time/)
+    + [Agony of Defeat](242-Agony_of_Defeat/)
+    + [Army Training 2](233-Army_Training_2/)
+    + [Berserker](250-Berserker/)
+    + [Cages](247-Cages/)
+    + [Center Formation](235-Center_Formation/)
+    + [Chokepoint](236-Chokepoint/)
+    + [Disintegration Arrow](254-Disintegration_Arrow/)
+    + [Don't Touch Them](245-Dont_Touch_Them/)
+    + [Freeze Tag](251-Freeze_Tag/)
+    + [From Dust to Dust](246-From_Dust_to_Dust/)
+    + [Game Dev 2 Final Project](260-GD2_Final_Project/)
+    + [Game of Coins Step 1: Layout](255-GoC1/)
+    + [Game of Coins Step 2: Score](256-GoC2/)
+    + [Game of Coins Step 3: Enemies](257-GoC3/)
+    + [Game of Coins Step 4: Power-Ups](258-GoC4/)
+    + [Game of Coins Step 5: Balance](259-GoC5/)
+    + [Guard Duty](232-Guard_Duty/)
+    + [Hot Gems](249-Hot_Gems/)
+    + [Jailbreak](237-Jailbreak/)
+    + [Lernaean Hydra](243-Lernaean_Hydra/)
+    + [Pressure Plate](252-Pressure_Plate/)
+    + [Random Riposte](241-Random_Riposte/)
+    + [Risk and Reward](238-Risk_and_Reward/)
+    + [Run for Gold](253-Run_for_Gold/)
+    + [Standard Operating Procedure](234-Standard_Operating_Procedure/)
+    + [Stick Shift](244-Stick_Shift/)
+    + [Teatime](240-Teatime/)

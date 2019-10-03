@@ -1,0 +1,8 @@
+pet.moveXY(24, 38)
+pet.shapeShift()
+pet.moveXY(24, 6)
+pet.moveXY(48, 6)
+pet.moveXY(63, 54)
+pet.shapeShift()
+pet.moveXY(70, 21)
+hero.moveXY(62, 62)
