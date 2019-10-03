@@ -1,2 +1,3 @@
 # junkyard
-just stuff
+
+> Moderate stuff (almost useless)
