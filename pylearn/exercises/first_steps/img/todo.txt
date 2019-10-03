@@ -1,0 +1,8 @@
+
+ - Fractolize files (179 files remained)
+
+ - Write from images (178 images remained)
+
+ - requirements.txt, .gitignore, runtime.txt, spec.txt, README.md
+
+ - gitHub it

@@ -1,5 +1,7 @@
 ## Birthday Card (love)
 
+> tech: JavaScript (Vue.js)
+
 [online version](https://ripssr.github.io/hbk_n/)
 
 Birthday card for ex (june 2019)
@@ -10,5 +12,3 @@ Birthday card for ex (june 2019)
 
 
 Images may not be available for free usage. Just surfed web to get them without licence specified.
-
-> usage: vue.js
