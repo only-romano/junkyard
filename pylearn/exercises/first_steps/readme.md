@@ -2,7 +2,6 @@
 
 #### Content:
 + [Basics](basics/)
-+ [OOP](oop/)
 + [Python Crash Course](pcc/)
 + [Metanit](metanit/)
 + [Zadachi from Mentor](zadachi/)
