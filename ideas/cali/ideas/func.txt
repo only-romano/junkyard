@@ -1,0 +1,80 @@
+reg = registered user
+
+home
+	<header>
+		(1)--> {reg}My Events{else}Overview{/}
+		(2)--> Public Events
+		(3)--> {reg}Profile{else}Registration{/}
+		(4)--> {reg}Logout{else}Login{/}
+	<main>
+		<section opt>
+			{term}	(1)--! Today
+				(2)--! 3d
+				(3)--! week
+				(4)--! month
+			{event} {reg}(1)--! ToDo{/}
+					(1)--! Hot
+					(2)--! Termed
+					(3)--! Themed
+				{reg}(2)--! Tasks{/}
+					(1)--! Personal
+					(2)--! Coop
+				(3)--! Events
+					{reg}(1)--! My events{/}
+					(2)--! Global events
+				(4)--! Calendar
+					{reg}(1)--! Personal{/}
+					(2)--! Themed calendar
+					(3)--! Project calendar
+			{}
+		<section toDo>
+		<section cal>
+			<section day>
+			<section week>
+			<section month>
+			<section global>
+	<footer>
+
+profile
+	bas:
+day
+	bas:
+	reg:
+week
+	bas:
+	reg:
+month
+	bas:
+	reg:
+year
+	bas:
+	reg:
+event
+	bas:
+event-group
+	bas:
+task
+	bas:
+Coop task
+	bas:
+
+ToDo list
+	bas:
+ToDo list local (day)
+	bas:
+ToDo list global
+	bas:
+
+
+----------global calendars----------
+1. Programming (ad: programming & me)
+2. Gaming (ad: games)
+3. Sport (ad: events)
+4. Common (ad: fly tickets)
+?5. Locale (ad: local events)
+----------
+----------healthy calendar----------
+1. Food plan (ad: health food markets)
+2. Sport plan (ad: locale gym & fitness mentors)
+3. Med plan (ad: health care)
+----------

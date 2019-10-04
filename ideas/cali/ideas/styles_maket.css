@@ -1,0 +1,57 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex: 1;
+  background: blue;
+}
+
+.logged header {
+  background: aqua;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex: 8;
+}
+
+section:first-of-type {
+  flex: 1;
+  background: bisque;
+}
+
+section:nth-of-type(2) {
+  flex: 4;
+  background: red;
+}
+
+.logged section:nth-of-type(2) {
+  background: coral;
+}
+
+section:last-of-type {
+  flex: 2;
+  background: goldenrod;
+}
+
+.logged section:last-of-type {
+  background: yellow;
+}
+
+footer {
+  flex: 0.5;
+  background: green;
+}
+
+.logged footer {
+  background: lightgreen;
+}
