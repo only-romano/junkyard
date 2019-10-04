@@ -10,4 +10,5 @@
 + [Python Projects](pyprojects/)
 + [Games with Python](pygames/)
 + [Learning Python](pylearn/)
++ [Learning C#](csharplearn/)
 + [Ideas for projects](ideas/)
