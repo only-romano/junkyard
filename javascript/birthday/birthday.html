@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>С днём рождения, Саша!</title>
+  <link rel="stylesheet" href="files/style.css">
+  <link rel="shortcut icon" href="files/favicon.ico" type="image/x-icon">
+
+  <script type="text/javascript">
+    var congratulations = [
+      'Отличного здоровья!',
+      'Вечной любви!',
+      'Приятных соседей!',
+      'Отвязных выходных!',
+      'Исполнения мечты!',
+      'Страстной ночи с девушкой мечты!',
+      'Вечера с лучшим другом!',
+      'Кучи денег тебе!'
+    ];
+
+    function congratulateAlex() {
+      var congrats = prompt('Что хочешь пожелать Саше?');
+      var random = Math.round(Math.random() * (congratulations.length - 1));
+      if (!congrats) {
+        alert('Эх ты! Ничего не пожелал :)');
+        alert('Ну а я пожелаю. И знаешь чего? ' + congratulations[random] + '\n\nУРААААА!!');
+      } else {
+        alert('Хм... Хитро... А знаешь, что думаю я по этому поводу?');
+        alert('Я думаю что сначала пожелаю я сама. Вот так. И знаешь чего? ' + congratulations[random]);
+        alert('А теперь твоё пожелание!\n\n' + congrats.toUpperCase() + '\n\nУРААААА!!');
+      }
+    }
+  </script>
+</head>
+
+<body> 
+
+<!-- HEADER start -->
+  <div class="page-header">
+    <p class="top-img">
+      <img src="files/logo.png" width="128" height="128" alt="Happy Birthday">
+    </p>
+
+    <h1>С днём рождения, Саша!</h1>
+
+    <div>
+      <div class="links">
+        <a href="#from_me">От меня</a>
+        <a href="#congrats">Поздравлялки</a>
+        <a href="#poetry">Стишок</a>
+        <a href="#postcard">Открытка</a>
+      </div>
+    </div>
+
+    <p class="sic" id="sic">День рождения — <br>
+      это когда тебе приходит SMS из банка с поздравлениями.</p>
+
+  </div>
+<!-- HEADER end -->
+
+<!-- CONTENT start -->
+  <div>
+    <h2 class="new_h2">Александру  от  Катёнки Феликс</h2>
+    <br>
+
+    <div class="photo">
+      <span>
+        <img src="files/photo3.png" width="21.5%" alt="Happy Birthday">
+        <img src="files/photo.png" width="43%" alt="Happy Birthday">
+        <img src="files/photo2.png" width="33.2%" alt="Happy Birthday">
+      </span>
+    </div>
+    <br>
+
+    <div>
+      <a name="from_me"></a>
+      <h2 class="fat_butt">От меня</h2>
+    </div>
+
+    <br>
+
+    <div class="board">
+    <h3 class="dpan">Дорогой Саша, хочу поздравить тебя с днём рождения!</h3>
+
+    <p class="pp">Желаю тебе <b>огромного счастья и бесконечной любви</b>. Ещё хочу пожелать тебе <b>верных друзей</b>, добрых и интересных приятелей. <b>Здоровья бесконечного</b>, почему бы и не дожить до ста лет. Ещё желаю, чтобы у тебя всегда <b>был достаток и не было нужды</b> - это во все времена было очень важно.</p>
+
+    <p class="pp">Желаю тебе свободы и возможности беспрепятственного саморазвития. Чтобы был доступ к интересующей тебя информации. Чтобы никто не посмел ограничивать твою свободу и перпятствовать твоему саморазвитию. Я считаю, что всю жизнь чему-то, да учишься - и это не плохо, а очень даже хорошо - всегда есть стимул и смысл идти вперёд.</p>
+
+    <p class="pp">Желаю тебе, чтобы ты делал то, что тебе нравится; не откладывал этого на потом. Жизнь не такая уж и бесконечная ... Так что надо спешить! ... Делать то, что хочешь, и делать не меньше, чем делать то, что должен. Выделяй себе время на отдых, позволяй себе послабления, дари себе подарки, окружай себя людьми, которые тебя ценят. Пусть жизнь вокруг тебя кипит, бурлит и даже льётся наружу. Не бойся показаться "не таким", делая любимое дело. Если кто-то решит, что ты неправильный - а судьи кто? Мир позволяет быть неправильным, ибо "правильность" слишком субъективна почти всегда.</p>
+
+    <p class="pp">Желаю тебе <b>правильно питаться, заниматься спортом и избегать вредных привычек</b>, насколько это возможно. Я за свою жизнь узнала грани этих явлений - насколько я могу судить, всё это: вредная еда, лень, нехорошие привычки - не приносят счастья. Это обманка, работает только как способ убежать от проблем, но никак не как решение этих проблем.</p>
+
+    <p class="pp">Уже много наговорила, кажется, пора заканчивать.</p>
+
+    <p class="pp">Желаю тебе решения всех твоих проблем. Серьёзных и не очень. Ещё путешествий тебе - дальних и не очень. Мыслей - умных и не очень ... умные мысли иногда навевают скуку, а глупые бывают такими весёлыми!</p>
+
+    <p class="pp">Желаю тебе добра, радости, солнца тёплого по утрам; если дождей, то мягких; ярких цветов, зелёной листвы, согревающего камина во время холодных вечеров, интересных фильмов, плодотворной и увлекательной работы, весёлых выходных, вежливых официантов и умелых шофёров :) </p>
+
+    <p class="pp" style="text-align: center;">Ну и как не пожелать что-нибудь самому себе?</p>
+
+    <h3 class="welcome" style="margin-left: 20px; font-style: italic;">Рубрика: "поздравь Сашу"!</h3>
+
+    <div class="but">  <!-- Кнопка для поздравления -->
+      <p style="text-align: center; margin: 35px 0 35px 0px;"><input class="button" type="submit" name="btn" value="ПОЗДРАВИТЬ !!!" onclick="congratulateAlex()"></p>
+    </div>
+
+    <div class="sitting">
+      <img src="files/sitting.png" alt="another girl">
+    </div>
+
+  </div>
+
+    <div>
+      <a name="congrats"></a>
+      <h2 class="fat_butt">Поздравлялки</h2>
+    </div>
+
+    <br>
+    <p style="text-align: center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ji6TEVHK5f4?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+    </p>
+    <br>
+
+    <p style="text-align: right;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/I1V2jEqPGLI?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+    </p>
+    <br>
+
+    <p style="text-align: center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/0LP5m86wG4Y?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+    </p>
+    <br>
+
+    <p style="text-align: left;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/pTZLX_WQdcU?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+    </p>
+    <br>
+
+    <p style="text-align: center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/7urUMX393QY?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+    </p>
+    <br>
+
+    <p style="text-align: right;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Tr2bN1leItM?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+    </p>
+    <br>
+
+    <div>
+      <a name="poetry"></a>
+      <h2 class="fat_butt">Стишок</h2>
+    </div>
+
+    <div class="white">
+    <div class="photo">
+      <span>
+        <img src="files/poetry.png" width="85%" alt="Happy Birthday">
+      </span>
+    </div>
+    </div>
+    <br>
+
+    <p class="baby">
+      <a name="postcard"></a>
+      <span class="invis">
+        <img src="files/wiki-1.png" alt="Pretty girl">
+      </span>
+      <span class="vis">
+        <img src="files/wiki.png" alt="Pretty girl">
+      </span>
+    </p>
+    <div><h2 class="fat_butt div-invis"></h2></div>
+
+    <div>
+      <h2 class="fat_butt div-vis">Открытка</h2>
+    </div>
+
+    <div class="card">
+      <img src="files/birthday.png" alt="Books">
+    </div>
+
+    <div>
+      <h2 class="fat_butt">30 марта 2018 года</h2>
+    </div>
+
+    <div class="board">
+
+    <h3 class="dpan">Этот день в истории:</h3>
+    <p class="pp">Давным давно, 227 лет назад, в далёкой-далёкой стране национальное собрание ввело определение "метр", они измерили длину парижского меридиана и поделили эту радость на 40 миллионов частей. Так появился наш метр. А ещё в этот день, но уже 204 года назад, союзные антинаполеоновские войска взяли штурмом тот самый Париж и положили конец Наполеоновским войнам. Ещё этот город знаменовался событием в этот день 162 года назад - тогда был подписан мирный договор по окончанию Крымской войны 1853-1856 гг. Вот такой вот Париж 30 марта.</p>
+
+    <p class="pp">А у нас на родине в этот день нападала блажь на Александра Второго. В 1856 году он впервые публично высказался 30 марта об идее отмены крепостного права, ну а в 1860 в этот же день объявил о начале разработки Крестьянской реформы в России. Ну, и стоит отметить, что 30 марта в 1867 году США приобрели у России Аляску за 7,2 млн долларов. Viva Александр Освободитель. Ну да ладно, дела минувших лет. Лучше посмотрим, что было уже в XX веке.</p>
+
+    <p class="pp">30 марта 1976 года считается днём начала музыкального панк-движения. В один из лондонских клубов на первый концерт группы Sex Pistols собралось 50 человек. Прям как на наш первый спектакль в любительском театре. Юху. Ну, а СССР не переставало совершенствоваться, в этот день 1981 года было впервые введено на нашей родине летнее время. И начались семестровые головолмки - перевели ли мы время или нет.</p>
+
+    <p class="pp">А ещё 30 марта родились:</p>
+    <ul>
+      <li class="pp">Винс Ван Гог, художник душой</li>
+      <li class="pp">Уоррен Битти, актёр лицом</li>
+      <li class="pp">Эрик Клэптон, гитарист руками</li>
+      <li class="pp">Селин Дион, певица ртом</li>
+      <li class="pp">Сергей Мозякин, хоккеист клюшкой</li>
+      <li class="pp">Серхио Рамос, футболист ногами</li>
+    </ul>
+
+      <div class="book">
+        <img src="files/book.png" alt="Books">
+      </div>
+
+    <h3 class="dpan">Праздники:</h3>
+    <ul>
+      <li>
+        <a class="pp" href="http://www.doctorsday.org"><b>США</b> — Национальный день Врача.</a>
+      </li>
+      <li>
+        <a class="pp" href="https://electronicintifada.net/blogs/ali-abunimah/what-palestines-land-day"><b>Палестина</b> — День земли.</a>
+      </li>
+    </ul>
+
+    <h3 class="dpan">Именины:</h3>
+    <ul>
+      <li class="pp">Александр</li>
+      <li class="pp">Алексей</li>
+      <li class="pp">Виктор</li>
+      <li class="pp">Макар</li>
+    </ul>
+    <br>
+
+    </div>
+  </div>
+<!-- CONTENT end -->
+
+<!-- FOOTER start -->
+  <div class="page-footer">
+    <p class="bot-img">
+      <img src="files/logo2.png" width="64" height="64" alt="Happy Birhday">
+    </p>
+
+    <div>
+      <div class="downlinks">
+        <a href="#from_me"">От меня</a>
+        <a href="#congrats">Поздравлялки</a>
+        <a href="#poetry">Стишок</a>
+        <a href="#postcard">Открытка</a>
+      </div>
+    </div>
+
+    <span class="developer"><strong>Разработчик:</strong>
+      <a href="https://github.com/katenkafelix">Awesome me</a>
+    </span>
+    <br>
+
+    <p class="logo">
+      <img src="files/rlogo.png" width="27" height="34">
+    </p>
+    <span class="rights">All rights reserved</span>
+    <span class="socials">
+      <a class="social social-vk" href="https://vk.com/katenkafelix"></a>
+      <a class="social social-fb" href="http://www.facebook.com"></a>
+      <a class="social social-tw" href="http://twitter.com"></a>
+    </span>
+  </div>
+<!-- FOOTER end -->
+</body>
+</html>
