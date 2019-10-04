@@ -2,6 +2,5 @@
 
 ### Content:
 + ["Calculator 2018 - my first project, dec, 30-31, 2017"](calculator_2018.py)
-![](calc.png)
-+ [Unfinished - Sexy Day](web/)
++ [Unfinished - Sexy Day, feb 2018](web/)
 

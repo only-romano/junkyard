@@ -1,10 +1,12 @@
 ## Birthday Card (love)
 
-> tech: JavaScript (Vue.js)
+> june 2019
 
 [online version](https://ripssr.github.io/hbk_n/)
 
-Birthday card for ex (june 2019)
+Birthday card for ex
+
+> tech: JavaScript (Vue.js)
 
 ##### oh, yes, it's russian
 

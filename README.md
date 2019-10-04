@@ -4,12 +4,22 @@
 
 ### List of contents
 
-+ [Code Combat Guide](code_combat/)
-+ [Online birthday card for Ex-love](bday/)
-    - [online](https://ripssr.github.io/hbk_n/)
-+ [Frontend Funny and useful stuff](frontend_stuff/)
-+ [Python Projects](pyprojects/)
-+ [Games with Python](pygames/)
-+ [Learning Python](pylearn/)
-+ [Learning C#](csharplearn/)
-+ [Ideas for projects](ideas/)
+* Projects
+    + [Code Combat Guide](code_combat/)
+    + [Online birthday card for Ex-love](bday/)
+	- [online](https://ripssr.github.io/hbk_n/)
+    + [C# Metanit Base Learning Console App + compilled exe](csharpapp/)
+    + [Python Projects](pyprojects/)
+
+* Games
+    + [Games with Python](pygames/)
+
+* Usefull Stuff
+    + [Frontend Funny and useful stuff](frontend_stuff/)
+    + [Ideas for projects](ideas/)
+
+* Learning and Tutorials
+    + [Learning Python](pylearn/)
+    + [Learning C#](csharplearn/)
+
+* [Dump](dumpyard/)

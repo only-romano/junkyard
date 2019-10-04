@@ -2,7 +2,8 @@
 
 ___
 
-> Expirience of 2019, june - july:
+> june-july 2019
+
 + _(base)_ __JavaScript__ solutions.
 + _(advanced)_ __Python__ solutions.
 

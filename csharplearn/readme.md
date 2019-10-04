@@ -1,5 +1,7 @@
 ## C# Learning
 
+> august 2018
+
 #### Table of contents:
-+ none
++ [Metanit](metanit/)
 
