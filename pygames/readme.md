@@ -1,4 +1,4 @@
-## Games samples with Python
+## Games with Python engine
 
 #### Content:
 + ["Bubbles Hunter"](bubles_hunter.py)

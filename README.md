@@ -4,6 +4,8 @@
 
 ### List of contents
 
-#### [Online birthday card for Ex-love](bday/)
-#### [Code combat exercises and guide](code_combat/)
-#### [Learning Python](pylearn/)
++ [Code Combat Guide](code_combat/)
++ [Online birthday card for Ex-love](bday/)
++ [Python Projects](pyprogs/)
++ [Games with Python](pygames/)
++ [Learning Python](pylearn/)

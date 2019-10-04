@@ -16,6 +16,9 @@
 + [Favorite Number](favorite_number.py)
 + [Exponentiation and Files](exponentiation.py)
 + [Is Year Leap](is_year_leap.py)
++ [Pip](pip.py)
++ [Pep 8](pep8.py)
++ [First GUI](testgui.py)
 + Come Back from JavaScript to Python - spring-summer 2018
     - [Basics - part 1 - 30/05](come_back2018/come-back-python-05-30.py)
     - [OOP - part 2 - 31/05](come_back2018/comebackpython0531.py)
