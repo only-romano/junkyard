@@ -1,0 +1,1 @@
+Vote application on a local server.

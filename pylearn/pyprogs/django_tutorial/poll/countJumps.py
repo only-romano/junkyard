@@ -1,0 +1,38 @@
+def countWays(m_jumps, steps):
+    variants = []
+
+    for a in range(steps, 1, -1):
+        var = [1] * a
+        if sum(var) == steps:
+            variants.append(' - '.join(str(x) for x in var))
+            continue
+        if m_jumps > 1:
+            for c in range(0, a):
+                print(var)
+                var2 = var[:]
+                for b in range(2, m_jumps + 1):
+                    var2[c] = b
+                    print('C', c, var2)
+                    if sum(var2) == steps and var2 not in variants:
+                        print('C', c, 'ADDED')
+                        variants.append(' - '.join(str(x) for x in var2))
+                        break
+                    elif c + 1 != a:
+                        for d in range(c + 1, a):
+                            var3 = var2[:]
+                            for e in range(2, m_jumps + 1):
+                                var3[d] = e
+                                print('D', d, var3)
+                                if sum(var3) == steps and var3 not in variants:
+                                    print('D', d, 'ADDED')
+                                    variants.append(' - '.join(str(x) for x in var3))
+                                    break
+                            else:
+                                break
+    print('Количество вариантов: ', len(variants))
+    print('Все возможные варианты: \n', '\n'.join(variants))
+
+i = 'sss'
+print(id(i))
+countWays(3, 8)
+# Первый параметр - K, второй - N

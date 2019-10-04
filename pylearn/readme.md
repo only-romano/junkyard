@@ -3,6 +3,13 @@
 #### Table of contents:
 + [Algorithmes](pyalgos/)
 + [Encoding and decoding](pyencode/)
++ [Tutorial Projects](pyprogs/)
+    - [Django Tutorial](pyprogs/django_tutorial/)
+    - [Data Visualisation Practice](pyprogs/data_visualisation/)
+    - [Python Repos count](pyprogs/api/)
+    - [Flask Tutorial](pyprogs/flask_tutorial/)
+    - [Raindrops](pyprogs/raindrops/)
+    - [Seconds to 2018 New Year Eve](pyprogs/new_year/)
 + Python books (beginner level):
     - [Python Crash Course](exercises/first_steps/pcc/)
     - [Python for Kids](python4kids/)
