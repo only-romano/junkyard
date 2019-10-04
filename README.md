@@ -7,7 +7,7 @@
 * Projects
     + [Code Combat Guide](code_combat/)
     + [Online birthday card for Ex-love](bday/)
-	- [online](https://ripssr.github.io/hbk_n/)
+	1. [online](https://ripssr.github.io/hbk_n/)
     + [C# Metanit Base Learning Console App + compilled exe](csharpapp/)
     + [Python Projects](pyprojects/)
 
