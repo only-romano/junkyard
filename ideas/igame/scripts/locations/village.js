@@ -1,0 +1,1 @@
+village = "<p>Hello, I'm a village!</p>";

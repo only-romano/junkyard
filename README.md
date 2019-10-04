@@ -9,6 +9,7 @@
     + [Online birthday card for Ex-love](bday/) + [online](https://ripssr.github.io/hbk_n/)
     + [C# Metanit Base Learning Console App + compilled exe](csharpapp/)
     + [Python Projects](pyprojects/)
+    + [JavaScript Projects](jsprojects/)
 
 * Games
     + [Games with Python](pygames/)
@@ -21,5 +22,7 @@
     + [Learning Python](pylearn/)
     + [Learning Swift](swiftlearn/)
     + [Learning C#](csharplearn/)
+    + [Learning PHP](phplearn/)
+    + [Learning C](clearn/)
 
 * [Dump](dumpyard/)

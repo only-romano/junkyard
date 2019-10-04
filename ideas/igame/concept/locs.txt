@@ -1,0 +1,75 @@
+metalocation	->	location	->	neigborhood	->	place		->	interior place
+
+city			metro			house			appartment		room
+town			area			building		place			room
+village			zone			place			zone			place
+road			km			road/bus/car		wagon/zone-of-bus	cabin
+continent		country			city			place			zone
+
+
+sex => p1->p1+p2[op.5]->p2->p2+p3[op.5]->p3->p3+p4[op.5]->p4->p4+p1[op.5]->p1
+
+
+
+
+Free Game + Scenaries. Scenaries:
+{
+	strategy :
+	{
+		tycoon :
+		[
+			"Mine all mine",
+			"Top-butt's-kisser",
+			"Mayor of Honor",
+		],
+
+		tbs :
+		[	
+			"El Presidente",
+			"Viva la Revolution [Frogs Wars]",
+			"Geek's Domina",
+		],
+
+		rts :
+		[
+			"Fourth Rome [Gavnukovo]",
+			"G-spot",
+			"Gangerallo",
+		],
+	},
+
+	survival :
+	[
+		"Exe-dealer",
+		"Forbidden",
+		"Zombie Funacalypse",
+		"Hmm, well, i'm kind a bum right now, but it is only temporaly of course [it's not]",
+		"U Must have Hardest Balls",
+	],
+
+	horror :
+	[
+		"Not So Scary Damned Dream",
+		"Man-o-Victimous",
+		"Doo-doo-mmm-island",
+		"Z4Horror",
+		"Bad Day B.G. [Bol'shiye Gavnuki]"
+	],
+
+	sexgame :
+	[
+		"Mmm, hello",
+		"FU2nite",
+		"006[ow-ow-sex]",
+		"Puberty 4-ever",
+		"Luv-Ya",
+	],
+
+	quest:
+	[
+		"P.I.E. [Private Investigator Eugene]",
+		"Grandma Mia [How to inherit]",
+		"Life is Obveous",
+	]
+}
+quest / action / simulator / sport / rpg / novella / programming / racing
