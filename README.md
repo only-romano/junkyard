@@ -19,6 +19,7 @@
 
 * Learning and Tutorials
     + [Learning Python](pylearn/)
+    + [Learning Swift](swiftlearn/)
     + [Learning C#](csharplearn/)
 
 * [Dump](dumpyard/)
