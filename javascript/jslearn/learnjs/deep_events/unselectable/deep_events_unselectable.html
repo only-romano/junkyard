@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Unselectable</title>
+  <link rel="stylesheet" type="text/css" href="deep_events_unselectable.css">
+</head>
+<body>
+
+  <div onselectstart="return false" onmousedown="return false">
+    <span style="cursor: pointer;" ondblclick="alert('Double click!')">Text</span>
+  </div>
+
+  <ul onmousedown="return false" onselectstart="return false">
+    <li>Vinnie the Pooh</li>
+    <li>Dunkey Ia</li>
+    <li>Wise Owl</li>
+    <li>Rabbit. Just rabbit.</li>
+  </ul>
+
+  <ul>
+    <li ondblclick="clearSelection()">Selection is canceled by double click</li>
+  </ul>
+
+  Line before
+  <div ondblclick="alert('Test')">
+    <b>This text ain't selectable except IE9-</b>
+  </div>
+  Line after
+
+  <div ondblclick="alert('Test')" unselectable="on" style="border: 1px solid black">
+    This text ain't selectable in IE, <em>but children are selectable!</em>
+  </div>
+
+  <div oncopy="return copyRight();">
+    Уважаемый копирователь,
+    почему-то автор хочет заставить вас покопаться в исходном коде этой страницы.
+    Если вы знаете JS или HTML, то скопировать текст не составит для вас проблемы,
+    ну а если нет, то увы...
+  </div>
+
+  <script src="deep_events_unselectable.js"></script>
+</body>
+</html>

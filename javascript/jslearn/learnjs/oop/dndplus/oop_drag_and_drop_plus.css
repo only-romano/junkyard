@@ -1,0 +1,43 @@
+#progress_bar {
+  margin: 10px 0;
+  padding: 3px;
+  border: 1px solid #000;
+  font-size: 14px;
+  clear: both;
+  opacity: 0;
+  transition: opacity 1s linear;
+  -moz-transition: opacity 1s linear;
+  -o-transition: opacity 1s linear;
+  -webkit-transition: opacity 1s linear;
+}
+
+#progress_bar.loading {
+  opacity: 1.0;
+}
+
+#progress_bar .percent {
+  background-color: #99ccff;
+  height: auto;
+  width: 0;
+}
+
+.tree span:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tree span.hover,
+.tree span.hover:hover {
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+span.avatar {
+  padding: 1px;
+  border: 1px dotted black;
+  background: white;
+  cursor: pointer;
+  opacity: 0.6;
+  filter: progid: DXImageTransform.Microsoft.Alpha(opacity=60);
+}

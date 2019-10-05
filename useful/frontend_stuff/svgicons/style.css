@@ -1,0 +1,15 @@
+#app {
+  margin: 50px 0;
+  color: #666;
+  text-align: center;
+}
+
+#iconScissors {
+  margin: 0 auto;
+  display: table;
+  cursor: pointer;
+}
+
+#heartface {
+  visibility: hidden;
+}

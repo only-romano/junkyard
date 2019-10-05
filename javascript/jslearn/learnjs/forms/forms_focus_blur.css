@@ -1,0 +1,62 @@
+
+body {
+  height: 2000px;
+}
+
+input:focus {
+  background: bisque;
+  outline: none;
+}
+
+.error {
+  border-color: red;
+}
+
+.mypla::-webkit-input-placeholder {
+  color: darkgrey;
+  font-style: italic;
+}
+.mypla::-moz-input-placeholder {
+  color: darkgrey;
+  font-style: italic;
+}
+.mypla::-ms-input-placeholder {
+  color: darkgrey;
+  font-style: italic;
+}
+
+li {
+  cursor: pointer;
+}
+
+li:focus {
+  outline: 1px dashed green;
+}
+
+.focused {
+  outline: 1px solid red;
+  background: pink;
+}
+
+.placeholder {
+  color: blue;
+  font-family: Georgia;
+}
+
+.placeholder-tooltip {
+  color: blue;
+  font-family: Georgia;
+  position: fixed;
+  background: white;
+  opacity: 0.5;
+}
+
+#mouse {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0;
+}
+
+#mouse:focus {
+  outline: 1px dashed black;
+}

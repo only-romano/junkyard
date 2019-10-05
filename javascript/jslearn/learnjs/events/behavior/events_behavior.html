@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Events Behavior</title>
+  <link rel="stylesheet" type="text/css" href="events_behavior.css">
+</head>
+<body>
+
+  <button data-counter>1</button>
+  <button data-counter>2</button>
+
+  <button data-toggle-id="subscribe-mail">
+    Show subscribe form
+  </button>
+
+  <form id="subscribe-mail" hidden>
+    Your mail: <input type="email">
+  </form>
+
+  <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+  <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+
+  <button data-tooltip="help tip is longer then element">Short button</button>
+  <button data-tooltip="HTML<br>tip">Another button</button>
+
+  <p>Прокрутите страницу, чтобы ссылки были вверху и проверьте, правильно ли показываются подсказки.</p>
+
+  <script src="events_behavior.js"></script>
+</body>
+</html>

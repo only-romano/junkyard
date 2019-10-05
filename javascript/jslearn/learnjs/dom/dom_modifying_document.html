@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>DOM Modifying Document</title>
+</head>
+<body>
+
+  <style type="text/css">
+    .alert {
+      padding: 15px;
+      border: 1px solid #d6e9c6;
+      border-radius: 4px;
+      color: #3c763d;
+      background-color: #dff0d8;
+    }
+  </style>
+
+  <div class="alert">
+    <strong>Hurray!</strong> You're readen this important message.
+  </div>
+
+  <script type="text/javascript">
+    var div = document.createElement('div');
+    div.className = "alert alert-success";
+    div.innerHTML = '<strong>Whoa!</strong> Another important message.';
+
+    var textElem = document.createTextNode('I was here!');
+
+    var parentElem = document.body;
+    parentElem.appendChild(textElem);
+    parentElem.appendChild(div);
+  </script>
+
+  <ol id="list">
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+  </ol>
+
+  <script type="text/javascript">
+    var newLi = document.createElement('li');
+    newLi.innerHTML = 'Hello World!';
+
+    var veryNewLi = document.createElement('li');
+    veryNewLi.innerHTML = 'Tonite Pascal comming..';
+
+    list.appendChild(newLi);
+    list.insertBefore(veryNewLi, list.children[1]);
+
+    var newUl = document.createElement('ul');
+    newUl.setAttribute('id', 'new-ul');
+
+    document.body.appendChild(newUl);
+
+    var soNewLi = document.createElement('li');
+    soNewLi.innerHTML = 'Fucked up, but deserve it';
+    newUl.insertBefore(soNewLi, newUl.firstChild);
+  </script>
+
+  <style>
+    .alert {
+      padding: 15px;
+      border: 1px solid #d6e9c6;
+      border-radius: 4px;
+      color: #3c763d;
+      background-color: #dff0d8;
+    }
+  </style>
+
+  <h3>My page</h3>
+
+  <script type="text/javascript">
+    var div2 = document.createElement('div');
+    div2.className = 'alert alert-success';
+    div2.innerHTML = '<strong>And again Hurray!</strong> You\'re readen another important message.'
+
+    document.body.appendChild(div2);
+
+    var div3 = div2.cloneNode(true);
+    div3.querySelector('strong').innerHTML = 'Superb!';
+    div2.parentNode.insertBefore(div3, div2.nextSibling);
+  </script>
+
+  <div id="first">First</div>
+  <div id="second">Second</div>
+
+  <script type="text/javascript">
+    document.body.insertBefore(second, first);
+
+    setTimeout(function() {
+      div3.parentNode.removeChild(div3);
+    }, 2000);
+  </script>
+
+  <script type="text/javascript">
+    var div4 = document.createElement('div');
+    div4.className = "alert alert-success";
+    document.body.appendChild(div4);
+
+    var text = prompt("Input text message:", "Once upon a time where was a <a> and <b>!")
+
+    // вставится именно как текст, без HTML-обработки
+    div4.appendChild(document.createTextNode(text));
+  </script>
+
+  <div id="elem2"></div>
+  <div id="elem3"></div>
+
+  <script type="text/javascript">
+    var text = '<b>text</b>';
+
+    elem2.appendChild(document.createTextNode(text));
+    elem3.innerHTML = text;
+  </script>
+
+  <div id="delete2">to DELETE</div>
+  <div>text</div>
+  <div>text</div>
+
+  <script type="text/javascript">
+    (function() {
+      if (!Element.prototype.removed) {
+        Element.prototype.removed = function() {
+          if (!this.parentNode) return;
+          this.outerHTML = '';
+        }
+      }
+    })();
+
+    delete2.removed();
+  </script>
+
+  <div>This</div>
+  <div>is</div>
+  <div>the</div>
+  <div>Elements</div>
+
+  <script name="insertAfter" type="text/javascript">
+    (function() {
+      Element.prototype.insertAfter = function(node) {
+        if (node.nextSibling) {
+          node.parentNode.insertBefore(this, node.nextSibling);
+        } else {
+          node.parentNode.appendChild(this);
+        }
+      }
+    })();
+
+    var element = document.createElement('div');
+    element.innerHTML = '<b>New element</b>';
+
+    var diva = document.body.children[23];
+    element.insertAfter(diva);
+
+    var element2 = element.cloneNode(true);
+    element2.insertAfter(document.body.lastChild);
+
+    function insertAfter2(elem, refElem) {
+      var parent = refElem.parentNode;
+      var next = refElem.nextSibling;
+
+      if (next) {
+        return parent.insertBefore(elem, next);
+      } else {
+        return parent.appendChild(elem);
+      }
+    };
+
+    function insertAfter3(elem, refElem) {
+      return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+  </script>
+
+  <table id="table">
+    <tr>
+      <td>This</td>
+      <td>is</td>
+      <td>all</td>
+      <td>DOM</td>
+      <td>Elements</td>
+    </tr>
+  </table>
+
+  <ol id="ol">
+    <li>Vasily</li>
+    <li>Petro</li>
+    <li>Maria</li>
+    <li>Daria</li>
+  </ol>
+
+  <script type="text/javascript">
+    function removeChildren(elem) {
+      try {
+        elem.innerHTML = '';
+      } catch (e) {
+        while (elem.firstChild) {
+          elem.removeChild(elem.firstChild);
+        }
+      }
+    }
+
+    removeChildren(table);
+    removeChildren(ol);
+  </script>
+
+  <table id="aaa">
+    aaa  <!-- некорректный HTML - текст будет вынесен за таблицу -->
+    <tr>
+      <td>Test</td>
+    </tr>
+  </table>
+
+  <script type="text/javascript">
+    console.log(aaa);
+
+    document.body.removeChild(aaa);
+  </script>
+
+  <script type="text/javascript">
+    function createList() {
+      var ul = document.createElement('ul');
+      var input = prompt('Input content for the next list element or leave empty to finish application.');
+      if (input) document.body.appendChild(ul);
+      while (input) {
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(input));
+        ul.appendChild(li);
+        input = prompt('Another element? Leave empty to finish application.');
+      }
+    }
+  </script>
+
+  <input type="submit" name="createList" value="Create List" onclick="createList()">
+
+  <script type="text/javascript">
+    var data = {
+      'Fish': {
+        'Forelka': {},
+        'Suka': {}
+      },
+
+      'Trees': {
+        'Huvoinie': {
+          'Leafinnica': {},
+          'Ela': {}
+        },
+        'Flowersovie': {
+          'Bereza': {},
+          'Topol-M': {}
+        }
+      }
+    };
+
+    function createTree(container, date) {
+
+      var tree = document.createElement('ul');
+      container.appendChild(tree);
+
+      for (key in date) {
+        var li = document.createElement('li');
+        li.innerHTML = key;
+        tree.appendChild(li);
+        if (Object.keys(date[key]).length) {
+          createTree(li, date[key]);
+        }
+      }
+    }
+
+    var container = document.body;
+
+    createTree(container, data);
+  </script>
+
+  <script type="text/javascript">
+    function insideLisWrite(container) {
+      var massLi = container.querySelectorAll('li');
+      if (massLi.length) {
+        container.firstChild.data = container.firstChild.data + ' length is ' + massLi.length;
+      }
+    }
+
+    function insideLis(container) {
+      var li = container.querySelectorAll('li');
+      for (var i = 0; i < li.length; i++) {
+        insideLisWrite(li[i]);
+      }
+    }
+
+    insideLis(document.body.children[37]);
+  </script>
+
+  <style>
+    .cal {
+      margin: 30px;
+    }
+    .cal table {
+      border-collapse: collapse;
+    }
+    .cal th {
+      padding: 10px;
+      border: 2px solid blue;
+      font-weight: bold;
+      background-color: grey;
+    }
+    .cal td {
+      border: 1px solid blue;
+    }
+  </style>
+
+  <div class="cal" id="cal"></div>
+
+  <script type="text/javascript">
+
+    function createCalendar(id, year, month) {
+      var dayOfWeek = (new Date(year, month-1).getDay() || 7) - 1;
+      var daysInMonth = new Date(year, month, 0).getDate();
+      var days = ['Mon', 'Thu', 'Wed', 'Tue', 'Fri', 'Sat', 'Sun'];
+      var dayNow = 1;
+
+      var table = document.createElement('table');
+      id.appendChild(table);
+      var tr = document.createElement('tr');
+      table.appendChild(tr)
+      var newTr = document.createElement('tr');
+      table.appendChild(newTr)
+
+      for (var i = 0; i < days.length; i++) {
+        var th = document.createElement('th');
+        th.innerHTML = days[i];
+        tr.appendChild(th);
+        if ( dayOfWeek <= i ) {
+          var td = document.createElement('td');
+          td.innerHTML = dayNow++;
+          newTr.appendChild(td);
+          dayOfWeek = dayOfWeek + 1 === 7 ? 0 : dayOfWeek + 1;
+          continue;
+        }
+        var td = document.createElement('td');
+        newTr.appendChild(td);
+      }
+
+      var dayNowNow = dayNow;
+      for (var j = 0; j <= daysInMonth-dayNowNow; j++ ) {
+        if (dayOfWeek === 0) {
+          newTr = document.createElement('tr');
+          table.appendChild(newTr);
+        }
+        td = document.createElement('td');
+        td.innerHTML = dayNow++;
+        newTr.appendChild(td);
+        dayOfWeek = dayOfWeek + 1 === 7 ? 0 : dayOfWeek + 1;
+      }
+
+      for (var k = dayOfWeek; k < days.length; k++) {
+        td = document.createElement('td');
+        newTr.appendChild(td);
+      }
+    }
+
+
+    createCalendar(cal, 2018, 4)
+  </script>
+
+  <script type="text/javascript">
+    (function clock() {
+      var now = new Date();
+      var hours = now.getHours();
+      var mins = now.getMinutes();
+      var secs = now.getSeconds();
+
+      var span1 = document.createElement('span');
+      span1.style.color = 'red';
+      span1.innerHTML = hours < 10 ? '0' + hours.toString() : hours;
+      document.body.appendChild(span1);
+
+      var span2 = document.createElement('span');
+      span2.style.color = 'green';
+      span2.innerHTML = ':' + (mins < 10 ? '0' + mins.toString() : mins) + ':';
+      document.body.appendChild(span2);
+
+      var span3 = document.createElement('span');
+      span3.style.color = 'blue';
+      span3.innerHTML = secs < 10 ? '0' + secs.toString() : secs;
+      document.body.appendChild(span3);
+
+      function update() {
+          secs++;
+          if (secs === 60) {
+            secs = 0;
+            mins++;
+            if (mins === 60) {
+              mins = 0;
+              hours++;
+              if (hours === 24) {
+                hours = 0;
+              }
+              span1.innerHTML = hours < 10 ? '0' + hours.toString() : hours;
+            }
+            span2.innerHTML = ':' + (mins < 10 ? '0' + mins.toString() : mins) + ':';
+          }
+          span3.innerHTML = secs < 10 ? '0' + secs.toString() : secs;
+        };
+
+      var timerId = null;
+      (function clockStart() {
+        timerId = setInterval(update, 1000);
+        update();
+      })()
+
+      function clockStop() {
+        clearInterval(timerId);
+        timerId = null;
+      }
+    })();
+  </script>
+
+</body>
+</html>
