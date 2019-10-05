@@ -1,34 +1,79 @@
 # JavaScript Tutorial - LearnJS & HTML Academy
 
+> jan - jun 2018
+
 + Exercises
+    - [Rabbit's Run](learnjs002.html)
+    - [Sum](sum/)
+    - [Printer](printer/)
+    - [Power](pow.js)
+    - [Surface Area Calculator](surface.js)
     - [Dice Game](dice.js)
+    - [Tables](table/)
     - [Count Jumps/Ways](count_jumps/)
     - [Custom String Builder](allTogetherNow.js)
     - [Is Polyndrome](isPalindrome.js)
+    - [Test images sizes](test_img_size.html)
     - [Funcscope](funcscope.js)
     - [Eval Calculator](eval_calc/)
+    - [Test Promise](prom_test.js)
     - [Drag and Drop Plus OOP](oop/dndplus/)
-    - [Phone Number RegEx Checker](cheker.js)
+    - [Random VK](random.js)
+    - [Hex Decode](hex_decode.js)
+    - [Phone Number RegEx Checker](checker.js)
     - [Smallest Common Divisor](scd.js)
+    - [Smallest Common Multiply](smallest-common-multiple.json)
     - [Sunset Background](sunsetBg.js)
 
 + Base
+    - [Hello World](learnjs001.html)
+    - [Styling](stylingJS.js)
+    - [Properties and methods](propertiesAndMethods.js)
+    - [If](if.js)
+    - [Numbers](numbers.js)
+    - [Strings](strings.js)
+    - [Conversions](objectConversion.js)
+    - [Massive Methods](massMethods.js)
+    - [Submassives](massNumind.js)
+    - [Massive Iteration](massPerebor.js)
+    - [Mass Arguments](massArgs.js)
+    - [Rercursion](recursion_ljs.js)
+    - [Recursion to not recursion](recToNotrec.js)
+    - [Objects](objectArrays.js)
+    - [Object Links](objectLinks.js)
+    - [Object For In](objectsForIn.js)
+    - [Global Objects](global_o/)
+    - [Settimeout, Setinterval](settimeout_setinterval.js)
+    - [Settimeout, Setinterval, part 2](settimeout_setinterval2.js)
     - [Datetime](datetime/)
     - [Eval](eval.js)
     - [Exeptions](exeptions/)
+    - [With construction](withOld.js)
+    - [Named Function Expressions](named_func_expressions.js)
+    - [Testing](testing/)
 
 + Advanced Functions
+    - [Scope for new functions](scopeForNewFunction.js)
+    - [Return functions](objLocalVar.js)
+    - [Memory Managment](mem_manage/)
     - [Clojures](closures.js)
     - [Clojures Mods](closures_mod/)
+    - [Ninja](ninja.js)
     - [Arguments, call, apply](call_apply.js)
     - [Modal Auth, bind](bind/)
     - [Browser Environment](brow_env/)
+    - [JSON](json_ljs.js)
+    - [Local Storage](localStorage.js)
+    - [Promises, functions](promises_functions.js)
+    - [Promise Generators](promis_gen/)
 
 + OOP
+    - [Object Methods](obj_meth/)
     - [Class, type of, instanceOf](class-instanceof.js)
     - [Constructor, new](constructor_new/)
     - [Descriptors, Getters, Setters](descriptors.js)
     - [Decorators](decorators.js)
+    - [Static properties and methods](static_properties_and_methods.js)
     - [Getters, Setters](oop/oop_getters_setters.js)
     - [Internal and External Interface](oop/oop_internal_external_interface.js)
     - [Functional Inheritance](oop/oop_functional_inheritance.js)
@@ -62,7 +107,12 @@
 
 + Forms
     - [Form Elements](forms/elements/)
+    - [Focus, Blur](forms/focus_blur/)
+    - [Focus, Blur, part 2](forms/focus_blur2/)
+    - [Focus, Blur, part 3](forms/focus_blur3/)
+    - [Focus, Blur, part 4](forms/focus_blur4/)
     - [Events Change](forms/events_change/)
+    - [Submit](forms/submit/)
 
 + Events
     - [Events](events/events_introduction.html)
@@ -86,6 +136,13 @@
     - [Onscroll Events](deep_events/onscroll/)
     - [Onload Document](deep_events/onload_doc/)
     - [Onload File](deep_events/onload_file/)
+
++ Widgets
+    - [Widget Structure](widgets/structure/)
+    - [Markup](widgets/markup/)
+    - [Callback](widgets/callback/)
+    - [LoDash](widgets/lodash/)
+    - [LoDash, part 2](widgets/lodash2/)
 
 + ES2015
     - [Modern syntax](es2015/es2015_modern.js)

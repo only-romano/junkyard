@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    .menu {
+      display: inline-block;
+      position: relative;
+      height: 80px;
+      width: 80px;
+      text-decoration: none
+    }
+
+    .h1, .h2, .h3, .h4 {
+      display: inline-block;
+      position: relative;
+      min-width: 100%;
+      width: 100%;
+      min-height: 15%;
+      height: 15%;
+      border-radius: 50px;
+      background: black;
+      transition: .5s;
+    }
+    .h1, .h2, .h3 {
+      margin-bottom: 5%
+    }
+
+    .open_menu .h2, .open_menu .h3 {
+      opacity: 0;
+    }
+
+    .open_menu .h1 {
+      top: 42.5%;
+      transition: .5s;
+      transform: scale(1.25, 1.25) rotate(45deg);
+    }
+
+    .open_menu .h4 {
+      position: absolute;
+      top: 42.5%;
+      transform: scale(1.25, 1.25) translateX(-64px) rotate(-45deg);
+    }
+
+  </style>
+</head>
+<body>
+  <a class="menu" href="#" onclick="clickMenu()">
+    <span class="h1"></span>
+    <span class="h2"></span>
+    <span class="h3"></span>
+    <span class="h4"></span>
+  </a>
+
+  <script type="text/javascript">
+    function clickMenu() {
+      document.getElementsByClassName('menu')[0].classList.toggle('open_menu');
+    }
+  </script>
+</body>
+</html>

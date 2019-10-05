@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Widgets Structure</title>
+  <link rel="stylesheet" type="text/css" href="widgets_structure.css">
+  <script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
+</head>
+<body>
+
+
+  <div class="menu" id="sweets-menu">
+    <span class="title">Sweets</span>
+    <ul>
+      <li>Cake</li>
+      <li>Donut</li>
+      <li>Candy</li>
+      <li>Chocolate</li>
+      <li>Icecream</li>
+    </ul>
+  </div>
+
+
+  <div id="clock" class="clock">
+    <span class="hour">00</span>:
+    <span class="min">00</span>:
+    <span class="sec">00</span>
+  </div>
+
+  <input type="button" onclick="pageClock.start()" value="Старт">
+  <input type="button" onclick="pageClock.stop()" value="Стоп">
+  <input type="button" onclick="alert('Часы должны останавливаться во время alert,\nи продолжать корректно работать после нажатия на ОК')" value="alert для проверки корректного возобновления">
+
+
+  <br> Клик на элементе выделяет только его.
+  <br> Ctrl(Cmd)+Клик добавляет/убирает элемент из выделенных.
+  <br> Shift+Клик добавляет промежуток от последнего кликнутого к выделению.
+  <br>
+
+  <ul id="winnie">
+    <li>Кристофер Робин</li>
+    <li>Винни-Пух</li>
+    <li>Ослик Иа</li>
+    <li>Мудрая Сова</li>
+    <li>Кролик. Просто кролик.</li>
+  </ul>
+  <input type="button" onclick="alert( listSelect.getSelected() )" value="Selected">
+
+
+
+
+  <script src="widgets_structure.js"></script>
+</body>
+</html>

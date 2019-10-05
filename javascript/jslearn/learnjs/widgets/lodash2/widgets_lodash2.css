@@ -1,0 +1,33 @@
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid gray;
+  padding: 2px 5px;
+  text-align: center;
+}
+
+.menu ul {
+  display: none;
+  margin: 0;
+}
+
+.menu .title {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu .title:before {
+  content: '▶';
+  padding-right: 6px;
+  color: green;
+}
+
+.menu.open ul {
+  display: block;
+}
+
+.menu.open .title:before {
+  content: '▼';
+}
