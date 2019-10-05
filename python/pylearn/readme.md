@@ -28,5 +28,4 @@
     - [Python Crash Course, nov 2017 - jan 2018](first_steps/pcc/)
     - [Python for Kids, june-july 2019](pybooks/python4kids/)
     - [Programming for Kids, july 2019](pybooks/programmingForKids/)
-    - [Hello World, Python, oct 2019](pybooks/helloworldPython/)
 

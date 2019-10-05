@@ -3,7 +3,8 @@
 #### Content:
 + ["Ghost house", dec 2017](ghost_game.py)
 + ["Alien Invasion", jan 2018](alien_invasion/)
-+ ["Guess the number", jun 2019](guess_the_number.py)
++ ["Guess the number", jun 2019](guess_the_number/guess_the_number.py)
++ ["Skier", oct 2019](skier/)
 + ["Stupid Arcanoid", jul 2019](jump_jump.py)
 + ["Bubbles Hunter", jul 2019](bubles_hunter.py)
 
