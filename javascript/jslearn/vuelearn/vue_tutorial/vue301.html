@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js, input and textarea</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app" class="col md-4">
+    <label for="applogin">Login</label>
+    <input type="text" v-model="login" placeholder="Input login" class="form-control" id="applogin" />
+    <br>
+    <label for="apppassword">Password</label>
+    <input type="password" v-model="password" placeholder="Input password" class="form-control" id="apppassword" />
+    <br>
+    <label for="appage">Age</label>
+    <input type="number" v-model="age" placeholder="Input your age" min="18" class="form-control" id="appage" />
+    <br>
+    <label for="appregistration">Date of registration</label>
+    <input type="date" v-model="date" placeholder="Input date of registration" class="form-control" id="appregistration" />
+    <br>
+    <label for="appcomentary">Input your commentary</label>
+    <textarea v-model="comment" class="form-control" id="appcomentary"></textarea>
+    <br>
+    <div>
+      <h3>Your information</h3>
+      <p>Login: {{login}}</p>
+      <p>Password: {{password}}</p>
+      <p>Age: {{age}}</p>
+      <p>Date of registration: {{date}}</p>
+      <h3>Commentary</h3>
+      <p style="white-space: pre-line">{{comment}}</p>
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue301.js"></script>
+</body>
+</html>

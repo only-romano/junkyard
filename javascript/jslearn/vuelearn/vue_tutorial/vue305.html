@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js, modificators</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app" class="col-md-4">
+    <input type="text" v-model.lazy="name" class="form-control" />
+    <span>Lazy Input: {{name}}</span>
+    <input type="number" v-model.number="age" class="form-control" />
+    <span>Number input: {{age}}</span>
+    <input type="text" v-model.lazy.trim="message" class="form-control" />
+    <span>Trim input: {{message}}</span>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue305.js"></script>
+</body>
+</html>

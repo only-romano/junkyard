@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slots in Vue.js, scoped slots</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="vue503.css" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <user>
+      <template slot-scope="props">
+        <h3>User info</h3>
+        <p>Name: {{props.username}}</p>
+        <p>Age: {{props.userage}}</p>
+      </template>
+    </user>
+  </div>
+  <div id="app2">
+    <userlist :users="users">
+      <li slot-scope="props" class="user">
+        {{props.username}}
+      </li>
+    </userlist>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue503.js"></script>
+</body>
+</html>

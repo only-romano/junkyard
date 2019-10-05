@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js, array sort and filter</title>
+  <meta charset="UTF-8" />
+  <style>
+    a:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <p><input type="text" v-model="company" /></p>
+    <ul>
+      <li v-for="phone in filteredList">
+        <p>{{phone.title}} - {{phone.company}}</p>
+      </li>
+    </ul>
+    <table>
+      <tr>
+        <td><a @click="sortParam='title'">Model</a></td>
+        <td><a @click="sortParam='company'">Company</a></td>
+        <td><a @click="sortParam='price'">Price</a></td>
+      </tr>
+      <tr v-for="phone in sortedList">
+        <td>{{phone.title}}</td><td>{{phone.company}}</td><td>{{phone.price}}</td>
+      </tr>
+    </table>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue205.js"></script>
+</body>
+</html>

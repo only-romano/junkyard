@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <input type="text" v-model="name" />
+    <input type="text" v-model="age" />
+    <p>Name: {{name}}  -  Age: {{age}}</p>
+    <p>{{checkAge()}}</p>
+    <p>{{enabled}}</p>
+
+    <input type="text" v-model="firstname" />
+    <input type="text" v-model="lastname" />
+    <input type="text" v-model="fullname" />
+    <p>Name: {{fullname}}</p>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue107.js"></script>
+</body>
+</html>

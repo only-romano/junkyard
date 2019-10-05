@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js, Ifs and Arrays</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <template v-if='visible'>
+      <h2>First header</h2>
+      <p>First paragraph</p>
+    </template>
+    <template v-else>
+      <h2>Second header</h2>
+      <p>Second paragraph</p>
+    </template>
+    <button @click="visible=!visible">{{visible?'Hide':'Show'}}</button>
+    <br><br>
+    <input type="number" v-model="number" min="1" />
+    <p v-if="number == 1">One</p>
+    <p v-else-if="number == 2">Two</p>
+    <p v-else-if="number > 2 && number < 7">Few</p>
+    <p v-else>A lot</p>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue201.js"></script>
+</body>
+</html>
