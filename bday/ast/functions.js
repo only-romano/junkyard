@@ -1,8 +1,9 @@
 'use strict';
-let kittyInterval = null;
-let counter = 1;
+let kittyInterval = null;  // интервал выпадения котят
+let counter = 1;	   // количество уже выпавших котят
 
 
+// Добавляет котёнка в дождик из котят
 function addKitty() {
 	let vapp = document.getElementById("vApp");
 	if (vapp && counter < 200) {
@@ -12,11 +13,12 @@ function addKitty() {
 }
 
 
+// Создаёт и возвращает готового div-котёнка с фразой и изображением
 function createKitten() {	
 	let kitten = document.createElement("div");
 		kitten.classList.add("kitty-img");
 
-		if (counter % 50 === 0) {
+		if (counter % 50 === 0) {// каждый 50-й - Путин
 			kitten.style.left = "333px";
 			kitten.appendChild(createKittyFrase(true));
 			kitten.appendChild(createKittyImage(true));
@@ -30,13 +32,14 @@ function createKitten() {
 }
 
 
+// Создаёт и возвращает случайное изображение котёнка
 function createKittyImage(putin=false) {
 	let kittyImage = document.createElement("img");
 
 	if (putin) {
 		kittyImage.src = "img/kitty100.png";
 	} else {
-		let num = ~~(Math.random() * 100);
+		let num = ~~(Math.random() * 100/*колличество картинок*/);
 		kittyImage.src = "img/kitty" + num.toString() + ".png";
 	}
 
@@ -44,6 +47,7 @@ function createKittyImage(putin=false) {
 }
 
 
+// Создаёт и возвращает h3-фразу из глобального массива frases
 function createKittyFrase(putin=false) {
 	let kittyFrase = document.createElement("h3");
 		kittyFrase.classList.add("kitty-frase");
@@ -53,7 +57,7 @@ function createKittyFrase(putin=false) {
 			kittyFrase.style.color = "black";
 			kittyFrase.classList.add("putin");
 		} else {
-			kittyFrase.textContent = frases[~~(100 * Math.random())];
+			kittyFrase.textContent = frases[~~(/*frases.length*/100 * Math.random())];
 			kittyFrase.style.color = "rgb(" + (~~(255 * Math.random())) + "," +
 				(~~(255 * Math.random())) + "," + (~~(255 * Math.random())) + ")";
 		}
@@ -62,6 +66,7 @@ function createKittyFrase(putin=false) {
 }
 
 
+// Уничтожение kitty-элементов
 function deleteKittens() {
 	let vapp = document.getElementById("vApp");
 	let kittens = document.getElementsByClassName("kitty-img");
@@ -75,6 +80,7 @@ function deleteKittens() {
 }
 
 
+// Возвращает левый край активного окна
 function getLeft() {
 	let w = window,
     	d = document,
@@ -85,6 +91,8 @@ function getLeft() {
 }
 
 
+// Если kittyInterval существует - уничтожает его и всех созданных kitty; иначе -
+// создаёт интервал на создание котят. kittyInterval - глобальная переменная
 function kittyRain() {
 	if (kittyInterval) {
 		clearInterval(kittyInterval);
@@ -97,6 +105,7 @@ function kittyRain() {
 }
 
 
+// Хэндлер нажатия кнопки-сердечка, переключает класс active, запускает kittyRain
 function loveYou() {
 	let button = document.getElementById("love-you");
 	if (button) {
@@ -105,3 +114,4 @@ function loveYou() {
 
 	kittyRain();
 }
+

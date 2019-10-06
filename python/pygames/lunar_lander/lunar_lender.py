@@ -2,6 +2,7 @@ import pygame, sys
 
 pygame.init()
 
+# not perfect size
 screen = pygame.display.set_mode([430, 720])
 screen.fill([0, 0, 0])
 ship = pygame.image.load('lunarlander.png')
@@ -17,6 +18,7 @@ pygame.mixer.music.play(-1)
 
 clock = pygame.time.Clock()
 
+# change this for more challenge
 ship_mass = 5000.0
 fuel = 5000.0
 velocity = -100.0
@@ -62,21 +64,21 @@ def display_stats():
     a_str = "acceleration: %.1f" % (delta_v * fps)
     f_str = "fuel: %i" % fuel
 
-    v_font = pygame.font.Font(None, 26)
+    v_font = pygame.font.Font(None, 30)
     v_surf = v_font.render(v_str, 1, (255, 255, 255))
     screen.blit(v_surf, [10, 50])
-    h_font = pygame.font.Font(None, 26)
+    h_font = pygame.font.Font(None, 30)
     h_surf = h_font.render(h_str, 1, (255, 255, 255))
-    screen.blit(h_surf, [10, 120])
-    t_font = pygame.font.Font(None, 26)
+    screen.blit(h_surf, [10, 110])
+    t_font = pygame.font.Font(None, 30)
     t_surf = t_font.render(t_str, 1, (255, 255, 255))
-    screen.blit(t_surf, [10, 180])
-    a_font = pygame.font.Font(None, 26)
+    screen.blit(t_surf, [10, 170])
+    a_font = pygame.font.Font(None, 30)
     a_surf = a_font.render(a_str, 1, (255, 255, 255))
-    screen.blit(a_surf, [10, 250])
-    f_font = pygame.font.Font(None, 26)
+    screen.blit(a_surf, [10, 230])
+    f_font = pygame.font.Font(None, 30)
     f_surf = f_font.render(f_str, 1, (255, 255, 255))
-    screen.blit(f_surf, [60, 375])
+    screen.blit(f_surf, [60, 360])
 
 
 def display_flames():
@@ -88,7 +90,9 @@ def display_flames():
             (startx + 4, starty + flame_size),
             (startx + 8, starty)], 0)
 
+
 def display_final():
+    # Game results view
     final1 = "Game is Finished!"
     final2 = "Speed of landing %.1f m/s" % velocity
     if velocity > -5:

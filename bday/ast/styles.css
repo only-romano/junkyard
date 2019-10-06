@@ -83,6 +83,7 @@ html, body {
 	border-top: 50px solid rgba(50, 50, 50, .3);
 }
 
+/* биение сердца */
 @keyframes loveskew {
 	0% {
 		transform: scale(1);

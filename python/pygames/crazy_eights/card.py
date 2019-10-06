@@ -1,9 +1,11 @@
-# Card class for card games
+# Card class for 52-card deck, model for one card, not deck
 
 class Card:
     def __init__(self, suit_id, rank_id):
         self.rank_id = rank_id
         self.suit_id = suit_id
+
+        # rank
         if self.rank_id == 1:
             self.rank = "Ace"
             self.value = 1
@@ -23,6 +25,7 @@ class Card:
             self.rank = "RankError"
             self.value = -1
 
+        # suit
         if self.suit_id == 1:
             self.suit = "Diamonds"
         elif self.suit_id == 2:
@@ -34,7 +37,10 @@ class Card:
         else:
             self.suit = "SuitError"
 
-        self.long_name = self.rank + " of " + self.suit
+        # short name
         self.short_name = self.rank[0] + self.suit[0]
         if self.rank == '10':
             self.short_name = self.rank + self.suit[0]
+
+    def __str__(self):
+        return self.rank + " of " + self.suit
