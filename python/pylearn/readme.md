@@ -6,11 +6,11 @@
 
 + [Tutorial Projects](pyprogs/)
     - [Django Tutorial, jan-feb 2018](pyprogs/django_tutorial/)
-    - [Python Repos count, jan 2018](pyprogs/api/)
     - [Data Visualisation Practice, jan 2018](pyprogs/data_visualisation/)
-    - [Flask Tutorial, jan 2018](pyprogs/flask_tutorial/)
     - [Raindrops, jan 2018](pyprogs/raindrops/)
     - [Seconds to 2018 New Year Eve, jan 2018](pyprogs/new_year/)
+    - [Python Repos count, jan 2018](pyprogs/api/)
+    - [Flask Tutorial, jan 2018](pyprogs/flask_tutorial/)
 
 + [My very first steps in programming](first_steps/)
     - [Zadachi from Mentor, nov 2017 - mar 2018](first_steps/zadachi/)
