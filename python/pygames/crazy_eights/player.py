@@ -42,7 +42,7 @@ def player_turn(deck, p_hand, up_card, active_suit, blocked):
     up_card = selected_card
     print("You played with " + selected_card.long_name)
     if is_eight:
-        active_suit = get_new_suit()
+        active_suit = get_new_suit(active_suit)
     else:
         active_suit = up_card.suit
     return (deck, p_hand, up_card, active_suit, blocked)
