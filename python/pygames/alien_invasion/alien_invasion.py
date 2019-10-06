@@ -30,6 +30,21 @@ def run_game():
     bullets = Group()
     aliens = Group()
 
+    # Music
+    pygame.mixer.init()
+    pygame.mixer.music.load("ai_files/bensound-summer.mp3")
+    pygame.mixer.music.set_volume(0.4)
+    pygame.mixer.music.play(-1)
+
+    # Sounds
+    stats.shot_sound = pygame.mixer.Sound("ai_files/shot_laser.wav")
+    stats.shot_sound.set_volume(0.7)
+    stats.exp_ship = pygame.mixer.Sound("ai_files/explosion_ship.wav")
+    stats.exp_ship.set_volume(0.7)
+    stats.exp_fun = pygame.mixer.Sound("ai_files/explosion_fun.wav")
+    stats.exp_fun.set_volume(0.7)
+
+
     # Create the fleet of aliens.
     gf.create_fleet(ai_set, screen, ship, aliens)
 

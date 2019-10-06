@@ -20,7 +20,7 @@ def check_keydown_events(event, ai_set, screen, stats, sb, ship, aliens, bullets
         ship.moving_left = True
     elif event.key == pygame.K_SPACE:
         # Shots the bullet.
-        fire_bullet(ai_set, screen, ship, bullets)
+        fire_bullet(ai_set, screen, ship, bullets, stats)
     elif event.key == pygame.K_q:
         # Exit from the game.
         high_score(stats)
@@ -39,12 +39,13 @@ def high_score(stats):
             score.write(str(int(stats.high_score)))
 
 
-def fire_bullet(ai_set, screen, ship, bullets):
+def fire_bullet(ai_set, screen, ship, bullets, stats):
     """Fire a bullet if limit not reached yet."""
     # Create a new bullet and add it to the bullets group.
     # Limiting the Number of Bullets.
     if len(bullets) < ai_set.bullets_allowed:
         new_bullet = Bullet(ai_set, screen, ship)
+        stats.shot_sound.play()
         bullets.add(new_bullet)
 
 
@@ -158,6 +159,7 @@ def check_bullet_alien_collisions(ai_set, screen, stats, sb, ship, aliens, bulle
     # аргумент на False, если же наоборот - то пули не будут пробивать броню.
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     if collisions:
+        stats.exp_fun.play()
         for aliens in collisions.values():
             # Making Sure to Score All Hits.
             stats.score += ai_set.alien_points * len(aliens)
@@ -257,6 +259,7 @@ def update_aliens(ai_set, stats, screen, sb, ship, aliens, bullets):
 
 def ship_hit(ai_set, stats, screen, sb, ship, aliens, bullets):
     """Respond to ship being hit by alien."""
+    stats.exp_ship.play()
     if stats.ships_left > 0:
         ship_revive(ai_set, stats, screen, sb, ship, aliens, bullets)
     else:

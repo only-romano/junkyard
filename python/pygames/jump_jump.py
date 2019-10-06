@@ -40,8 +40,15 @@ class Ball:
             self.score += 1
             update_score(score_text, self.score)
         elif pos[3] >= self.canvas_height:
+            global lives
+            lives = lives - 1
             self.hit_bottom = True
-            end_game(end_text)
+            if lives == 0:
+                end_game(end_text)
+            else:
+                time.sleep(2)
+                self.canvas.move(self.id, 0, -370)
+                self.hit_bottom = False
         if pos[0] <= 0:
             self.x = 3
         elif pos[2] >= self.canvas_width:
@@ -55,7 +62,7 @@ class Paddle:
     def __init__(self, canvas, color):
         self.canvas = canvas
         self.id = canvas.create_rectangle(0, 0, 100, 10, fill=color)
-        self.canvas.move(self.id, 200, 300)
+        self.canvas.move(self.id, 200, 350)
         self.x = 0
         self.canvas_width = self.canvas.winfo_width()
         self.canvas.bind_all('<KeyPress-Left>', self.turn_left)
@@ -98,8 +105,10 @@ score_text = canvas.create_text(40, 15, text="Счёт: 0", font=("Helvetica", 1
 
 window.update()
 
+lives = 3
 paddle = Paddle(canvas, "blue")
 ball = Ball(canvas, paddle, "red")
+
 
 while True:
     if not ball.hit_bottom and ball.started:
