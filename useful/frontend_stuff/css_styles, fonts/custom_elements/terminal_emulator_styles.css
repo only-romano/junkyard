@@ -1,0 +1,48 @@
+/* Terminal emulation styles */
+
+#lesson-console {
+    padding: 20px;
+    background: rgba(64, 64, 96, .92);
+    line-height: 1.3em;
+    font-size: 1.3em;
+    color: white;
+    word-wrap: break-word;
+}
+
+#lesson-console code span {
+    color: rgba(0, 150, 255, .8);
+}
+
+
+/* Caret styles */
+
+#console-caret {
+    animation: fade-in-out 1s infinite;
+    transition: opacity 0.5s;
+}
+
+#lesson-console #console-input {
+    color: bisque;
+    outline: none;
+}
+
+#lesson-console #console-input:focus + #console-caret {
+    animation: none;
+    opacity: 0;
+}
+
+
+/* Caret blinking */
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

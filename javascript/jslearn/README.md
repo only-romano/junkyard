@@ -1,8 +1,8 @@
 # JavaScript Learning
 
-+ JavaScript Tutorial Projects
-    - [Procent Calculator, apr 2018](proc_calc/) + [online](https://ripssr.github.io/proc_calc/)
-    - [Converter to Roman Numbers, jan 2019](roman.js)
++ [JavaScript Tutorial Projects](jstutproj/)
+    - [Procent Calculator, apr 2018](jstutproj/proc_calc/) + [online](https://ripssr.github.io/proc_calc/)
+    - [Converter to Roman Numbers, jan 2019](jstutproj/roman.js)
 + Vue.js Tutorial Projects
     - [Vue ToDo - localStorage, aug 2018](vuelearn/examples/todo/) + [online](https://ripssr.github.io/vue_todo/)
     - [Markdown Editor Online, aug 2018](vuelearn/examples/marked/) + [online](https://ripssr.github.io/vue_mark/)

@@ -1,0 +1,9 @@
+/* Setup font */
+
+@font-face {
+    font-family: 'Pacifico';  /* name to use */
+    font-style: normal;
+    font-weight: 400;
+    src: local('Pacifico'), url('fonts/pacifico.woff2') format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}

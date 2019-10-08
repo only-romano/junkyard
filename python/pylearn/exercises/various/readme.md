@@ -1,0 +1,28 @@
+## Python Exercises, Various
+
+#### Content:
++ [Pygame Draws](pygame_draws/)
+    - [Modern art](pygame_draws/modern_art.py)
+    - [Dots draw](pygame_draws/dots_draw.py)
+    - [Sinus Graph](pygame_draws/sinus_graph.py)
++ [Turtle Draws](turtle_draws/)
+    - [Kaleidoscope](turtle_draws/turtle_kaleidoskop.py)
+    - [Polygonal Spiral](turtle_draws/turtle_rosets_poly.py)
+    - [Virtual Spiral](turtle_draws/turtle_spiral_name.py)
+    - [Random colored squares](turtle_draws/turtle_cubes_color.py)
+    - [Colored cube](turtle_draws/turtle_paint_cube.py)
+    - [Random Smileis](turtle_draws/smiley.py)
+    - [Colored Spiral with various sides](turtle_draws/turtle_spiral_color.py)
+    - [Name Spiral](turtle_draws/turtle_spiral_name.py)
+    - [Circle Spiral](turtle_draws/turtle_spiral.py)
++ [Rock Paper Scissors](rock_paper_scissors.py)
++ [SQLite control](try_base.py)
++ [PyQt moving button](button_pyqt/)
++ [Ghost](ghost.py)
++ [Dictionary](description_dict.py)
++ [Multithread](threads.py)
++ [Speed Input](speed_input.py)
++ [Expanent table](exp_table.py)
++ [Timer print](timer_stars.py)
++ [Cash Exchanger](exchange_cash.py)
+
