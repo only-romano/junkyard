@@ -1,0 +1,67 @@
+/* disclaimer */
+.disclaimer__main {
+  display: block;
+  position: relative;
+  margin: 25px 0;
+  border: 2px solid grey;
+  border-radius: 10px;
+  background: linear-gradient(to right top, rgba(0, 128, 0, 0.6),
+              rgba(255, 255, 255, 0.7));
+  color: lavender;
+  z-index: 0;
+  -webkit-transition: .5s; -moz-transition: .5s;
+  -o-transition: .5s; transition: .5s;
+}
+.disclaimer__main:hover {
+  color: azure;
+}
+
+.disclaimer__main legend {
+  text-shadow: lavender 0 0 1px;
+  font-family: Comic Sans MS cursive;
+  font-style: italic;
+  font-size: 2em;
+  color: darkgreen;
+}
+
+.disclaimer__main p {
+  padding: 5px 25px;
+  text-shadow: black 0 0 1px;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+/* disclaimer control buttons */
+.disclaimer__button {
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+}
+
+.disclaimer__button.d__closer {
+  top: 25px;
+  right: 10px;
+  font-size: 2em;
+  color: red;
+  -webkit-transition: .5s; -moz-transition: .5s;
+  -o-transition: .5s; transition: .5s;
+}
+..disclaimer__button.d__closer:hover {
+  -webkit-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+.disclaimer__button.d__opener {
+  display: none;
+  top: 35px;
+  right: 35px;
+  padding: 5px;
+  border: 2px solid darkgreen;
+  background: rgba(0, 128, 0, 0.2);
+  text-shadow: black 0 0 2px;
+  font-family: Comic Sans MS cursive;
+  color: white;
+  z-index: 2;
+}
