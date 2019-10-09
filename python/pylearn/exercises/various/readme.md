@@ -1,29 +1,31 @@
 ## Python Exercises, Various
 
 #### Content:
-+ [Eight queens](eight_queens.py)
++ [Networking](networking/)
++ [Files and OS](files_rename/)
++ [Web Development](web_py/)
 + [Pygame Draws](pygame_draws/)
-    - [Modern art](pygame_draws/modern_art.py)
-    - [Dots draw](pygame_draws/dots_draw.py)
-    - [Sinus Graph](pygame_draws/sinus_graph.py)
 + [Turtle Draws](turtle_draws/)
-    - [Kaleidoscope](turtle_draws/turtle_kaleidoskop.py)
-    - [Polygonal Spiral](turtle_draws/turtle_rosets_poly.py)
-    - [Virtual Spiral](turtle_draws/turtle_spiral_name.py)
-    - [Random colored squares](turtle_draws/turtle_cubes_color.py)
-    - [Colored cube](turtle_draws/turtle_paint_cube.py)
-    - [Random Smileis](turtle_draws/smiley.py)
-    - [Colored Spiral with various sides](turtle_draws/turtle_spiral_color.py)
-    - [Name Spiral](turtle_draws/turtle_spiral_name.py)
-    - [Circle Spiral](turtle_draws/turtle_spiral.py)
-+ [Rock Paper Scissors](rock_paper_scissors.py)
-+ [SQLite control](try_base.py)
-+ [PyQt moving button](button_pyqt/)
-+ [Ghost](ghost.py)
-+ [Dictionary](description_dict.py)
-+ [Multithread](threads.py)
-+ [Speed Input](speed_input.py)
-+ [Expanent table](exp_table.py)
-+ [Timer print](timer_stars.py)
++ [SQLite](sqlite/)
++ [wxPython](wxpython/)
++ [PyQt](pyqt/)
++ [Python Concepts](py_spec/)
+
++ Micro-apps
++ [Local shelve DB](shelve_module.py)
++ [Num to words converter](num_to_words.py)
++ [Power table Function](exp_table.py)
++ [Input Speed Testing](speed_input.py)
++ [Word Counter in file](py_wc.py)
++ [Local Dictionary DB](description_dict.py)
 + [Cash Exchanger](exchange_cash.py)
++ [Timer print](timer_stars.py)
+
++ Micro games
++ [Rock Paper Scissors](rock_paper_scissors.py)
++ [Ghost](ghost.py)
+
++ Exercises
++ [Quote to JSON](tasks_e/quote_to_json/)
++ [Eight queens Exercise](eight_queens.py)
 

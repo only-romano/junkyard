@@ -1,9 +1,7 @@
 # JavaScript Sources
 
 ### List of contents
-
-+ Special
-    * [Parsing user's input code](parsing_inpuit_code.js)
-+ Fun
-    * [1337 replacer](leetReplacer.js)
++ [Parsing user's input code](parsing_inpuit_code.js)
++ [1337 replacer](leetReplacer.js)
++ [Hex to RGB and vice versa](hexToRGB.js)
 
