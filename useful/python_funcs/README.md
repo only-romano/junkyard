@@ -2,5 +2,6 @@
 
 ### List of contents
 
-+ None
++ [Fibonacci class](fibonacci.py)
++ [Flatten generator](flatten.py)
 

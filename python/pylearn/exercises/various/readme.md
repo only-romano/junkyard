@@ -1,6 +1,7 @@
 ## Python Exercises, Various
 
 #### Content:
++ [Eight queens](eight_queens.py)
 + [Pygame Draws](pygame_draws/)
     - [Modern art](pygame_draws/modern_art.py)
     - [Dots draw](pygame_draws/dots_draw.py)
