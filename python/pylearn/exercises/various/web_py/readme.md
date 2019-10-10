@@ -1,5 +1,6 @@
 ## Web Development
 
 #### Content:
-+ None
++ [Beautiful Soup](beauty_soup/)
++ [HTML Scaraper Sample](html_scrap_sample.py)
 
