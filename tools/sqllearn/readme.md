@@ -1,9 +1,29 @@
 ## _Learning SQL_
 
-> EN: Learning and practice SQL
 
-> RU: Обучение, практика SQL
+<br>
+
+
+###### *RU*
+
+> Обучение, практика **SQL**
+
+
+<br>
+
+
+###### *EN*
+
+
+> **SQL** learning and practice
+
+___
+
 
 #### Table of contents:
-+ [SQL Pictures; 2018, Jan-Feb](sqlpics/)
+
++ [Введение в PostgreSQL; 2018, Jan-Feb](sqlpics/)
+
+
+> 2018, Jan-Feb
 

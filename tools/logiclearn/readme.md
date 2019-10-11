@@ -3,14 +3,17 @@
 
 <br>
 
+###### *RU*
 
-> **RU**: Изучение логики. **И** практика навыков, пожалуй. **ИЛИ НЕ**.
+> Изучение логики. **И** практика навыков, пожалуй. **ИЛИ НЕ**.
 
 
 <br>
 
+###### *EN*
 
-> **EN**: Learning logic. **AND** practice, I guess. **OR NOT**.
+
+> Learning logic. **AND** practice, I guess. **OR NOT**.
 
 ___
 
