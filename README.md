@@ -1,9 +1,13 @@
 # *JunkYard* 
 
+###### EN
+
 > Interesting and meanful (or meaningless) stuff, pretty cool by the way. **Reusable sources** (web resources, classes, modules), **projects** (websites, games, applications), Code Combat guide, **my way** in programming (1,5 years of learning, including training projects).
 
 
 <br>
+
+###### RU
 
 _Интересный и не очень материал. Полезные **исходники** (ресурсы, классы, модули), **проекты** (сайты, игры, приложения), руководство по Code Combat (не знаю зачем я месяц потратил на это), **мой путь** в программировании (продолжительностью уже в 1.5 года, включая учебные проекты)._
 
