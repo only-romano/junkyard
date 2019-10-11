@@ -1,7 +1,8 @@
-## Learning SQL
+## _Learning SQL_
 
-##### Learning and practice SQL
-##### Обучение, практика SQL
+> EN: Learning and practice SQL
+
+> RU: Обучение, практика SQL
 
 #### Table of contents:
 + [SQL Pictures; 2018, Jan-Feb](sqlpics/)

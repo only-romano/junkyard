@@ -1,9 +1,8 @@
-## Learning Logic
+## _Learning Logic_
 
-##### Learning logic. AND practice, I guess. OR NOT.
-##### Изучение логики. И практика навыков, пожалуй. ИЛИ НЕ.
+> EN: Learning logic. AND practice, I guess. OR NOT.
 
-___
+> RU: Изучение логики. И практика навыков, пожалуй. ИЛИ НЕ.
 
 #### Table of contents:
 + [Learn Logic - Логика; 2017, Dec - 2018, Jan](logicpics/)
