@@ -1,6 +1,0 @@
-C:\Prs\Me\csharp\app1\Metanit\MetanitBase\bin\Debug\MetanitBase.exe
-C:\Prs\Me\csharp\app1\Metanit\MetanitBase\bin\Debug\MetanitBase.pdb
-C:\Prs\Me\csharp\app1\Metanit\MetanitBase\obj\Debug\MetanitBase.csprojAssemblyReference.cache
-C:\Prs\Me\csharp\app1\Metanit\MetanitBase\obj\Debug\MetanitBase.csproj.CoreCompileInputs.cache
-C:\Prs\Me\csharp\app1\Metanit\MetanitBase\obj\Debug\MetanitBase.exe
-C:\Prs\Me\csharp\app1\Metanit\MetanitBase\obj\Debug\MetanitBase.pdb

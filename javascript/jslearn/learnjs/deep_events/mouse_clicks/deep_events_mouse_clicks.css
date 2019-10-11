@@ -1,9 +1,0 @@
-
-.selected {
-  background: #0f0;
-}
-
-li {
-  user-select: none;
-  cursor: pointer;
-}

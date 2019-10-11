@@ -1,1 +1,0 @@
-Simple raindrops screenserver with PyGame.

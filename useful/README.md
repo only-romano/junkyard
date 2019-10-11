@@ -1,10 +1,29 @@
-# Useful Source and Resources
+## _Useful Sources and Resources_
 
-! awesome_blog css check, soccer full check, junkyard full check
 
-### List of contents
+<br>
 
-+ [Frontend Resources](frontend_stuff/)
-+ [JavaScript sources](jsFuncs/)
+###### *RU*
+
+> Полезные ресурсы, которые могут пригодиться неоднократно. Модули, классы, ресурсы для фронтенда.
+
+
+<br>
+
+###### *EN*
+
+
+> Reusable resources, classes, modules, hacks
+
+___
+
+
+#### Table of contents:
+
 + [Python sources](python_funcs/)
++ [JavaScript sources](jsFuncs/)
++ [Frontend Resources](frontend_stuff/)
+
++ Various
+    * [Bash useful commands](../way/bash/useful_commands.md)
 

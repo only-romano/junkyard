@@ -1,1 +1,0 @@
-This is an excersize from the book "Python Crash Course" by Eric Matthes.

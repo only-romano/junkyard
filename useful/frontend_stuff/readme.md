@@ -1,4 +1,5 @@
-## Frontend funny and useful stuff
+### Frontend resources
+
 
 #### Content:
 + [CSS styles](css_styles/)

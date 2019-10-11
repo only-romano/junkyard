@@ -1,1 +1,0 @@
-<h2 id="articleID_elem1">Доп контент</h1><style>#articleID_elem1 {color: indigo;}</style><p>Какой-то текст, много текста, разный текст</p><p>Ещё текст, список:</p><ul><li>Пункт</li><li>Пункт</li><li>Пункт</li><li>Пункт</li><li>Пункт</li><li>Пункт</li><li>Пункт</li><li>Пункт</li><li>Пункт</li><li>Пункт</li><li>Пункт</li></ul><p>И ещё текст</p>

@@ -1,1 +1,0 @@
-Application for simple voting temporally on a local server
