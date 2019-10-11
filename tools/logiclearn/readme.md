@@ -1,7 +1,12 @@
-## Logic Learning
+## Learning Logic
+
+##### Learning logic. AND practice, I guess. OR NOT.
+##### Изучение логики. И практика навыков, пожалуй. ИЛИ НЕ.
+
+___
 
 #### Table of contents:
-+ [Logic Learn Pictures, dec 2017 - jan 2018](logicpics/)
-+ [Комбинаторика, feb 2018](комбинаторика.txt)
++ [Learn Logic - Логика; 2017, Dec - 2018, Jan](logicpics/)
++ [Combinatorics- Комбинаторика; 2018, Feb](комбинаторика.txt)
 + [Задача о зайчике, feb 2018](задача_зайчик.txt)
 
