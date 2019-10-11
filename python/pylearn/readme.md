@@ -6,7 +6,8 @@
 
 + [Tutorial Projects](pyprogs/)
     - [Django Tutorial, jan-feb 2018](pyprogs/django_tutorial/)
-    - [Simple Text Editorr wxPython, oct 2019](pyprogs/simple_text_editor/)
+    - [Simple Text Editor wxPython, oct 2019](pyprogs/simple_text_editor/)
+    - [PDF plot drawer (RUB to USB example)](pyprogs/pdf_plot/)
     - [Simple HTML Markup-er, oct 2019](pyprogs/instant_markup/)
     - [Data Visualisation Practice, jan 2018](pyprogs/data_visualisation/)
     - [Raindrops, jan 2018](pyprogs/raindrops/)

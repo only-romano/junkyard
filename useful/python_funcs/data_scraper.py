@@ -57,11 +57,11 @@ class DataScraper:
         """
         try:
             with urlopen(url) as file:
-                for line in file.readline():
-                    formated_data = __format_line(line)
+                for line in file.readlines():
+                    formated_data = self.__format_line(line.decode('utf8'))
                     self.data.append(formated_data)
-        except Exception(e):
-            print(e)
+        except Exception:
+            pass
 
     def format(self):
         pass
@@ -183,7 +183,8 @@ def main():
     rules = [ parseMY ]
 
     scraper = DataScraper('\t', regex, replaces, rules)
-    scraper("data.txt")
+    scraper.from_url("https://raw.githubusercontent.com/only-romano/junkyar"\
+            + "d/master/python/pylearn/pyprogs/pretty_data_pdf/src/data.txt")
     print(scraper.data)
 
 
