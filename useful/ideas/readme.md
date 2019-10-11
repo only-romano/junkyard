@@ -1,7 +1,7 @@
-## Ideas for projects (frozen for now)
+### _Ideas_
 
-#### Content:
+
 + [IGame](igame/)
-+ [Online Calendar with schedule and ToDo apps](cali/)
-+ [New Personal Blog](new_blog/)
++ [Cali-n-Done](cali/)
++ [bLog](new_blog/)
 
