@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Components</title>
+  <style>
+    hello-world:unresolved { color: red; }
+    hello-world { transition: color 3s; }
+    input::-webkit-datetime-edit { background: red; }
+  </style>
+</head>
+<body>
+  <h1>Web Components</h1><br><br>
+  <hello-world id="hello">Hello, World!</hello-world><br><br>
+  <div id="pselem">
+    <h3>Доброе утро, мой нелюбимый никем друг :(</h3>
+    <h4>Пожалуйста, умри</h4>
+  </div>
+  <input type="date"><br><br>
+  <section id="pssection">
+    <h1>Новое</h1>
+    <article>
+      Жили были <i>старик со старухой</i> и только они тебя любили за всю жизнь...
+    </article>
+  </section>
+  <button onclick="alert(pseudo.innerHTML)">root.innerHTML</button>
+
+  <script src="web-components.js"></script>
+</body>
+</html>

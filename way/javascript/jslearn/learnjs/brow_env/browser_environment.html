@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Browser Environment</title>
+  <script type="text/javascript">
+    console.log( location.href );
+  </script>
+</head>
+<body>
+  <h1>Done!</h1>
+
+  <table style="border: solid;">
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="text/javascript" src="browser_environment.js"></script>
+
+  <button onclick="get_red()" id='but1'>Go!</button>
+
+  <script type="text/javascript">
+
+    function get_red() {
+      if (but1.style.background != 'red') {
+        but1.style.background = 'red';
+      } else {
+        but1.style.background = 'rgba(231, 81, 31, 0.6)';
+      }
+    }
+  </script>
+
+  <script>
+    for (var i = 0; i < document.body.children.length; i++) {
+      console.log( document.body.children[i] );
+    }
+    console.log('Это был перебор элементов body.children через цикл for. Ничего лишнего - только элементы.\n');
+  </script>
+
+  <script>
+    for (var i = 0; i < document.body.childNodes.length; i++) {
+      console.log( document.body.childNodes[i] );
+    }
+    console.log('Это был перебор элементов body через цикл for\n');
+  </script>
+
+  <script type="text/javascript">
+    var body = document.body;
+    console.log( document.documentElement );
+    console.log( document.body );
+    console.log( body.firstChild === body.childNodes[0], body.firstChild );
+    console.log( body.lastChild === body.childNodes[body.childNodes.length - 1], body.lastChild );
+    console.log('Это были: documentElement, body, firstChild, lastChild\n');
+  </script>
+
+  <script type="text/javascript">
+    var elems = document.documentElement.childNodes;
+
+    [].forEach.call(elems, function(elem) {
+      console.log( elem );
+    });
+    console.log( 'Это был перебор псевдомассива document.documentElement.childNodes через наследование от массива метода forEach\n');
+  </script>
+
+  <script type="text/javascript">
+    var elem = document.documentElement.childNodes;
+    elems = Array.prototype.slice.call(elem);
+
+    elems.forEach(function(elem) {
+      console.log( elem.tagName );
+    });
+    console.log( 'Это был перебор того же псевдомассива с помощью переделки его в массив методом Array.prototype.slice.call(elem)\n' );
+  </script>
+
+  <script type="text/javascript">
+    var elems = document.documentElement.childNodes;
+
+    for (var key in elems) {
+      console.log( key );
+    };
+    console.log( 'Это был неверный перебор с помощью for..in - он захватил лишние для нас элементы\n' );
+  </script>
+
+  <script type="text/javascript">
+    var elem = document.body.childNodes[4];
+    console.log( elem );
+    console.log( 'elem.previousSibling:', elem.previousSibling );
+    console.log( 'elem.nextSibling:',  elem.nextSibling );
+    console.log( 'Это были анютины глазки' );
+
+    console.log( 'А теперь будет море отчаяния' );
+    elem = document.body.childNodes[3];
+    console.log( elem );
+    console.log( 'elem.previousElementSibling:', elem.previousElementSibling );
+    console.log( 'elem.nextElementSibling:', elem.nextElementSibling );
+
+    elem = document.body;
+    console.log( 'elem.firstElementChild:', elem.firstElementChild );
+    console.log( 'elem.lastElementChild:', elem.lastElementChild );
+  </script>
+
+  <script type="text/javascript">
+    console.log( 'А теперь час х - document в parentElement = null');
+    console.log( document.documentElement.parentElement );
+    console.log( 'А в parentNode - document' );
+    console.log( document.documentElement.parentNode );
+  </script>
+
+  <div style="display: block; width: 100%;">
+  <table style="border: solid grey; border-collapse: collapse;">
+    <thead>
+      Look
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          pussy
+        </td>
+        <td>
+          gussy
+        </td>
+        <td>
+          dussy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          aniki
+        </td>
+        <td>
+          baniki
+        </td>
+        <td>
+          vaniki
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>
+          pussy
+        </td>
+        <td>
+          gussy
+        </td>
+        <td>
+          dussy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          aniki
+        </td>
+        <td>
+          baniki
+        </td>
+        <td>
+          vaniki
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <script type="text/javascript">
+    console.log( 'А сейчас будем играться с табличкой' );
+    var table = document.body.children[13].children[0]
+    console.log( 'table.rows:', table.rows );
+    console.log( 'table.tHead:', table.tHead );
+    console.log( 'Есть аналоги - .caption, .tFoot');
+    console.log( 'table.tBodies (может быть несколько)', table.tBodies );
+    var tbody = table.children[2];
+    console.log( 'tbody.rows:', tbody.rows );
+    console.log( 'Есть аналоги для thead, .tfoot');
+    var tr = tbody.children[0];
+    console.log( 'tr.cells:', tr.cells );
+    console.log( 'tr.sectionRowIndex(в этой секции thead/tbody):', tr.sectionRowIndex );
+    console.log( 'tr.rowIndex(во всей таблице):', tr.rowIndex );
+    var td = tr.children[0];
+    console.log( 'td.cellIndex(в строке):', td.cellIndex );
+    console.log('Фокус хвостом - table.rows[1].cells[0].innerHTML:', table.rows[0].cells[0].innerHTML );
+  </script>
+
+</body>
+</html>

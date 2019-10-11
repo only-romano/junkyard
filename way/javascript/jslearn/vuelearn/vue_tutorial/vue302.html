@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js, checkbox</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app" class="col-md-4">
+    <input type="checkbox" id="checkbox" v-model="checked" />
+    <label for="checkbox">{{checked}}</label>
+    <input type="checkbox" v-model="light" :true-value="on" :false-value="off" />
+    <span v-if="light === on">On</span>
+    <span v-else>Off</span>
+
+    <label>Sergey<input type="checkbox" value="Sergey" v-model="selectedUsers" /></label>
+    <label>Kato<input type="checkbox" value="Kato" v-model="selectedUsers" /></label>
+    <label>Ridj<input type="checkbox" value="Ridj" v-model="selectedUsers" /></label>
+    <label>RSJ<input type="checkbox" value="RSJ" v-model="selectedUsers" /></label>
+    <span>Selected: {{selectedUsers}}</span>
+
+    <template v-for="user in users">
+      <label>{{user.name}}<input type="checkbox" :value="user" v-model="selectedUsers2"></label>
+    </template>
+    <ul>
+      <li v-for="user in selectedUsers2">{{user.name}} - {{user.age}}</li>
+    </ul>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue302.js"></script>
+</html>

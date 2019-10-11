@@ -1,0 +1,113 @@
+#menu {
+    height: 100%;
+    background-color: lavender;
+}
+
+#menu-title {
+    text-align: center;
+    margin: 0;
+    padding-top: 45vh;
+    font-size: 5vh;
+    font-family: fantasy;
+    letter-spacing: 0.5vh;
+    text-shadow: 0 0 5px white;
+    color: rgba(128, 128, 128, .85);
+    z-index: 0;
+}
+
+#menu-engine, #menu-html, #menu-js, #menu-html-view, #menu-js-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.5s;
+}
+
+#menu-engine {
+    opacity: 0;
+    transition: 1.5s;
+    z-index: 1;
+}
+
+#menu-html, #menu-js {
+    width: 50%;
+    font-size: 6vh;
+    text-shadow: 0 0 2px black;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+#menu-html {
+    color: blue;
+    background-image: linear-gradient(to left bottom, rgba(0, 0, 255, 0.2), rgba(128, 0, 192, 0.3));
+}
+
+#menu-js {
+    left: 50%;
+    color: yellow;
+    background-image: linear-gradient(to right bottom, rgba(0, 255, 0, 0.2), rgba(128, 192, 0, 0.3));
+}
+
+#menu-engine button:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+#menu-engine button:active {
+    background-color: rgb(192, 192, 255);
+}
+
+#menu-html-view, #menu-js-view {
+    display: none;
+    opacity: 0;
+    background-color: white;
+    z-index: 2;
+}
+
+#menu-js-view {
+    background-color: aqua;
+}
+
+button {
+    outline: none;
+}
+
+#menu-js-view button:first-of-type, #menu-html-view button:first-of-type {
+    background-image: linear-gradient(to right bottom, rgba(255, 0, 0, 0.2), rgba(192, 128, 128, 0.3));
+    font-family: monospace;
+    font-size: 3vh;
+    width: 100%;
+    height: 10vh;
+}
+
+#menu-js-view button:not(:first-of-type) {
+    background-image: linear-gradient(to right bottom, rgba(0, 255, 0, 0.2), rgba(128, 192, 0, 0.3));
+    font-family: monospace;
+    font-size: 3vh;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+}
+
+#menu-js-view button:last-of-type {
+    left: 50%;
+}
+
+#menu-html-view button:not(:first-of-type) {
+    background-image: linear-gradient(to left bottom, rgba(0, 0, 255, 0.2), rgba(128, 0, 192, 0.3));
+    font-family: monospace;
+    font-size: 3vh;
+    text-shadow: 0 0 2px white;
+    width: 50%;
+    height: 18vh;
+}
+
+#menu-html-view button:not(:first-of-type):nth-of-type(2n+1) {
+    position: absolute;
+    left: 50%;
+}
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Components Vue.js, outer arrays and objects change</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <h2>Users list</h2>
+    <userform :users="users"></userform>
+    <userform2 :user="user"></userform2>
+    <div>
+      <useritem v-for="(user, index) in users" :user="user" :index="index" :key="index" @userdelete="remove" @userchange="change"></useritem>
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue412.js"></script>
+</body>
+</html>

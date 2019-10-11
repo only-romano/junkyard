@@ -1,0 +1,46 @@
+
+.body {
+  background-color: black;
+  overflow-x: hidden;
+}
+
+.header {
+  font: bold italic 250% serif;
+  color: pink;
+  text-shadow: red 0 0 3px;
+  text-align: center;
+}
+
+.carusel {
+  position: relative;
+  background-image: linear-gradient(to left bottom, black, #2d2121);
+}
+
+.arrow-span {
+  float: right;
+  margin-top: -25px;
+  margin-bottom: 10px;
+}
+
+.arrow {
+  width: 44px;
+}
+
+#imgcar {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 8000px;
+  height: 550px;
+}
+
+.inner-span {
+  position: relative;
+  left: 0px;
+  padding-right: 10px;
+}
+
+.carusel-img {
+  width: 512px;
+  height: 512px;
+}

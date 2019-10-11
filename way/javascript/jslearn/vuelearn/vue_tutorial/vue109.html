@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js, styles</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="vue109.css">
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <div class="region" :style="styleObj"></div>
+    <div class="region" :style="[colorStyle, sizeStyle]"></div>
+    <br><br>
+    <input type="text" v-model="color" />
+    <br>
+    <input type="number" v-model="width" />
+    <br>
+    <input type="number" v-model="height" />
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue109.js"></script>
+</body>
+</html>

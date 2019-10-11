@@ -1,0 +1,27 @@
+<website>
+    <page name="index" title="Home Page">
+        <h1>Welcome to Project's Home Page</h1> 
+        <p>Hi, there. My name is Roma, and this is home page of my little
+            project. Here are it's all about:</p>
+
+        <ul>
+            <li><a href="reason/cool.html">Projects are cool</a></li>
+            <li><a href="reason/lazy.html">Laziness is boring</a></li>
+            <li><a href="reason/why.html">Why not?</a></li>
+        </ul>
+    </page>
+    <directory name="reason">
+        <page name="cool" title="Projects are cool">
+            <h1>Projects are cool</h1>
+            <p>So, can you do something about it? I guess not.</p>
+        </page>
+        <page name="lazy" title="Laziness is boring">
+            <h1>Laziness is boring</h1>
+            <p>Beleive me or not - it's true. Some day you'll get it</p>
+        </page>
+        <page name="why" title="Why Not">
+            <h1>Why not</h1>
+            <p>Clever move. Totally suport you with this opinion</p>
+        </page>
+    </directory>
+</website>

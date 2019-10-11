@@ -1,0 +1,20 @@
+?? edge / mozilla scrollbar customization
+
+--NOT SUPPORTED: yandex browser, IE
+
+
+	Добавить опций
+	Увеличить отступ для имени
+	Элемент: img =окно с картинкой и положением его в блоке
+
+	3. WEB DEVELOPER (css additional lines)
+	4. Справка для элементов
+
+<a href="https://ibb.co/g2bbGT"><img src="https://image.ibb.co/kPwMi8/928627_1535436543342779_50195073_n.jpg" alt="928627_1535436543342779_50195073_n" border="0"></a>
+
+
+python: 820
+js:	90
+html: 	2174
+css: 
+img: 	49

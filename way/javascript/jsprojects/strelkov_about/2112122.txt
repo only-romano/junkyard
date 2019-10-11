@@ -1,0 +1,10 @@
+ -> blocks{content{+hidden span with styles for blog__content}}
+ + -> blocks{content_add}
+	function: setStyleToArticleContent() {}
+
+<blocks cont\cont_add>
+	<elems></elems>
+</blocks>
+	function: checkContainer(elem) {
+		num = elem.getBounding().height;
+	}

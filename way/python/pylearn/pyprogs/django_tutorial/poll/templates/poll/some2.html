@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS learning 2</title>
+</head>
+<body>
+<p id="text">Some so important text</p>
+<button onmouseover="changeColor('red');">Unblue this text</button>     <!--свойство по наведению мыши на объект-->
+<button onclick="changeColor('blue');">Text is FUCKING BLUE!</button>   <!--свойство по нажатию на кнопку-->
+<br>
+<script>
+    /* Функция для кнопочек - комментарий большим сделан ради тренировки */
+    function changeColor (newColor='white') {
+        let element = document.getElementById("text");                  // локальное пространство имён;
+        element.style.color = newColor;
+    }
+</script>
+<br>
+<form name="mySimpleForm" action="" onsubmit="return validateForm()" method="post">  <!--простенькая формочка-->
+    <label>Name: <input type="text" name="fname"></label>
+    <label>Phone: <input type="number" name="ftel"></label>
+    <input type="submit" value="Submit">
+</form>
+<script>
+    function validateForm () {
+        let element = document.forms["mySimpleForm"]["fname"].value;    // локальное пространство имён;
+        let tel = document.forms["mySimpleForm"]["ftel"].value;
+        if (element === "") {
+            alert ("Just input your fucking name already!");            // если форма не заполнена;
+            return false;           // отдавать ' false ' чтобы страничка не перезагружалась;
+        } else if (tel === "") {
+            alert ("Give me your number!");
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

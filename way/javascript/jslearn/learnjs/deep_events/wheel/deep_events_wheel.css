@@ -1,0 +1,17 @@
+#container {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  background: #0ff;
+  overflow: auto;
+}
+
+#scale {
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  padding-top: 20px;
+  border: 2px solid red;
+  background: bisque;
+  overflow: auto;
+}

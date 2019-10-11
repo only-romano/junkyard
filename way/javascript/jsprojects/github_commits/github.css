@@ -1,0 +1,153 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-shadow: 1px 1px 1px bisque;
+  color: rgba(30, 30, 15, .7);
+}
+
+body {
+  font-family: monospace;
+  background: radial-gradient(at center, rgba(0,200,0,.1), rgba(128,128,0,.1)) no-repeat fixed;
+}
+
+#github {
+  margin: 20px;
+}
+
+#github input, #github select {
+  margin: 10px;
+  padding: 4px;
+  border: 2px solid #427083;
+  border-radius: 10px;
+  outline: none;
+}
+
+#github input {
+  padding: 5px;
+}
+
+#github div h1, #github h2 {
+  padding: 25px;
+}
+
+#github > label {
+  margin: 25px;
+}
+
+#github-buttons {
+  font-size: 1.2em;
+}
+
+#github-buttons input{
+  margin-left: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: #f66;
+}
+
+li {
+  line-height: 1,5em;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.author, .date {
+  font-weight: bold;
+}
+
+#popular {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-family: Helvetica Neue, Arial, sans-serif;
+  font-size: 14px;
+  color: #444;
+}
+
+#popular table {
+  position: relative;
+  top: 5px;
+  right: 5px;
+  border: 2px solid #42b983;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+#popular th {
+  background-color: #42b983;
+  color: rgba(255, 255, 255, .66);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#popular td {
+  background-color: #f9f9f9;
+}
+
+#popular th, #popular td {
+  min-width: 120px;
+  padding: 10px 20px;
+}
+
+#popular th.active {
+  color: #fff;
+}
+
+#popular th.active .arrow {
+  opacity: 1;
+}
+
+#popular .arrow {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  opacity: .66;
+}
+
+#popular .arrow.asc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #fff;
+}
+
+#popular .arrow.dsc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #fff;
+}
+
+#popular .repos {
+  cursor: pointer;
+}
+
+#popular label, #popular input {
+  float: right;
+  margin: 10px;
+  padding: 5px;
+  border: 2px solid #42b983;
+  border-radius: 10px;
+  outline: none;
+}
+
+#popular input {
+  border: 2px solid #427083;
+  opacity: .2;
+}
+
+#searchPop span {
+  float: right;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+#popular input:focus {
+  opacity: 1;
+}

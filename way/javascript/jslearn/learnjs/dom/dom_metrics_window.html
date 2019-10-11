@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>DOM Window Metrics</title>
+</head>
+<body>
+
+
+  <input type='submit' value="ScrollDown" onclick='(function(){
+      window.scrollBy(0, 100);
+    })()'>
+  <input type='submit' value="ScrollToEnd" onclick='(function(){
+      window.scrollTo(0, document.documentElement.clientHeight);
+    })()'>
+
+  <input type='submit' value="Scroll Into View Bottom UL" onclick='(function(){
+    ul.scrollIntoView(false);
+  })()'>
+
+  <script type="text/javascript">
+
+    var ul = document.createElement('ul');
+    ul.id = 'ul';
+
+    for (var i = 0; i < 100; i++) {
+      var li = document.createElement('li');
+      li.innerHTML = i;
+      ul.appendChild(li);
+    }
+
+    document.body.appendChild(ul);
+
+    var input = document.createElement('input');
+    input.name = 'overflow - hidden';
+    input.value = 'Body Overflow - Hidden';
+    input.type = 'submit';
+    input.setAttribute('onclick', '(function() { console.log("some"); if (document.body.style.overflow === "hidden") { document.body.style.overflow = ""; return; } document.body.style.overflow = "hidden"; })()');
+
+    ul.insertBefore(input, ul.children[55]);
+    console.log(input.onclick);
+
+    var div = document.createElement('div');
+    div.style.height = '100px';
+    div.style.width = (window.innerWidth + 50) + 'px';
+
+    document.body.appendChild(div);
+
+    console.log( 'window.innerWidth - content + scroll:' + window.innerWidth);
+    console.log( 'window.innerHeight - content + scroll:' + window.innerHeight);
+    console.log( ' ');
+    console.log( 'document.documentElement.clientWidth -  only content:' + document.documentElement.clientWidth);
+    console.log( 'document.documentElement.clientHeight -  only content:' + document.documentElement.clientHeight);
+
+    var scrollHeight = Math.max(
+      document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight,
+      document.body.clientHeight, document.documentElement.clientHeight
+    );
+
+    console.log( 'Document height all the way scrolls is maxes of (scrollHeight, offsetHeight, cliendHeight) of document.body and document.documentElement:', scrollHeight );
+
+    console.log('Crossbrowser version of scroll-up and scroll-left content:')
+
+
+    function scrollsNow() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+      console.log('Document Scroll-up is:', scrollTop);
+      console.log('Document Scroll-left is:', scrollLeft);
+    }
+  </script>
+
+  <input type="submit" value="Scrolls" onclick="scrollsNow()">
+
+  <input type='submit' value="ScrollUp" onclick='(function(){
+      window.scrollBy(0, -100);
+    })()'>
+  <input type='submit' value="ScrollRight" onclick='(function(){
+      window.scrollBy(50, 0);
+    })()'>
+  <input type='submit' value="ScrollLeft" onclick='(function(){
+      window.scrollBy(-50, 0);
+    })()'>
+  <input type='submit' value="ScrollToStart" onclick='(function(){
+      window.scrollTo(0, 0);
+    })()'>
+  <input type='submit' value="ScrollTop Old" onclick='(function(){
+      if (!document.documentElement.scrollTop) {
+        document.body.scrollTop -= 10;
+        return;
+      }
+      document.documentElement.scrollTop -= 10;
+    })()'>
+  <input type='submit' value="ScrollRight Old" onclick='(function(){
+      if (document.documentElement.scrollLeft === undefined) {
+        document.body.scrollLeft += 10;
+        return;
+      }
+      document.documentElement.scrollLeft += 10;
+  })()'>
+
+  <input type='submit' value="Scroll Into View Top UL" onclick='(function(){
+    ul.scrollIntoView()
+  })()'>
+
+  <script>
+    var html = document.documentElement;
+    var body = document.body;
+
+    var scrollTop = html.scrollTop || body && body.scrollTop || 0;
+    scrollTop -= html.clientTop; // for IE7-
+    console.log( "The most crossbrowser variant of Scroll Top:", scrollTop );
+  </script>
+
+
+  <script name="IE8 pageYOffset polyfill">
+    (function pageYOffsetIE8() {
+      if (window.pageYOffset === undefined) {
+        window.pageYOffset = (function () {
+          return document.documentElement.scrollTop;
+        })();
+      }
+    })();
+  </script>
+
+  <script name="IE8 pageYOffset polyfill vers 2">
+    (function pageYOffsetIE8() {
+      if (window.pageYOffset === undefined) {
+        Object.defineProperty(window, 'pageYOffset', {
+          get: function() {
+            return document.documentElement.scrollTop;
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

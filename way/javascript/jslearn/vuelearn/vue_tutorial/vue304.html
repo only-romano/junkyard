@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js, select</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <select v-model="user">
+      <option>Sergey Romanov</option>
+      <option>Ridj</option>
+      <option>Kato</option>
+    </select>
+    <span>Selected: {{user}}</span>
+    <br>
+    <select v-model="users" multiple>
+      <option>Sergey Romanov</option>
+      <option>Ridj</option>
+      <option>Kato</option>
+    </select>
+    <span>Selected: {{users}}</span>
+    <br>
+    <select v-model="selectedUser">
+      <option v-for="usr in users2" :value="usr">{{usr.name}}</option>
+    </select>
+    <span>Selected: {{selectedUser.name}} - {{selectedUser.age}}</span>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue304.js"></script>
+</body>
+</html>

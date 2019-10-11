@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Focus, Blur</title>
+  <link rel="stylesheet" type="text/css" href="forms_focus_blur.css">
+</head>
+<body>
+
+  <div>Input your age:<input type="text" id="input"></div>
+  <div>Input your name:<input type="text"></div>
+  <div id='error'></div>
+
+  <input class="mypla" type="text" name="search" autofocus placeholder="Search request">
+
+  <ul>
+    <li tabindex="1">One</li>
+    <li tabindex="0">Zero</li>
+    <li tabindex="2">Two</li>
+    <li tabindex="-1">Minus one</li>
+  </ul>
+
+  <form id="form">
+    <input type="text" name="name" value="Your name">
+    <input type="text" name="surname" value="Your surname">
+  </form>
+
+    <p>Красивый placeholder:</p>
+
+  <input type="email" data-placeholder="E-mail">
+
+
+
+  <script src="forms_focus_blur.js"></script>
+</body>
+</html>

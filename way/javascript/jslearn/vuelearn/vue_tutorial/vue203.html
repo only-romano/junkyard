@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js, for cycle</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <ul>
+      <li v-for="phone in phones">{{phone}}</li>
+    </ul>
+    <ul>
+      <li v-for="(user, index) in users">
+        {{index+1}}.
+        <p v-for="(value, key) in user">{{key}} : {{value}}</p>
+      </li>
+    </ul>
+    <span v-for="n in 10">{{n}}<span v-if="n < 10">, </span><span v-else>.</span></span>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue203.js"></script>
+</body>
+</html>

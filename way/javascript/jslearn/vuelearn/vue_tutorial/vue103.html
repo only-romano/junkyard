@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js</title>
+  <meta charset="utf-8">
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <p>{{name}} - {{age > 27?'More then 27':'27 or less'}}</p>
+    <a v-bind:href="link">{{text}}</a>
+    <a :href="link">Also {{text}}</a>
+    <input type="text" v-on:input="setMessage" />
+    <p v-once>{{message}}</p>
+    <div v-html="message2"></div>
+    <div>{{message2}}</div>
+    <span v-text="message"></span>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue103.js"></script>
+</body>
+</html>

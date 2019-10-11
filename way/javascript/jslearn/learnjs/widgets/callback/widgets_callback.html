@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Callbacks and Events on components</title>
+  <link rel="stylesheet" type="text/css" href="widgets_callback.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+  <script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
+
+</head>
+<body>
+
+  <script type="text/template" id="menu-template">
+    <div class="menu">
+      <span class="title"><%-title%></span>
+    </div>
+  </script>
+
+  <!--
+встроенная браузерная функция encodeURIComponent кодирует спец-символы для URL,
+например русские буквы и пробелы
+в этом примере русских букв в ключах items нет, но потенциально они возможны
+-->
+  <script type="text/template" id="menu-list-template">
+    <ul>
+      <% for(var name in items) { %>
+        <li>
+          <a href="#<%=encodeURIComponent(name)%>">
+            <%-items[name]%>
+          </a>
+        </li>
+        <% } %>
+    </ul>
+  </script>
+
+  <ul id="winnie">
+    <li>Кристофер Робин</li>
+    <li>Винни-Пух</li>
+    <li>Ослик Иа</li>
+    <li>Мудрая Сова</li>
+    <li>Кролик. Просто кролик.</li>
+  </ul>
+  <input type="button" onclick="alert( listSelect.getSelected() )" value="Selected">
+
+
+  <div>Последний результат: <span id="result">...</span></div>
+
+  <div id="animal-select" class="customselect">
+    <button class="title">Выберите</button>
+    <ul>
+      <!-- значение хранится в свойстве data-value -->
+      <li data-value="bird">Птицы</li>
+      <li data-value="fish">Рыбы</li>
+      <li data-value="animal">Звери</li>
+      <li data-value="dino">Динозавры</li>
+      <li data-value="simplest">Одноклеточные</li>
+    </ul>
+  </div>
+
+  <div id="food-select" class="customselect customselect.open">
+    <button class="title">Выберите</button>
+    <ul>
+      <li data-value="carnivore">Плотоядные</li>
+      <li data-value="herbivore">Травоядные</li>
+      <li data-value="omnivore">Всеядные</li>
+    </ul>
+  </div>
+
+  <script src="widgets_callback.js"></script>
+</body>
+</html>

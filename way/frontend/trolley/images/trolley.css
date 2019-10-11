@@ -1,0 +1,30 @@
+body {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    background-color: peachpuff;
+}
+
+h1 {
+
+    font-size: 38px;
+
+    text-shadow: 2px 2px 0 #ccc;
+    background-color: palevioletred;
+}
+
+
+.photolarge {
+	display: block;
+	width: 600px;
+	margin:50px auto;
+	border-radius: 15px;
+	box-shadow: 0 0 10px #666;
+}
+
+.photo {
+	display: block;
+	width: 400px;
+	border-radius: 10px;
+	margin:50px auto;
+	box-shadow: 0 0 5px #666;
+}

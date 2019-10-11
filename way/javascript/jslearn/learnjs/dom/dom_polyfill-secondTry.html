@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>DOM Polyfill exercises</title>
+</head>
+<body>
+
+  <script name="matchesPolifill" type="text/javascript">
+    var matches = function() {
+      if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.matchesSelector || Element.prototype.webkitMatchesSelector || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector;
+      }
+    };
+
+    matches();
+  </script>
+
+  <script name="closestPolyfill" type="text/javascript">
+    (function() {
+      if (!Element.prototype.closest) {
+        Element.prototype.closest = function(css) {
+          var mass = document.querySelectorAll(css);
+          for (var i = 0; i < mass.length; i++) {
+            if (Element.prototype === mass[i]) return Element.prototype;
+          }
+          return Element.prototype.parentNode.closest(css);
+        };
+      }
+    })();
+  </script>
+
+  <script name="textContent" type="text/javascript">
+    (function() {
+      if (document.documentElement.textContent === undefined) {
+        Object.defineProperty(HTMLElement.prototype, 'textContent' {
+          get: function() {
+            return this.innerText;
+          },
+          set: function(text) {
+            this.innerText = text;
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

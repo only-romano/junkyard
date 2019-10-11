@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Components Vue.js, properties validation</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <input type='text' v-model.lazy="user.name" /><br><br>
+    <input type='number' v-model.number.lazy="user.age" /><br><br>
+    <user v-bind="user"></user>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue406.js"></script>
+</body>
+</html>

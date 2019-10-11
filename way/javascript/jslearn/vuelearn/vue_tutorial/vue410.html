@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Components Vue.js, flow</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <h2>Hello, {{name}}</h2>
+    <userdit :user="name"></userdit>
+    <button @click="resetName">Set Name</button>
+  </div>
+  <div id="app2">
+    <h2>Hello, {{name}}</h2>
+    <userdit2 :user="name"></userdit2>
+    <button @click="resetName">Set Name</button>
+  <script src="vue.js"></script>
+  <script src="vue410.js"></script>
+</body>
+</html>

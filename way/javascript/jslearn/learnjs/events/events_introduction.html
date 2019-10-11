@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Events Introduction</title>
+
+  <script type="text/javascript">
+    function countRabbits() {
+      for (var i = 1; i <= 3; i++) {
+        alert( 'Rabbit number ' + i);
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <input type="button" value="Push me" onclick="alert('Pushed!')">
+  <input type="button" value="Count Rabbits" onclick="countRabbits()">
+
+  <div>
+    <img id="logo" style="display: block" src="birthday/files/logo.png">
+  </div>
+
+  <script type="text/javascript">
+    document.body.children[0].onclick = function() {
+      // Re-write onclick option
+      alert( 'Thank you!' );
+    }
+
+    function sayThanks() {
+      console.log( 'Thank you!' );
+    }
+
+    function alertThanks() {
+      alert( 'Thank you!' );
+    }
+
+    function jump() {
+      var kitty =  this;
+      kitty.style.marginTop = ( (parseInt(kitty.style.marginTop) || 0 ) + 50) + 'px';
+      kitty.style.marginBottom = ( (parseInt(kitty.style.marginBottom) || 0 ) + 50) + 'px';
+      kitty.style.marginLeft = ( (parseInt(kitty.style.marginLeft) || 0 ) + 50) + 'px';
+      kitty.style.width = ((parseInt(kitty.style.width) || 128) + 128) + 'px';
+
+      setTimeout(function(){
+      kitty.style.marginTop = ( (parseInt(kitty.style.marginTop) || 0) - 50) + 'px';
+      kitty.style.marginBottom = ( (parseInt(kitty.style.marginBottom) || 0 ) - 50) + 'px';
+      kitty.style.marginLeft = ( (parseInt(kitty.style.marginLeft) || 0 ) - 50) + 'px';
+      kitty.style.width = 'auto';
+      }, 3000);
+    }
+
+    document.body.children[0].onclick = sayThanks;
+
+    logo.addEventListener('click', sayThanks);
+    logo.addEventListener('click', jump);
+    logo.addEventListener('click', alertThanks);
+    logo.removeEventListener('click', alertThanks);
+  </script>
+
+  <button onclick="alert(this.innerHTML)">Push on me</button>
+
+  <button id="elem" onclick="this.classList.toggle('wide');">
+    Push da Button!
+  </button>
+
+  <style type="text/css">
+    button {
+      transition: width 1s;
+      width: 100px;
+    }
+
+    .wide {
+      width: 300px;
+    }
+  </style>
+
+  <script type="text/javascript">
+    elem.ontransitionend = function() {
+      alert( 'ontransitionend' );
+    };
+
+    elem.addEventListener('transitionend', function() {
+      // неименованные функции не убрать уже из EventListenera
+      console.log( 'addEventListener' );
+    });
+  </script>
+
+  <div id="text"> text </div>
+
+  <button id="textb" onclick="(function() {
+    if (!document.getElementById('text')) {
+      var div = document.createElement('div');
+      div.id = 'text';
+      div.innerHTML = ' text ';
+      document.body.insertBefore(div, textb);
+      return;
+    }
+    document.body.removeChild(text);
+  })()">DELETE TEXT</button>
+
+  <button onclick="(function(e){
+    var button = e;
+    button.setAttribute('hidden', 'true');
+    setTimeout(function(){
+      button.removeAttribute('hidden');
+    }, 3000);
+  }(this))">Hide me!</button>
+
+  <button id='test'> Test button </button>
+
+  <script type="text/javascript">
+    test.addEventListener('click', function() { alert('1') });
+    test.removeEventListener('click', function() { alert('1') }); // nothing is deleted
+
+    test.onclick = function() { alert(2); };  // идут в порядке присвоения
+  </script>
+
+  <ul id="menu" onclick="(function(e){
+    var lis = e.children;
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].setAttribute('hidden', true);
+    };
+    if ( !document.getElementById('showMenu') ) {
+      var span = document.createElement('span');
+      span.setAttribute('id', 'showMenu');
+      span.innerHTML = 'Show Menu';
+      span.onclick = function() {
+        var newLis = menu.children;
+        for (var i = 0; i < newLis.length; i++) {
+          newLis[i].removeAttribute('hidden');
+        }
+        document.body.removeChild(showMenu);
+      };
+      document.body.insertBefore(span, e);
+      return;
+    }
+  })(this)">
+    <li>First</li>
+    <li>Second</li>
+    <li>Third</li>
+  </ul>
+
+  <div id="menu2" class="menu2">
+    <span id="open2" class="title2"></span>
+    <ul>
+      <li>First2</li>
+      <li>Second2</li>
+      <li>Third2</li>
+    </ul>
+  </div>
+
+  <style type="text/css">
+    .menu2 ul {
+      margin: 0;
+      list-style: none;
+      padding-left: 20px;
+      display: none;
+    }
+
+    .menu2 .title2::before {
+      content: '▶ ';
+      font-size: 80%;
+      color: green;
+    }
+
+    .menu2.open .title2::before {
+      content: '▼ ';
+    }
+
+    .menu2.open ul {
+      display: block;
+    }
+  </style>
+
+  <script type="text/javascript">
+    open2.onclick = function() {
+      menu2.classList.toggle('open');
+    };
+  </script>
+
+  <style type="text/css">
+    h3 {
+      margin: 0;
+      padding-bottom: .3em;
+      font-size: 1.1em;
+    }
+
+    p {
+      margin: 0;
+      padding: 0 0 .5em;
+    }
+
+    .pane {
+      background: #edf5e1;
+      padding: 10px 20px 10px;
+      border-top: solid 2px #c4df9b;
+    }
+
+    .remove-button {
+      font-size: 110%;
+      color: darkred;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: transparent;
+    }
+  </style>
+
+    Кнопка для удаления:
+  <button class="remove-button">[x]</button>
+
+  <div>
+    <div class="pane">
+      <h3>Лошадь</h3>
+      <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+    </div>
+    <div class="pane">
+      <h3>Осёл</h3>
+      <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+    </div>
+    <div class="pane">
+      <h3>Корова, а также пара слов о диком быке, о волах и о тёлках. </h3>
+      <p>Коро́ва — самка домашнего быка, одомашненного подвида дикого быка, парнокопытного жвачного животного семейства полорогих. Самцы вида называются быками, молодняк — телятами, кастрированные самцы — волами. Молодых (до первой стельности) самок называют
+        тёлками.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    Array.prototype.slice.call(document.getElementsByClassName('pane')).map(function(e) { e.insertBefore(document.getElementsByClassName('remove-button')[0].cloneNode(true), e.children[1]) });
+      for (var i = 1; i < Array.prototype.slice.call(document.getElementsByClassName('remove-button')).length; i++) {
+        var button = Array.prototype.slice.call(document.getElementsByClassName('remove-button'))[i];
+        var coords = button.parentNode.getBoundingClientRect();
+        button.style.float = 'right';
+        button.setAttribute('onclick', '(function (e) { e.parentNode.setAttribute("hidden", true) })(this)');
+      }
+      var topBut = Array.prototype.slice.call(document.getElementsByClassName('remove-button'))[0];
+      topBut.setAttribute('onclock', '(function () { \
+          for (var i = 1; i < Array.prototype.slice.call(document.getElementsByClassName("remove-button")).length; i++) { \
+        var button = Array.prototype.slice.call(document.getElementsByClassName("remove-button"))[i]; \
+        button.setAttribute("onclick", "(function (e) { e.parentNode.removeAttribute(\"hidden\") })(this)");\
+      } )()')
+      
+  </script>
+
+</body>
+</html>
+

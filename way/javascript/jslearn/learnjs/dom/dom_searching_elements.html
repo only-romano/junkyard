@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>DOM Searching Elements</title>
+  </head>
+  <body>
+    <a href="#go">Ссылка</a>
+    <div id="content-holder">
+      <div class="div_st" id="content">Element</div>
+    </div>
+      <p>1</p>
+      <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <p>1</p>
+  <label for="name">К вводилке</label>
+  <p>1</p>
+  <p>1</p>
+
+    <a name='go'></a>
+    <input type="textarea" id="name" name="name">
+    <h1>Сюда</h1>
+  <script>
+    console.log( content );
+    console.log( window['content-holder'] );
+  </script>
+
+  <script type="text/javascript">
+    var elem = document.getElementById('content');
+
+    elem.style.background = 'red';
+
+    console.log( elem == content );
+  </script>
+
+  <table id="age-table">
+    <tr>
+      <td>Your age:</td>
+
+      <td>
+        <label>
+          <input type='radio' name='age' value='young' checked>less then 18
+        </label>
+        <label>
+          <input type="radio" name="age" value='mature'>from 18 to 50
+        </label>
+        <label>
+          <input type="radio" name="age" value="senior">older then 50
+        </label>
+      </td>
+    </tr>
+
+  </table>
+
+  <script type="text/javascript">
+    var tableElem = document.getElementById('age-table');
+    var elements = tableElem.getElementsByTagName('input');
+
+    for (var i = 0; i < elements.length; i++) {
+      var input = elements[i];
+      console.log( input.value + ': ' + input.checked );
+    }
+
+    var allElems = tableElem.getElementsByTagName('*');
+    console.log( allElems );
+
+    console.log('Element value is:', document.getElementsByTagName('input')[2].value);
+    document.getElementsByTagName('input')[2].value = 'olders';
+    console.log('Now let\'s change this element!')
+    console.log('And now element\'s value is:', document.getElementsByTagName('input')[2].value);
+
+    var elems = document.getElementsByName('age');
+    console.log( 'We used to search "age" names:', elems );
+  </script>
+
+  <div class="article">Article</div>
+  <div class="long article">Long Article</div>
+
+  <script type="text/javascript">
+    var articles = document.getElementsByClassName('article');
+    console.log( 'How many "article" class elements included multiclasses?', articles.length );
+  </script>
+
+  <ul>
+    <li>This</li>
+    <li>test</li>
+  </ul>
+  <ul>
+    <li>is fully</li>
+    <li>passed</li>
+  </ul>
+
+  <script type="text/javascript">
+    var elements = document.querySelectorAll('ul > li:last-child');
+
+    for (var i = 0; i < elements.length; i++) {
+      console.log( elements[i].innerHTML );
+    }
+
+    var element = document.querySelector('ul > li:last-child');
+    console.log( element );
+  </script>
+
+  </body>
+</html>

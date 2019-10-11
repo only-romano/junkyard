@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Vue.js, radiobutton</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<a href="index.html">Back</a>
+  <div id="app">
+    <template v-for="user in users">
+      <label><input type="radio" :value="user" v-model="selectedUser" />{{user.name}}</label><br>
+    </template>
+    <span v-if="selectedUser!==null">Selected: {{selectedUser.name}} - {{selectedUser.age}}</span>
+  </div>
+  <script src="vue.js"></script>
+  <script src="vue303.js"></script>
+</body>
+</html>

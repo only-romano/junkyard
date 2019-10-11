@@ -1,0 +1,33 @@
+
+#mouse {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0;
+}
+
+#mouse:focus {
+  outline: 1px dashed black;
+}
+
+#view,
+#area {
+  height: 150px;
+  width: 400px;
+  font-family: arial;
+  font-size: 14px;
+}
+
+#view {
+  padding: 2px;
+  border: 1px solid black;
+}
+
+#area {
+  display: none;
+  border: 3px groove blue;
+  padding: 0px;
+}
+
+#area:focus {
+  outline: none;
+}

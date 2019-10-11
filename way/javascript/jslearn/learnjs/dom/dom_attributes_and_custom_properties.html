@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>DOM Attributes and Custom Properties</title>
+
+  <style>
+    .order[order-state="new"] {
+      color: green;
+    }
+
+    .order[order-state="pending"] {
+      color: blue;
+    }
+
+    .order[order-state="canceled"] {
+      color: red;
+    }
+  </style>
+</head>
+<body class="main page">
+
+  <script name="ownDOMProperties">
+
+    document.body.myData = {
+      name: 'Petro',
+      familyName: 'Petrovich',
+    };
+
+    console.log( document.body.myData.name );
+
+    document.body.sayHi = function() {
+      console.log( this.nodeName );
+    };
+    document.body.sayHi();
+
+  </script>
+
+  <div id="elem" about="Elephant" class="smiling"></div>
+
+  <script name="attributes">
+    var about = document.body.children[1];
+    console.log( 'Has attribute method:', about.hasAttribute('About') );
+    console.log( 'Get attribute method:', about.getAttribute('AbOuT') );
+    console.log( 'Set attribute method:', about.setAttribute('about', 'Giraffe'),
+      '\n\tChanged attribute:', about.getAttribute('about') );
+    console.log( 'Remove attribute method', about.removeAttribute('about'),
+      '\n\tIs it still exists?', about.hasAttribute('about') );
+
+    console.log( about.attributes );
+
+    elem.setAttribute('Test', 123);
+    console.log( elem.innerHTML );
+
+    var attrs = elem.attributes;
+    for (var i = 0; i < attrs.length; i++) {
+      console.log( attrs[i].name + ' = ' + attrs[i].value );
+    }
+  </script>
+
+  <a id='a' href='#'></a>
+  <script name="a">
+    a.href = '/';
+
+    console.log( 'Attribute: ' + a.getAttribute('href') );
+    console.log( 'Property: ' + a.href );
+  </script>
+
+  <input id="input" type="checkbox" checked>
+  <script name="input">
+    console.log( input.getAttribute('checked') );
+    input.removeAttribute('checked');
+
+    console.log( input.checked );
+    input.checked = true;
+    console.log(' ');
+    console.log( input.getAttribute('checked') );
+    console.log( input.checked );
+  </script>
+
+  <input id="new_input" type="text" value="markup">
+
+  <script name="new_input">
+    new_input.value = 'new';
+    console.log(' ');
+    console.log( 'DOM(=new):', new_input.value );
+    console.log( 'HTML(...):', new_input.getAttribute('value') );
+    console.log(' ');
+    new_input.setAttribute( 'value', 'newAtt' );
+    console.log( 'DOM(set newAtt):', new_input.value );
+    console.log( 'HTML(...):', new_input.getAttribute('value') );
+
+    function changeInput() {
+      if (new_input.getAttribute('value') === 'newAtt') {
+        new_input.setAttribute( 'value', 'fuck you' );
+        new_input.value = 'wasted';
+      } else {
+        new_input.setAttribute( 'value', 'newAtt' );
+        new_input.value = 'newAtt';
+      }
+    };
+  </script>
+  <input class="button" type="submit" name="btn" value="changeInput" onclick="changeInput()">
+
+  <script name="className">
+    console.log( '.className:', document.body.className );
+
+    document.body.className = "class1 class2";
+    console.log('Changed .className:', document.body.className );
+    console.log(' ');
+  </script>
+
+  <label id="label" for="sexy">CoCo</label>;
+  <input type="textarea" id="sexy">;
+
+  <script type="text/javascript">
+    console.log('For == .htmlFor:', label.htmlFor);
+    var body = document.body.classList;
+    console.log( 'classList.contains("class"):', body.contains('class1') );
+    body.add('class99');
+    console.log( 'classList.add("class"); contains("class"):', body.contains('class99') );
+    body.remove('class99');
+    console.log( 'classList.remove("class"); contains("class"):', body.contains('class99') );
+    body.toggle('class99');
+    console.log( 'classList.toggle("class") if not - adds:', body.contains('class99') );
+    body.toggle('class99');
+    console.log( 'classList.toggle("class") if yes - remove:', body.contains('class99') );
+  </script>
+
+  <div class="main div" id="divka">Wohoo</div>
+
+  <script name="divka">
+    var classList = divka.classList;
+
+    classList.remove('main');
+    classList.add('post');
+    console.log(' ');
+
+    for (var i = 0; i < classList.length; i++) {
+      console.log( 'Div class #' + (i + 1) + ': ' + classList[i] + '.' );
+    }
+
+    console.log( 'Div.contains("post"):', classList.contains('post') );
+    console.log( 'Div.className:', divka.className );
+  </script>
+
+  <div id="elem1" href="http://ya.ru" about="Elephant"></div>
+  <img id="img" href="test">
+  <a id="link" alt="test">link</a>
+
+  <script type="text/javascript">
+    console.log(' ');
+    console.log( 'Elem.id(standart):', elem1.id );
+    console.log( 'Elem.about(non-standart)', elem1.about );
+    console.log( 'Non-standart properties:', img.href, ', ', link.alt );
+  </script>
+
+  <div class="order" order-state="new">
+    New order.
+  </div>
+
+  <div class="order" order-state="pending">
+    Waiting order.
+  </div>
+
+  <div class="order" order-state="canceled">
+    Canceled order.
+  </div>
+
+  <div id="new_order" class="order" order-state="unknown">
+    Some order.
+  </div>
+
+  <input type="submit" value="Change status of Order" onclick="changeStatusOfOrder()">
+
+  <script type="text/javascript">
+    function changeStatusOfOrder() {
+      var mass = ['unknown', 'new', 'pending', 'canceled'];
+      var att = new_order.getAttribute('order-state');
+
+      for (var i = 0; i < mass.length; i++) {
+        if (att === mass[i]) {
+          if ( (i + 1) === mass.length ) {
+            new_order.setAttribute('order-state', mass[0]);
+            break;
+          }
+          new_order.setAttribute('order-state', mass[i+1]);
+          break;
+        }
+      }
+    }
+  </script>
+
+  <div id="data1" data-about="Elephant" data-user-location="street">
+    There's elephant goes on a street, it was so fat but tiny feet.
+  </div>
+
+  <script type="text/javascript">
+    console.log(' ');
+    console.log( 'Data-element 1(get):', data1.getAttribute('data-about') );
+    console.log( 'Data-element 2(get):', data1.getAttribute('data-user-location') );
+    console.log( 'one-two === oneTwo if .dataset:' );
+    console.log( 'data-user-location === element.dataset.userLocation;' );
+    console.log( 'Data-element 1(.dataset.property):', data1.dataset.about );
+    console.log( 'Data-element 2(.dataset.property):', data1.dataset.userLocation );
+    console.log(' ');
+  </script>
+
+  <style>
+    [hidden] { display: none }
+  </style>
+
+  <script name="IE11-hiddenPolyfill" type="text/javascript">
+    if (document.documentElement.hidden === undefined) {
+      Object.defineProperty(Element.prototype, 'hidden', {
+        set: function(value) {
+          this.setAttribute('hidden', value);
+        },
+        get: function() {
+          return this.getAttribute('hidden');
+        }
+      });
+    }
+  </script>
+
+  <div>Text</div>
+  <div hidden>Hidden attribute</div>
+  <div id="last">Hidden property</div>
+
+  <script>
+    last.hidden = true;
+  </script>
+
+  <div id="widget" data-widget-name="menu">Choose genre</div>
+
+  <script name="widget" type="text/javascript">
+    var widg = widget;
+    var widgetName = widg.dataset.widgetName;
+    console.log( 'Widget name is:', widgetName );
+  </script>
+
+  <style>
+    .external {
+      background-color: yellow;
+    }
+    .external2 {
+      color: red;
+      text-decoration: none;
+    }
+  </style>
+
+  <a name="list">list</a>
+  <ul>
+    <li><a href="http://google.com">Google</a></li>
+    <li><a href="/tutorial">Tutorial</a></li>
+    <li><a href="local/path">Local Path</a></li>
+    <li><a href="ftp://ftp.com/my.zip">FTP</a></li>
+    <li><a href="http://nodejs.org">Node</a></li>
+    <li><a href="http://internal.com/test">Test</a></li>
+  </ul>
+
+  <script name="internal" type="text/javascript">
+    var mass = document.querySelectorAll('a');
+
+    for (var i = 0; i < mass.length; i++) {
+      var href = mass[i].getAttribute('href');
+
+      if ( !href ) continue;
+      if ( !~href.indexOf('://') ) continue;
+      if ( ~href.indexOf('http://internal.com') ) continue;
+
+      mass[i].classList.add('external');
+    }
+  </script>
+
+  <script name="external-css" type="text/javascript">
+    var css = 'a[href*="://"]:not([href^="http://internal.com"])';
+    var links = document.querySelectorAll(css);
+
+    for (var i = 0; i < links.length; i++) {
+      links[i].classList.add('external2');
+    }
+  </script>
+
+</body>
+</html>

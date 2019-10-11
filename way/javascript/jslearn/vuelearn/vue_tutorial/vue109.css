@@ -1,0 +1,8 @@
+.region {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: #999;
+  transition: all 1s;
+}

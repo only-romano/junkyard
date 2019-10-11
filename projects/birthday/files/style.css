@@ -1,0 +1,577 @@
+
+body {
+  overflow-x:hidden;  /* Решение проблемы с картинками, выходящими за пределы */
+  background: rgb(98, 51, 23) url(field1.png) 0 50%;  /* Возможно, заменю фон. Он что-то не день-рожденческий. Не охото всю цветовую схему менять, только :( */
+  color: rgb(246, 131, 31);
+}
+
+h2 {
+  background-image: url(h2bg.png);    /* Надо попробовать сделать все h1 block'ами. Тогда избавлюсь от кучи лишних div-обёрток в HTML.  */
+  border: 2px solid rgb(246, 131, 31);
+  text-align: center;
+  line-height: 1.4;
+  font-size: 175%;
+  font-weight: bold;
+  text-shadow: black 0 0 5px;
+  color: rgb(246, 131, 31);
+}
+
+p {
+  color: bisque;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.page-header {
+  position: relative;
+  width: auto;
+  min-height: 250px;
+  background: rgb(98, 51, 23) url(header-image.png) no-repeat 0 50%;
+  background-size: 100%;   /* Растягивает фоновое изображение на высоких разрешениях */
+  border: 2px solid rgb(246, 131, 31);
+}
+
+.top-img {  /* Логотип, надо заменить + возможно, избавиться от абсолютного позиционирования. Но, вроде оно проблем не доставляет. */
+  position: absolute;
+  left: 10px;
+  top: -10px;
+}
+
+.page-header h1 {
+  position: relative;
+  margin-bottom: 3px;
+  padding-left: 200px;  /* Если избавляться от абсолюта логотипа - придётся переделывать */
+  padding-top: 65px;
+  text-align: left;
+  letter-spacing: 3px;
+  font-family: Garamond, Helvetica, Bookman, Palatino, sans-serif;
+  font-size: 350%;
+  font-weight: bold;
+  text-shadow: black 0 0 5px;
+  color: rgb(246, 88, 1);
+}
+
+.links {
+  margin-top: -150px;  /* Из-за адаптивного уменьшения марджинов минусовых, уходит чуть-чуть вверх область нажатия ссылки
+   :( Лечится потереей пропорции (прыжками вверх ссылки), при увеличении масштаба. К сожалению, "стояния ссылки на месте"
+   добиться не удалось. То есть это вполне можно организовать, уменьшив адаптивные марджины. Но область нажатия нещадно
+   убегает вверх */
+  text-align: right;
+
+}
+
+.links a {
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 135%;
+  color: rgb(246, 131, 31);
+  text-shadow: black 0 0 3px;
+  text-decoration: none;
+  z-index: 1000;  /* Просто, на всякий случай, чтобы не переживать за ссылки */
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.sic {    /* Опять же, можно подумать, как избавиться от абсолюта - он заставляет меня переживать :) */
+  position: absolute;
+  right: 0;
+  top: 195px;
+  padding-right: 5px;
+  text-align: right;
+  font-family: Garamond, sans-serif;
+  text-shadow: black 0 0 4px;
+}
+
+.new_h2 {  /* Кастомный h2, используется только один раз под хэдером */
+  margin-top: 0px;
+  padding-left: 15px;
+  border-top: none;
+  text-align: left;
+  text-shadow: black 0 0 5px;
+  font-style: italic;
+  color: rgba(246, 131, 31, 0.85);
+}
+
+.photo {
+  text-align: center;
+}
+
+.fat_butt {  /* Возможно, проще было прописать в дефолтном h2 - всё равно, почти везде пользую этот класс. */
+  position: relative;
+  min-height: 40px;
+}
+
+.welcome {
+  position: relative;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 200%;
+  text-shadow: black 0 0 2px;
+}
+
+.button {
+  background: linear-gradient(to right bottom, rgb(246, 131, 31), #121127);
+  font-family: "Tahoma", sans-serif;
+  font-size: 175%;
+  padding: 15px;
+  font-weight: bold;
+  color: bisque;
+  border: none;
+  border-radius: 10%;
+  cursor: pointer;
+  text-shadow: blue 0 0 3px;
+  box-shadow: 0 -5px 10px -3px bisque,
+    0 5px 10px -3px bisque;
+}
+
+.sitting {
+  position: absolute;
+  z-index: 1;
+}
+
+.white {
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: -25px 1px -230px 1px;
+  padding: 20px 0 145px 0;
+}
+
+.div-invis {  /* Вспомогательные панельки для "эффекта ноги". Столько пафоса для одной плюшки, что никто не заметит, ахах. Но мне нравится. */
+  z-index: 1;
+}
+
+.div-vis {
+  z-index: 1;
+}
+
+.baby {
+  position: relative;
+  margin-bottom: -199px;
+  white-space: nowrap;  /* Волшебство, как оно есть. */
+  text-align: center;
+}
+
+.invis {  /* НОГА. */
+  position: relative;
+  margin-right: -175px;
+  z-index: 0;
+}
+
+.dpan {  /* h3 */
+  text-align: center;
+  font-size: 150%;
+  color: bisque;
+  padding: 15px 0;
+  text-shadow: black 0 0 4px;
+}
+
+.board {
+  margin: -45px 2px -25px 2px;
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.pp {  /* Возможно, избавлюсь от этого класса. Только ради li его держу. А так у p и так прописан цвет бисквитный. Если что - не забыть в sic изменить размер щрифта. */
+  padding: 5px 10px;
+    color: bisque;
+    text-decoration: none;
+    font-size: 125%;
+  text-shadow: black 0 0 4px;
+}
+
+.vis {
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.card img {
+  max-width: 720px;
+  width: 90%;
+}
+
+.book {
+  position: static;
+  padding-right: 10px;
+  margin-top: -75px;
+  width: 40%;
+  float: right;
+}
+
+.page-footer {
+  position: relative;
+  width: auto;
+  background: url(footer-image.png) no-repeat 0 40%;
+  background-size: 100%;
+  border-top: 1px solid rgb(246, 131, 31);
+  border-left: 2px solid rgb(246, 131, 31);
+  border-right: 2px solid rgb(246, 131, 31);
+  border-bottom: 2px solid rgb(246, 131, 31);
+}
+
+.rights {
+  position: absolute;
+  left: 55px;
+  bottom: 35px;
+  color: black;
+}
+
+.logo {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-bottom: 5px;
+}
+
+.developer {
+  position: absolute;
+  left: 55px;
+  bottom: 17px;
+  color: black;
+}
+
+.developer a {
+  font-family: Garamond, Helvetica, Bookman, Palatino, sans-serif;
+  text-decoration: none;
+  text-shadow: black 0 0 3px;
+  color: black;
+}
+
+.socials {
+  margin-left: 220px;
+}
+
+.social {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  margin-bottom: 0;
+  width: 30px;
+  height: 30px;
+  background: #bdc3c7 url(social.png);
+}
+
+.social-fb {
+  background-position: 60px 0;
+}
+
+.social-tw {
+  background-position: 30px 0;
+}
+
+.downlinks {
+  text-align: right;
+}
+
+.downlinks a {
+  display: inline-block;
+  padding: 0 5px;
+  text-decoration: none;
+  font-size: 85%;
+  text-shadow: black 0 0 3px;
+  color: rgb(246, 131, 31);
+  z-index: 1000;  /*ибо ссылки*/
+}
+
+.downlinks a:hover {
+  text-decoration: underline;
+}
+
+.bot-img {
+  position: absolute;
+  right: 10px;
+  bottom: -10px;
+}
+
+
+/* Адаптации */
+@media screen and (max-width: 1050px) {
+  .page-header h1 {
+    padding-left: 150px;
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  .page-header {
+    min-height: 200px;
+  }
+  .page-header h1 {
+    font-size: 300%;
+  }
+  .links {
+    margin-top: -140px;
+  }
+  .sic {
+    top: 145px;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .page-header h1 {
+    font-size: 250%;
+  }
+  .links {
+    margin-top: -130px;
+  }
+}
+
+
+@media screen and (max-width: 720px) {
+  .page-header {
+    background: url(header-image.png) no-repeat 0 25%;    /* Борьба с размером картинки по высоте */
+  }
+  .page-header h1 {
+    padding-top: 55px;
+    font-size: 200%;
+    margin-bottom: -20px;
+  }
+  .links {  /* Новая менюшка */
+    display: block;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-top: 60px;
+    background-color: rgba(0, 0, 0, 0.88);
+    z-index: 1000;
+    overflow: auto;  /* Да будет скролл */
+  }
+  .links a {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 135%;
+    color: rgb(246, 131, 31);
+  }
+  .sic {  /* Вырубаем цитатку */
+    display: none;
+  }
+  .invis img {
+    width: 20%;
+  }
+  .book {
+    display: inline;
+    text-align: center;
+    margin-top: 0;
+    width: 95%;
+    float: auto;
+  }
+  .downlinks {  /* Новая менюшка футера */
+    display: block;
+    top: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    margin-top: 0px;
+    background-color: rgba(0, 0, 0, 0.88);
+    z-index: 1000;
+  }
+  .downlinks a {
+    display: inline-block;
+    padding: 5px 10px 5px 0;
+    text-align: center;
+    font-size: 125%;
+    width: 20%;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  iframe {
+    width: 95%;
+  }
+  .invis img {  /* Вырубаем ногу */
+    display: none;
+  }
+  .vis img {
+    margin-left: 40px;
+  }
+  .downlinks a {
+    font-size: 100%;
+  }
+}
+
+
+@media screen and (max-width: 520px) {
+  .social {  /* Вырубаем соцсети */
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .page-header h1 {
+    font-size: 150%;
+  }
+  .new_h2 {
+    padding-left: 0;
+    text-align: center;
+  }
+  iframe {
+    height: 250px;
+  }
+  .white {
+    margin-bottom: -55px;
+    padding-bottom: 25px;
+}
+  .vis img {  /* Вырубаем девушку */
+    display: none;
+  }
+  .div-invis {  /* И вспомогалку */
+    display: none;
+  }
+  .div-vis {
+    margin-top: 200px;
+  }
+  .downlinks a {
+    width: auto;
+  }
+}
+
+
+@media screen and (max-width: 420px) {
+  .downlinks a {  /* Вертикальное расположение кнопочек менюшки футера */
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 360px) {
+  .sitting {
+  display: none;
+  }
+  iframe {
+    height: 200px;
+  }
+  .rights {
+    left: 35px;
+  }
+  .logo {
+    margin-top: -10px;
+    padding-left: 0px;
+  }
+  .developer {
+    left: 35px;
+  }
+  .developer strong {
+    display: none;
+  }
+  .bot-img {
+    right: 5px;
+    bottom: -20px;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .top-img {
+    position: relative;
+    margin-left: -20px;
+    margin-bottom: -150px;
+    text-align: center;
+  }
+  .page-header h1 {
+    padding-left: 0;
+    padding-top: 150px;
+    text-align: center;
+  }
+  .button {
+    width: 95%;
+    font-size: 125%;
+  }
+  iframe {
+    height: 150px;
+  }
+  .book img {
+    width: 80%;
+  }
+  .page-footer {
+    background: url(footer-image.png) no-repeat 0 40%;
+  }
+}
+
+
+@media screen and (max-width: 288px) {
+  .page-footer br {
+    padding-bottom: -50px;
+  }
+  .logo {
+    margin: 0px;
+    padding: 0px;
+  }
+  .rights {
+    left: 30px;
+    bottom: 40px;
+    font-size: 75%;
+  }
+  .developer {
+    left: 30px;
+    bottom: 20px;
+  }
+}
+
+
+@media screen and (max-width: 260px) {
+  .button {
+    font-size: 110%;
+  }
+}
+
+
+@media screen and (max-width: 230px) {
+  .bot-img {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 220px) {
+  h2 {
+    font-size: 125%;
+  }
+  .page-header h1 {
+    font-size: 100%;
+  }
+  .welcome {
+    overflow: auto;
+  }
+  .button {
+    font-size: 80%;
+  }
+  .links a {
+    font-size: 125%;
+  }
+}
+
+
+@media screen and (max-width: 170px) {
+  h2 {
+    font-size: 100%;
+  }
+  .links a {
+    font-size: 100%;
+  }
+  .button {
+    padding-left: 5px;
+    font-size: 75%;
+  }
+  .rights {
+    font-size: 60%;
+    bottom: 43px;
+  }
+  .developer {
+    font-size: 75%;
+    bottom: 22px;
+  }
+}

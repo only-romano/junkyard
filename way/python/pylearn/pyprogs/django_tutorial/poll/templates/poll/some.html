@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS learning</title>
+</head>
+<body>
+<script>
+    let firstNum = 12;
+    let secondNum = 34;
+    document.write ("Результат: " + firstNum + secondNum);  // сложатся как строки;
+    document.write ("<br>" + Math.PI + "<br>");  // можно использовать теги внутри кода;
+    document.writeln ("Результ сложения: ", firstNum + secondNum);  // сложатся как числа;
+
+    let bool = false;
+    if (!bool) {    // быстрое отрицание вне сложныъ логических операций;
+        console.log (bool + " is false");
+    }
+
+    let colors = Array ("Red", "Green","Blue");
+    colors.push ("Grey");  // добавление элемента в конец массива;
+    document.write ("<br>" + colors);
+
+    let res = 3;
+    switch (res) {      // повторение конструкции 'switch-case-case'
+        case 1:
+            alert ("Res is 1");
+            break;
+        case 2:
+            alert ("Res is 2");
+            break;
+        case 3:
+            alert ("Res is 3");
+            break;
+        default:
+            alert ("Res is not defined for me");
+            break;
+    }
+
+    let person = {                          // создание объекта - словарь по сути;
+        firstName: "Sergio",
+        age: 27,
+        children: ['Angelina', 'Jessica'],
+        adress: {
+            state: 'Omsk region',
+            city: 'Omsk',
+            street: 'Young Guardion st.'
+        },
+        NameAge: function () {
+            return this.firstName + ", age is - " + this.age;
+        }
+    };
+    document.write ('<br>' + person.NameAge ());
+
+    let apple = Object ();      // ещё вариант создания объекта;
+    apple.color = 'green';
+    apple.shape = 'round';
+    document.write ('<br>' + apple.color);
+
+    function Fruit (color, shape) {
+        this.color = color;
+        this.shape = shape;
+    }
+    let melon = new Fruit ('yellow', 'round');
+    document.write ('<br>' + melon.color);
+</script>
+</body>
+</html>

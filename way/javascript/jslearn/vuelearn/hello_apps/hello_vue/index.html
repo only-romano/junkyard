@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learn Vue.js, part 1</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-on:input="setMessage" />
+    <p>{{message}}</p>
+  </div>
+  <div id="app2" class="someclass">
+    <p>{{name}}</p>
+    <p>{{welcome()}}</p>
+    <p>Name: {{displayName()}}</p>
+    <p>Мне {{age === 27 ? 'скоро 28 лет' : 'Уже 28 лет'}}</p>
+    <p>Factorial of 6 is equal to {{factorial(6)}}</p>
+    <a v-bind:href="link">{{text}}</a><br>
+    <input type="text" v-on:input="setMessage" />
+    <p v-once>{{message}}</p>
+    <div v-html="htmlmessage"></div>
+    <div>{{htmlmessage}}</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="aastart.js"></script>
+</body>
+</html>

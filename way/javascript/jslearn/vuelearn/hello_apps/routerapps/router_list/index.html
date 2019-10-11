@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Routing Vue.js</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="router2.css" />
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li><router-link to="/" exact>Home</router-link></li>
+      <li><router-link to="/products/tablets">Tablets</router-link></li>
+      <li><router-link to="/products/tablets/2">Tablet 2</router-link></li>
+      <li><router-link to="/products/phones">Phones</router-link></li>
+      <li><router-link to="/products/phones/3">Phone 3</router-link></li>
+    </ul>
+    <router-view></router-view>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="router2.js"></script>
+</body>
+</html>

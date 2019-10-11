@@ -1,0 +1,7 @@
+a {
+  padding: 5px;
+}
+
+a.router-link-active, li.router-link-active>a {
+  color: red;
+}
