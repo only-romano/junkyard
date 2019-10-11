@@ -1,16 +1,17 @@
-## Birthday Card (love)
+## Online Birthday Card
 
-> june 2019
+[Available online](https://ripssr.github.io/hbk_n/)
 
-[online version](https://ripssr.github.io/hbk_n/)
-
-Birthday card for ex
-
-> tech: JavaScript (Vue.js)
-
-##### oh, yes, it's russian
-
-> don't do bday cards. i usually break up relationships after a month or so after sending an online birthday card. name, age censored
+___
 
 
-Images may not be available for free usage. Just surfed web to get them without licence specified.
+#### Birthday card for an EX. Farewell asshole. Warning: russian language.
+
+#### Онлайн-открытка от души душевно в душу.
+
+___
+
+> Stack: Vue.js, frontend only
+
+> june 2019 (completed)
+

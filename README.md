@@ -1,26 +1,30 @@
-# junkyard
+# JunkYard TM
+___
 
-> useful and meaningless stuff, pretty cool all the way
+#### Interesting and meanful (or meaningless) stuff, pretty cool by the way. Reusable sources (web resources, classes, modules), projects (websites, games, applications), Code Combat guide, my way in programming (1,5 years of learning, including training projects).
 
-### List of contents
+##### Интересный и не очень материал. Полезные исходники (ресурсы, классы, модули), проекты (сайты, игры, приложения), руководство по Code Combat (не знаю зачем я месяц потратил на это), история моего обучения (продолжительностью уже в 1.5 года, включая учебные проекты).
+___
 
-* [Code Combat Guide](code_combat/)
+### List of contents:
 
-* Meaningful Projects
-    + [Birthday Lovecard](bday/) + [online](https://ripssr.github.io/hbk_n/)
+* Projects
+    + [Code Combat Guide](code_combat/)
+	> Encyclopedy of Code Combat game with solutions in Python and JavaScript
+    + [Online Birthday Card](bday/) - [available online](https://ripssr.github.io/hbk_n/)
     + [C# Interactive Educational Console App](csharp/csharpapp/)
-    + [Python games](python/pygames/)
-    + [JavaScript games](javascript/jsgames/)
-    + [Сайт-открытка - с днём рождения](javascript/birthday/) + [online](https://ripssr.github.io/birthday/)
-    + [Python Mini-Projects](python/pyprojects/)
-    + [Frontend Mini-Projects](javascript/jsprojects/)
+    + [Python-engine games](python/pygames/)
+    + [JavaScript-engine games](javascript/jsgames/)
+    + [Python Projects](python/pyprojects/)
+    + [Frontend Projects](javascript/jsprojects/)
+    + [another Birthday-card](javascript/birthday/) + [available online](https://ripssr.github.io/birthday/)
 
-* Useful Sources
-    + [Frontend Resources](useful/frontend_stuff/)
-    + [JavaScript sources](useful/jsFuncs/)
+* Useful Reusable Sources
     + [Python sources](useful/python_funcs/)
+    + [JavaScript sources](useful/jsFuncs/)
+    + [Frontend Resources](useful/frontend_stuff/)
 
-* Learning and Tutorials - Programming Languages
+* My Way in Programming - Learning and Coding
     + [Learning Python](python/pylearn/)
     + [Learning JavaScript](javascript/jslearn/)
     + [Learning Go](langs/golearn/)
@@ -28,8 +32,6 @@
     + [Learning HTML/CSS](langs/frontendlearn/)
     + [Learning Swift](langs/swiftlearn/)
     + [Learning C#](csharp/csharplearn/)
-
-* Learning and Tutorials - Systems, DB, Tools, Math
     + [Learning Linux](tools/linuxlearn/)
     + [Learning SQL](tools/sqllearn/)
     + [Learning Git](tools/gitlearn/)
