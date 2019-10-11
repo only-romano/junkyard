@@ -16,15 +16,15 @@ ___
 
 + [git help](git0.jpg)
 + [git init; git config](git1.jpg)
-+ [](git2.jpg)
-+ [](git3.jpg)
-+ [](git4.jpg)
-+ [](git5.jpg)
-+ [](git6.jpg)
-+ [](git7.jpg)
-+ [](git8.jpg)
-+ [](git10.jpg)
-+ [](git_site3.jpg)
++ [git commit -am "text"; добавление и коммит](git2.jpg)
++ [Откат проекта с помощью git](git3.jpg)
++ [Практика](git4.jpg)
++ [PyCharm commit](git5.jpg)
++ [...](git6.jpg)
++ [git remote; git help command](git7.jpg)
++ [echo "text" >> file](git8.jpg)
++ [git diff --cached](git10.jpg)
++ [Практика - git fetch; git pull](git_site3.jpg)
 
 > 2018, Jan
 
