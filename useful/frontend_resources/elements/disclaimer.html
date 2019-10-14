@@ -1,0 +1,100 @@
+<style>
+  .disclaimer {
+    /* disclaimer window style */
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0 10px 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    background: linear-gradient(to right top, rgba(128, 128, 128, 0.2),
+                rgba(255, 255, 255, 0.4));
+    text-shadow: lavender 0 0 1px;
+    color: gray;
+    cursor: pointer;
+  }
+  .disclaimer:hover {
+    color: black;
+    border-color: black;
+  }
+
+  .disclaimer__legend {
+    /* header style */
+    color: rgb(112, 112, 148);
+    font-size: 2em;
+  }
+  .disclaimer:hover .disclaimer__legend {
+    color: rgb(64, 64, 96);
+  }
+
+  .disclaimer__text {
+    /* Disclaimer message style */
+    padding: 0 20px 5px;
+    font-size: 1.25em;
+  }
+
+  .disclaimer__opener {
+    /* Disclaimer open button */
+    padding: 5px;
+    background: rgba(196, 196, 196, 0.2);
+    border-radius: 10px;
+    text-shadow: lavender 0 0 2px;
+    color: rgba(100, 100, 100);
+    cursor: pointer;
+    user-select: none;
+  }
+  .disclaimer__opener:hover {
+    background: rgba(196, 196, 196, 0.3);
+    color: black;
+  }
+
+  .disclaimer, .disclaimer__opener, .disclaimer__legend {
+    opacity: 1;
+    -webkit-transition: .5s; -moz-transition: .5s;
+    -o-transition: .5s; transition: .5s;
+  }
+
+  .disclaimer__closed {
+    display: none;
+  }
+</style>
+
+<fieldset class="disclaimer disclaimer__closed" title="Hide">
+  <legend class="disclaimer__legend">Header</legend>
+  <p class="disclaimer__text">Text of disclaimer</p>
+</fieldset>
+
+<span class="disclaimer__opener" title="Show">❔ Disclaimer ❔</span>
+
+<script type="text/javascript">
+// -- smooth opacity edition --
+const toggleDisclaimer = () => {
+  // change if you changing class-names of disclaimer's elements
+  let disclaimer = document.getElementsByClassName('disclaimer')[0];
+  let opener = document.getElementsByClassName('disclaimer__opener')[0];
+
+  if (disclaimer.classList.contains('disclaimer__closed')) {
+    let temp = disclaimer;
+    disclaimer = opener;
+    opener = temp;
+  }
+
+  disclaimer.style.opacity = '0';
+  setTimeout(()=>{
+    disclaimer.classList.toggle('disclaimer__closed');
+    disclaimer.style.opacity = '1';
+    opener.style.opacity = '0';
+    opener.classList.toggle('disclaimer__closed');
+    setTimeout(()=>{
+      opener.style.opacity = '1';
+    }, 10);
+  }, 0);
+};
+
+(()=>{
+  // change if you changing class-names of disclaimer's elements
+  document.getElementsByClassName('disclaimer__opener')[0].onclick
+  = document.getElementsByClassName('disclaimer')[0].onclick
+  = toggleDisclaimer;
+})()
+</script>

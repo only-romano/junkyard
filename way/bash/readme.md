@@ -1,20 +1,26 @@
-## _Tools_
+## _Bash_
 
 
 <br>
 
 
-> You're not suppose to be here. Get out. Naah, just kidding :_) Get a fuck outta here.
+###### *RU*
+
+> Консолька, терминальчик, пушистинький подвальчик
 
 
 <br>
+
+
+###### *EN*
+
+
+> bash terminal stuff, maybe powershell to, who knows
 
 ___
 
-#### Sex with Robots:
 
-+ [I'm gonna Qwak you so mean](linuxlearn/)
-+ [Play with your Primary Key](sqllearn/)
-+ [Push it harder](gitlearn/)
-+ [NOT you OR me AND robots](logiclearn/)
+#### Table of contents:
+
++ [Useful commands](useful_commands.md)
 

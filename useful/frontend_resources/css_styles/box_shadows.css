@@ -1,0 +1,26 @@
+/* КЛАССЫ */
+
+.block__marked_green, .block__marked_red, .block__marked_yellow {
+    /* Styled blocks with border left */
+    padding: 5px 10px;
+    margin: 10px 0;
+    border: 1px solid #27ae60;
+    border-left-width: 10px;
+}
+.block__marked_green {
+    background-color: #2ecc71;
+}
+.block__marked_red {
+    border-color: #c0392b;
+    background-color: #e74c3c;
+}
+.block__marked_yellow {
+    border-color: #f39c12;
+    background-color: #f1c40f;
+}
+
+.photocard__shadow {
+    /* Pretty image border with shadow */
+    border-radius: 10px;
+    box-shadow: 0 0 5px #666;
+}

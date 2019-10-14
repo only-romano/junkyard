@@ -1,4 +1,4 @@
-## Metanit - Python
+## Metanit - Swift
 
 > march 2019
 

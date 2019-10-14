@@ -1,20 +1,6 @@
-## _Tools_
-
-
-<br>
-
-
-> You're not suppose to be here. Get out. Naah, just kidding :_) Get a fuck outta here.
-
+## _Bash usefull commands_
 
 <br>
 
-___
-
-#### Sex with Robots:
-
-+ [I'm gonna Qwak you so mean](linuxlearn/)
-+ [Play with your Primary Key](sqllearn/)
-+ [Push it harder](gitlearn/)
-+ [NOT you OR me AND robots](logiclearn/)
+Kill all related processes: **ps ax|grep *name*|cut -c1-5|xargs kill -9**
 

@@ -1,11 +1,29 @@
-## Swift Learning
+## _Swift_
 
-> mar-apr 2019
+
+<br>
+
+###### *RU*
+
+> небольшая практика с языком **Swift**, без мака это не очень удобно и нужды пока не было
+
+
+<br>
+
+###### *EN*
+
+
+> **Swift** short practice
+
+___
+
 
 #### Table of contents:
-+ Simple Projects
-    - [Heart app, apr 2019](app_heart/)
-    - [Race app, apr 2019](app_race/)
-+ [Metanit, mar 2019](metanit/)
-+ [Solo Learn, mar 2019](sololearn/)
+
++ [**Metanit** course](metanit/ "2019 March")
++ [**Solo Learn** course](sololearn/ "2019 March")
+
+
+> 2017, Nov - 2018, Jan
+
 

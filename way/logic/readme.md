@@ -1,4 +1,4 @@
-## _Learning Logic_
+## _Logic_
 
 
 <br>

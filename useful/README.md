@@ -1,29 +1,28 @@
-## _Useful Sources and Resources_
-
-
-<br>
-
-###### *RU*
-
-> Полезные ресурсы, которые могут пригодиться неоднократно. Модули, классы, ресурсы для фронтенда.
-
+## _Reusable Sources_
 
 <br>
 
 ###### *EN*
 
+> Modules, classes, hacks, frontend resources.
 
-> Reusable resources, classes, modules, hacks
+<br>
+
+###### *RU*
+
+> Полезные ресурсы, которые могут использоваться неоднократно. Модули, классы, хаки, ресурсы для фронтенда.
 
 ___
 
 
 #### Table of contents:
 
-+ [Python sources](python_funcs/)
-+ [JavaScript sources](jsFuncs/)
-+ [Frontend Resources](frontend_stuff/)
++ [Python](python_sources/)
++ [JavaScript](js_sources/)
++ [Frontend Resources](frontend_resources/)
++ [Go](go_sources/)
 
 + Various
     * [Bash useful commands](../way/bash/useful_commands.md)
+    * [RegEx useful patterns](../way/regex/useful_patterns.md)
 

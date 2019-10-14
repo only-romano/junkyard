@@ -1,4 +1,4 @@
-## _Learning Linux_
+## _Linux_
 
 
 <br>

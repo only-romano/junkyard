@@ -17,25 +17,22 @@ ___
 ### List of contents:
 
 * __Projects__
-    + [__Code Combat Guide__](code_combat/)
-	> Encyclopedy of Code Combat game with solutions in Python and JavaScript
-    + [__Birthday Card__](projects/bday/) - [available online](https://ripssr.github.io/hbk_n/)
-    + [Birthday-card, yes, another one](projects/birthday/) + [available online](https://ripssr.github.io/birthday/)
-    + ["Treasure Hunting" game](projects/treasure_hunting/) + [available online](https://ripssr.github.io/treasure_hunting/)
-    + [C# Interactive Educational Console App](projects/csharpapp/)
-
-    + [__Python Games__](python/pygames/)
-    + [__Python Projects__](python/pyprojects/)
-    + [__Frontend Games__](javascript/jsgames/)
-    + [__Frontend Projects__](javascript/jsprojects/)
-    + [Mini Projects]()
-    + [Small games]()
-    + [Micro-Applications]()
+    + [__Academy__ frontend learning courses](https://only-romano.github.io/academy/ "Ongoing, since 2018, November; Vue.js")
+    + [__Code Combat Guide__ markdown encyclopedy with solutions](code_combat/ "2019, June - July; Markdown")
+    + [__Awesome Blog__ micro CMS](https://this-is-awesome.herokuapp.com/ "2018, April - June; Python Django, PostgreSQL, Frontend")
+    + ["__Soccer Heads__" browser game](https://only-romano.github.io/soccer/ "JavaScript; 2018 Apr")
+    + [__Games__](games/ "2017 - 2019")
+    + [Minor Projects](projects/minor/ "2017 - 2019")
+    + [Training Projects](projects/training/ "2018 - 2019")
+    + [Blueprints](projects/blueprints/ "2018 - 2019")
+    + [Micro Applications](projects/micro/ "2018 - 2019")
 
 * __Useful Reusable Sources__
-    + [__Python__](useful/python_funcs/)
-    + [__JavaScript__](useful/jsFuncs/)
-    + [__Frontend__](useful/frontend_stuff/)
+    + [__Python__](useful/python_sources/)
+    + [__JavaScript__](useful/js_sources/)
+    + [__Frontend__](useful/frontend_resources/)
+    + [__Go__](useful/go_sources/)
+    + [Various](useful/)
 
 * My Way in Programming - Learning and Coding
     + [The __Python__ King](way/python/)
@@ -47,10 +44,11 @@ ___
     + [Taylor __Swift__](way/swift/)
     + [Holy __Linux__](way/linux/)
     + [The Empire Strikes __Bash__](way/bash/)
+    + [Never call your __regEx__ when you drunk at night and don't know what to do with your life](way/regex/)
     + [__SQL__, James SQL](way/sql/)
     + [__Git__ it?](way/git/)
     + [__Logic__](way/logic/)
 
-* [Ideas](useful/ideas/)
+* [Ideas](way/ideas/)
 * [Dump](dumpyard/)
 

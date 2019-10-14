@@ -1,0 +1,11 @@
+/* КЛАССЫ */
+
+.text__soccer {
+  /* Soccer game, https://only-romano.github.io/soccer/ */
+
+  /* Title font, color and textshadow */
+  font-family: 'Blackadder ITC';
+  color: #cae2e3;
+  text-shadow: black 0 0 3px, #2d2121 2px 5px 5px;
+  letter-spacing: 0.33em;
+}

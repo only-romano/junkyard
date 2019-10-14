@@ -1,0 +1,20 @@
+/* CLASSES */
+
+/* pretty table color scheme */
+.table__pretty tr {
+    border-bottom: 1px solid lightgray;
+}
+.table__pretty tr:nth-child(1 + 2n) {
+    background-color: #f1c40f;
+}
+.table__pretty th {
+    color: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.table__pretty th:nth-child(odd) {
+    background-color: darkcyan;
+}
+.table__pretty th:nth-child(even) {
+    background-color: lightblue;
+}

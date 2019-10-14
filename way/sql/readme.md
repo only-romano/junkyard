@@ -1,4 +1,4 @@
-## _Learning SQL_
+## _SQL, James SQL_
 
 
 <br>
