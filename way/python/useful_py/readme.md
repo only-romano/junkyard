@@ -24,6 +24,7 @@ ___
 	+ [Physic Object](classes_py/physic_object.py)
 	+ [Typed list class](classes_py/typed_list.py)
 * [Functions](funcs_py/)
+	+ [Prime factors](prime_factors.py)
 	+ [Nested lists Flatorizator](flatten.py)
 	+ [Adding line numbers to file](line_numbers.py)
 	+ [Word, line, characters counter of file](py_wc.py)
