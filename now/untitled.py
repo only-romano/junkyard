@@ -8,5 +8,4 @@ for x in range(randint(1,1000)):
 
 def pancake_sort(arr):
     for i in range
-
 print(a)
