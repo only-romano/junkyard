@@ -1,4 +1,4 @@
-### _Frontend resources_
+### _Frontend resources_ -- _Фронтенд ресурсы_
 
 <br>
 
@@ -15,7 +15,7 @@
 ___
 
 
-#### Table of contents:
+#### Table of contents -- Содержание:
 
 + [Templates](templates/)
     * [Punpun Template](templates/punpun/) + [online](https://ripssr.github.io/punpun/)

@@ -4,26 +4,23 @@
 <br>
 
 
-###### *RU*
+###### *EN*
 
-> Обучение, практика **SQL**
+
+> **SQL** practice. SoQooL.
 
 
 <br>
 
 
-###### *EN*
+###### *RU*
 
-
-> **SQL** learning and practice
+> Практика **SQL**. СуперКрутойЛангуаге.
 
 ___
 
 
-#### Table of contents:
+#### Table of contents -- Содержание:
 
 + [Введение в PostgreSQL; 2018, Jan-Feb](sqlpics/)
-
-
-> 2018, Jan-Feb
 

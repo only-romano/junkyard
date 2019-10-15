@@ -1,12 +1,4 @@
-## _Bash_
-
-
-<br>
-
-
-###### *RU*
-
-> Консолька, терминальчик, пушистинький подвальчик
+### _Bash_
 
 
 <br>
@@ -15,12 +7,20 @@
 ###### *EN*
 
 
-> bash terminal stuff, maybe powershell to, who knows
+> Bash stuff. Terminal, maybe powershell, who knows. Lol. Unix only.
+
+
+<br>
+
+
+###### *RU*
+
+> Консолька, терминальчик, пушистенький подвальчик
 
 ___
 
 
-#### Table of contents:
+#### Table of contents -- Содержание:
 
-+ [Useful commands](useful_commands.md)
++ [Useful commands -- Полезные команды](useful_commands.md)
 

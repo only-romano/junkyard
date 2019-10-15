@@ -1,8 +1,8 @@
-## _You're in the Dumpyard_
+### _You're in the Dumpyard_ -- _Ты на свалке_
 
 
 <br>
 
 
-> Are you happy now?
+> Are you happy now? -- Счастлив что зашёл?
 

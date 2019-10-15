@@ -1,12 +1,4 @@
-## _Games_
-
-
-<br>
-
-
-###### *RU*
-
-> Игры, игры, игры! От больших до крошечных! На разных движках (Python, JavaScript, HTML5, Go).
+### _Games_ -- _Игры_
 
 
 <br>
@@ -15,12 +7,20 @@
 ###### *EN*
 
 
-> Games, games, games! From big till little ones. Various engines (Python, JavaScript, HTML5, Go).
+> Games, games, games! So dirty boy.
+
+
+<br>
+
+
+###### *RU*
+
+> Игры, игры, игры!
 
 ___
 
 
-#### Table of contents:
+#### Table of contents -- Содержание:
 
 + Major Games
     * ["__Soccer Heads__" browser game](https://only-romano.github.io/soccer/ "JavaScript; 2018 Apr")

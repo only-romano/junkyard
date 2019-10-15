@@ -1,4 +1,4 @@
-## _My Way_
+### _My Way_
 
 
 <br>
@@ -14,20 +14,23 @@ ___
 
 #### Quantum Leap
 
-
-+ [Thai Go-go dancers](go/)
-+ [Okama's Razor](csharp/)
++ [Change the past! Do something useful in life! Save Gandhi! Kill Hitler! or...](useful/)
++ [Control dragons in the dreamworld](python/)
++ [Use your magic to amaze people](javascript/)
++ [Dance with Thai Go-go girls](go/)
++ [Find true Okama's Razor](csharp/)
 + [Wait a minute, I'm not done yet!](java/)
-+ [Eve's inheritance](swift/)
-+ [Mirror, Mirror on the wall](frontend/)
++ [Resolve Eve's inheritance](swift/)
++ [Ask Mirror, Mirror on the wall](frontend/)
 
 ___
 
 #### Sex with Robots:
 
-+ [I'm gonna Qwak you so mean](linuxlearn/)
++ [I'm gonna Qwak you so mean](linux/)
 + [eBash](bash/)
-+ [Play with your Primary Key](sqllearn/)
-+ [Push it harder](gitlearn/)
-+ [NOT you OR me AND robots](logiclearn/)
+* [Duck your Ex in her earhole](regex/)
++ [Play with your Primary Key](sql/)
++ [Push it deeper](git/)
++ [NOT you OR me AND robots!](logic/)
 

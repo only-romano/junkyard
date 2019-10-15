@@ -1,40 +1,43 @@
-# *JunkYard* 
+# *Yard* -- _Дворик_
 
 
 ###### EN
 
-> Interesting and meanful (or meaningless) stuff, pretty cool by the way. **Reusable sources** (web resources, classes, modules), **projects** (websites, games, applications), Code Combat guide, **my way** in programming (1,5 years of learning, including training projects).
+> Interesting and meanful stuff (or meaningless, whatever), pretty cool by the way. **Projects** (websites, games, applications, training projects), **Reusable sources** (web resources, modules, classes), **My way** in programming (almost 2 years for now).
 
 
 <br>
 
 ###### RU
 
-> Интересный и не очень материал. Полезные **исходники** (ресурсы, классы, модули), **проекты** (сайты, игры, приложения), руководство по Code Combat (не знаю зачем я месяц потратил на это), **мой путь** в программировании (продолжительностью в 1.5 года, включая учебные проекты).
+> Интересный и клёвый материал (или нет, какая разница). **Проекты** (сайты, игры, приложения, учебные проекты), **Полезные авторские исходники** (ресурсы, модули, классы), **Мой путь** в программировании (продолжительностью почти 2 года).
 
 ___
 
-### List of contents:
+### List of contents -- _Содержание_:
 
-* __Projects__
-    + [__Academy__ frontend learning courses](https://only-romano.github.io/academy/ "Ongoing, since 2018, November; Vue.js")
-    + [__Code Combat Guide__ markdown encyclopedy with solutions](code_combat/ "2019, June - July; Markdown")
-    + [__Awesome Blog__ micro CMS](https://this-is-awesome.herokuapp.com/ "2018, April - June; Python Django, PostgreSQL, Frontend")
-    + ["__Soccer Heads__" browser game](https://only-romano.github.io/soccer/ "JavaScript; 2018 Apr")
-    + [__Games__](games/ "2017 - 2019")
-    + [Minor Projects](projects/minor/ "2017 - 2019")
-    + [Training Projects](projects/training/ "2018 - 2019")
-    + [Blueprints](projects/blueprints/ "2018 - 2019")
-    + [Micro Applications](projects/micro/ "2018 - 2019")
+* __Projects__ -- __Проекты__
+    + [__Academy__](https://only-romano.github.io/academy/ "Ongoing, since 2018, November; Vue.js")
+        - > Frontend courses  -- курсы по фронтенду, основаны на HTML академии
+    + [__Code Combat Guide__](projects/code_combat/ "2019, June - July; Markdown")
+        - > Markdown encyclopedy with solutions -- энциклопедия по игре с решениями
+    + [__Awesome Blog__](https://this-is-awesome.herokuapp.com/ "2018, April - June; Python Django, PostgreSQL, Frontend")
+        - > Blog app with micro CMS -- блог с микро-CMS
+    + ["__Soccer Heads__"](https://only-romano.github.io/soccer/ "JavaScript; 2018 Apr")
+        - > Browser game -- браузерная игра
+    + [__Games__ -- __Игры__](projects/games/ "2017 - 2019")
+    + [Minor Projects -- Остальные проекты](projects/minor/ "2017 - 2019")
+    + [Training Projects -- Учебные проекты](projects/training/ "2018 - 2019")
+    + [Micro Applications -- Микро-приложения](projects/micro/ "2018 - 2019")
+    + [Blueprints -- Неоконченные проекты и материалы](projects/blueprints/ "2018 - 2019")
 
-* __Useful Reusable Sources__
-    + [__Python__](useful/python_sources/)
-    + [__JavaScript__](useful/js_sources/)
-    + [__Frontend__](useful/frontend_resources/)
-    + [__Go__](useful/go_sources/)
-    + [Various](useful/)
+* __Useful Reusable Sources__ -- __Полезные исходники__
+    + [__Python__](way/python/useful_py/)
+    + [__JavaScript__](way/javascript/useful_js/)
+    + [__Frontend__](way/frontend/useful_front/)
+    + [Various (Разное)](way/useful/)
 
-* My Way in Programming - Learning and Coding
+* __My Way__ in Programming -- __Мой путь__ в программировании
     + [The __Python__ King](way/python/)
     + [Assassin's __JavaScript__](way/javascript/)
     + [Ara-__Go__-rn](way/go/)

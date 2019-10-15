@@ -371,12 +371,6 @@ class Fibonacci:
             return 0
         return True
 
-# short link
-Fibs = Fibonacci
 
 # import
 __all__ = ["Fibonacci"]
-
-if __name__ == '__main__':
-    f = Fibonacci()
-    print(f.get_fib(10))

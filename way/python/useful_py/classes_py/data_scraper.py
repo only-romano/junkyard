@@ -165,28 +165,4 @@ class DataScraper:
     silent = property(_get_silence, _set_silence)
 
 
-def main():
-    regex  = { "%\n|'": "", "(S*)\\.": "\\1", "(d*),(d*)": "\\1.\\2" }
-
-    replaces = { 'Янв': '1', 'Февр': '2', 'Март': '3', 'Апр': '4',
-        'Май': '5', 'Июнь': '6', 'Июль': '7', 'Авг': '8',
-        'Сент': '9', 'Окт': '10', 'Нояб': '11', 'Дек': '12'}
-
-    def parseMY(data):
-        if data[0]:
-            month, year = data[0].split(' ')
-            data[0] = year.strip()
-            data.insert(1, month.strip())
-        return data
-
-
-    rules = [ parseMY ]
-
-    scraper = DataScraper('\t', regex, replaces, rules)
-    scraper.from_url("https://raw.githubusercontent.com/only-romano/junkyar"\
-            + "d/master/python/pylearn/pyprogs/pretty_data_pdf/src/data.txt")
-    print(scraper.data)
-
-
-if __name__ == '__main__':
-    main()
+__all__ = ['DataScraper']

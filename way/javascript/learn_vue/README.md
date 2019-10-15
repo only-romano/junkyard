@@ -1,7 +1,5 @@
 # Vue.js Learning
 
-> jun - sep 2018
-
 + Tutorial Projects
     - [Vue Animations Demo, jul 2018](fresh/anim1/) + [online](https://ripssr.github.io/vue_text_anim1/)
     - [Shoping Cart, jul 2018](fresh/shoping_cart/) + [online](https://ripssr.github.io/shoping_cart/)

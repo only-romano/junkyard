@@ -1,4 +1,12 @@
-## _Linux_
+### _Linux_
+
+
+<br>
+
+###### *EN*
+
+
+> **linux** for Life
 
 
 <br>
@@ -7,22 +15,10 @@
 
 > пингвинчики
 
-
-<br>
-
-###### *EN*
-
-
-> **linux** learning and practice
-
 ___
 
 
-#### Table of contents:
+#### Table of contents -- Содержание:
 
-+ [Linux Fast Start, nov 2017 - jan 2018](linuxpics/)
-
-
-> 2017, Nov - 2018, Jan
-
++ [Мой старт на Linux](linuxpics/)
 

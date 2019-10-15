@@ -1,6 +1,7 @@
 ## C# Metanit
 
-#### Table of contents:
+#### Table of contents -- Содержание:
+
 + [Hello World](app002helloworld.cs)
 + [Hello User Input](app001.cs)
 + [Datetime now](app003.cs)

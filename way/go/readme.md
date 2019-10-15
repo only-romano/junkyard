@@ -1,12 +1,33 @@
-## Go Learning
+### _Go_
 
-#### Table of contents:
-+ [Go Tour, sep 2018](gotour/lessons/)
-+ [Go Tour exercises, sep 2018](gotour/exercises/)
-+ [Go Tour exercises hard, sep 2018](gotour/goLang/)
-+ [String Utils, sep 2018](stringutil/)
-+ [My Package, sep 2018](gotour/myPackage/)
-+ [Go vs. Python speed test, sep 2018](gotour/speedTest/)
-+ [XO Game, sep 2018](gotour/exercises/xo.go)
-+ [Boobs App, sep 2018](effectivego/practice/first.go)
+
+<br>
+
+###### *EN*
+
+
+> All you have to do is **Go** for it. Right now.
+
+
+<br>
+
+###### *RU*
+
+> И-**Go**-**Go**. Самое достойное, что пришло мне в голову.
+
+___
+
+
+#### Table of contents -- Содержание:
+
++ [Useful go - полезные штуки](useful_go/)
++ [Go Tour](gotour/lessons/)
++ [Go Tour exercises](gotour/exercises/)
++ [Go Tour exercises hard](gotour/goLang/)
++ [String Utils](stringutil/)
++ [My Package](gotour/myPackage/)
++ [Go vs. Python speed test](gotour/speedTest/)
++ [XO Game](gotour/exercises/xo.go)
++ [Boobs App](effectivego/practice/first.go)
+
 

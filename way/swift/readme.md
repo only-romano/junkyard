@@ -1,11 +1,4 @@
-## _Swift_
-
-
-<br>
-
-###### *RU*
-
-> небольшая практика с языком **Swift**, без мака это не очень удобно и нужды пока не было
+### _Swift_
 
 
 <br>
@@ -13,17 +6,21 @@
 ###### *EN*
 
 
-> **Swift** short practice
+> You are so **Swift**, trouly are. Yes, you are.
+
+
+<br>
+
+###### *RU*
+
+> Ты такой милый, что моя бабушка хочет сшить тебе **Swift**ер.
 
 ___
 
 
-#### Table of contents:
+#### Table of contents -- Содержание:
 
 + [**Metanit** course](metanit/ "2019 March")
 + [**Solo Learn** course](sololearn/ "2019 March")
-
-
-> 2017, Nov - 2018, Jan
 
 

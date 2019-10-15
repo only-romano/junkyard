@@ -2,8 +2,6 @@
 
 ___
 
-> june-july 2019
-
 + _(base)_ __JavaScript__ solutions.
 + _(advanced)_ __Python__ solutions.
 
@@ -22,6 +20,7 @@ ___
 9. [Kelvintaph Glacier](9_Kelvintaph_Glacier/)
 
 ___
+
 
 ###### by _Katik_
 

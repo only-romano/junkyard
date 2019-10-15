@@ -1,27 +1,46 @@
-## Python Learning
+### _Python_
 
-#### Table of contents:
-+ [Algorithmes](pyalgos/)
-+ [Encoding and decoding](pyencode/)
 
-+ [Tutorial Projects](pyprogs/)
+<br>
+
+###### *EN*
+
+
+> **Python** is my first love. Nuff said.
+
+
+<br>
+
+###### *RU*
+
+> **Python** - моя первая любовь. Что ещё можно сказать.
+
+___
+
+
+#### Table of contents -- Содержание:
+
++ [Useful Python -- полезные Python ресурсы](useful_py/)
+	* [Classes](useful_py/classes_py/)
+	* [Functions](useful_py/funcs_py/)
+	* [Algorithmes](useful_py/pyalgos/)
+	* [Encoding and decoding](useful_py/pyencode/)
 
 + [Various Micro-pojects](exercises/various/)
 
-+ [My very first steps in programming](first_steps/)
-    - [Zadachi from Mentor, nov 2017 - mar 2018](first_steps/zadachi/)
-    - [Metanit, nov - dec 2017](first_steps/metanit/)
-    - [First Steps Images, nov 2017 - feb 2018](first_steps/img/)
-    - [PyCheckIO, dec 2017 - jan 2018](exercises/checkio/)
-    - [Code Wars, dec 2017 - jan 2018](exercises/codewars/)
++ [My very first steps in programming -- Мои первые шаги в программировании](first_steps/)
+    - [Mentor's tasks -- Zadachi от Ментора](first_steps/zadachi/)
+    - [Metanit](first_steps/metanit/)
+    - [First Steps Images](first_steps/img/)
+
++ [Exercises -- Упражнения]
+    - [PyCheckIO](exercises/checkio/)
+    - [Code Wars](exercises/codewars/)
 
 + Tutorials
-    - Code Combat (in junkyard top)
-    - [Basics, jan 2018](first_steps/basics/)
-    - [Solo Learn, apr 2019](exercises/solo_learn/)
-
-+ Python books:
-    - [Python Crash Course, nov 2017 - jan 2018](first_steps/pcc/)
-    - [Python for Kids, june-july 2019](pybooks/python4kids/)
-    - [Programming for Kids, july 2019](pybooks/programmingForKids/)
+    - [Basics](first_steps/basics/)
+    - [_Solo Learn_](exercises/solo_learn/)
+    - [_Python Crash Course_](first_steps/pcc/)
+    - [_Python for Kids_ course](pybooks/python4kids/)
+    - [_Programming for Kids_ course](pybooks/programmingForKids/)
 

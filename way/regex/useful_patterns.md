@@ -1,4 +1,4 @@
-#### _RegEx usefull patterns_
+#### _RegEx usefull patterns_ -- _Полезные паттерны_
 
 <br>
 

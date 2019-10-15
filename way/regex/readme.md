@@ -1,12 +1,4 @@
-## _RegEx_
-
-
-<br>
-
-
-###### *RU*
-
-> Практика **regEx**, полезные кейсы
+### _RegEx_
 
 
 <br>
@@ -15,12 +7,20 @@
 ###### *EN*
 
 
-> regEx useful things
+> **RegEx** stuff. No more to say. I tired already.
+
+
+<br>
+
+
+###### *RU*
+
+> **RegEx** штуки. Ничего больше нельзя сказать. Потому что я уже устал.
 
 ___
 
 
-#### Table of contents:
+#### Table of contents -- Содержание:
 
-+ [Useful patterns](useful_patterns.md)
++ [Useful patterns - полезные паттерны](useful_patterns.md)
 
