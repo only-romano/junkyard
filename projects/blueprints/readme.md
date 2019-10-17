@@ -33,5 +33,5 @@ ___
 + [_Catch the Ball_ game; __Python__](catch_the_ball/ "2018")
 + [Pygal SVG plots; __Python__](api_pygal/ "2018")
 + [_Strelkov_ about-page material; __Frontend__](strelkov_about/ "2018")
-
++ [NNTP News Agent; __Python__ 2.7](newsagent.py "2019")
 
