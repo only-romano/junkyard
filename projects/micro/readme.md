@@ -22,11 +22,11 @@ ___
 
 #### Table of contents -- Содержание:
 
-+ [Data Scraper + Reportlab PDF-plot drawer (with RUB to USB example); __Python__](pdf_plot/ "Python; 2019")
-+ [Procent Calculator; __Frontend__](proc_calc/ "2019; JavaScript") + [online](https://ripssr.github.io/proc_calc/)
-+ [Console Writer App - ASCII-art from users words; __Python__](console_writer.py "2019; Python")
-+ [Raindrops Animated; __Python__](raindrops/ "2018 Jan; Python")
-+ [Heart ASCII; __Swift__](app_heart/ "2019; Swift")
-+ [Naughty Flower; __Python__](flower.py "2019; Python")
-+ [Trolley; MY FIRST WEBSITE EVER, 22-23 Nov 2017; __HTML__](trolley/ "22-23 Nov 2017") + [available online](https://ripssr.github.io/trolley/)
++ [Data Scraper + Reportlab PDF-plot drawer (with RUB to USB example); __Python__](pdf_plot/ "2019")
++ [Procent Calculator; __Frontend__](proc_calc/ "2019") + [online](https://ripssr.github.io/proc_calc/)
++ [Console Writer App - ASCII-art from users words; __Python__](console_writer.py "2019")
++ [Raindrops Animated; __Python__](raindrops/ "2018")
++ [Heart ASCII; __Swift__](app_heart/ "2019")
++ [Naughty Flower; __Python__](flower.py "2019")
++ [Trolley; MY FIRST WEBSITE EVER, 22-23 Nov 2017; __HTML__](trolley/ "2017") + [online](https://ripssr.github.io/trolley/)
 

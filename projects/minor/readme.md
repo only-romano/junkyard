@@ -21,9 +21,9 @@ ___
 
 #### Table of contents -- Содержание:
 
-+ [_Birthday Card_; __Vue.js__](bday/ "2019, June; Vue.js") - [available online](https://ripssr.github.io/hbk_n/)
-+ [_Birthday-card_, yes, another one; __Frontend__](birthday/ "Frontend; 2018 March") + [available online](https://ripssr.github.io/birthday/)
-+ [C# interactive educational console app; __C#__](csharpapp/ "C#; 2018, August - September")
-+ [_Little Brush_ micro paint app; __Java__](littlebrush/ "2018 February; Java")
-+ [_Calculator-2018_, actualy made in 28-30 Dec 2017 - MY FIRST PROJECT EVER! __Python__](calc/ "Python; 28-30 Dec 2017")
++ [_Birthday Card_; __Vue.js__](bday/ "2019") + [online](https://ripssr.github.io/hbk_n/)
++ [_Birthday-card_, yes, another one; __Frontend__](birthday/ "2018") + [online](https://ripssr.github.io/birthday/)
++ [C# interactive educational console app; __C#__](csharpapp/ "2018")
++ [_Little Brush_ micro paint app; __Java__](littlebrush/ "2018")
++ [_Calculator-2018_, actualy made in 28-30 Dec 2017 - MY FIRST PROJECT EVER! __Python__](calc/ "2017")
 

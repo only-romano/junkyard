@@ -18,9 +18,9 @@ ___
 #### Table of contents -- Содержание:
 
 + [Templates](templates/)
-    * [Punpun Template](templates/punpun/) + [online](https://ripssr.github.io/punpun/)
-    * [Pascal Template](templates/pascal-web-tutorial/) + [online](https://ripssr.github.io/pascal_web/)
-    * [Soccer; 2018 Apr](templates/soccer/) + [online](https://ripssr.github.io/soccer_template/)
+    * [Punpun](templates/punpun/) + [online](https://ripssr.github.io/punpun/)
+    * [Pascal](templates/pascal-web-tutorial/) + [online](https://ripssr.github.io/pascal_web/)
+    * [Soccer](templates/soccer/) + [online](https://ripssr.github.io/soccer_template/)
 + [Frontend "Don't Forget" list](dont_forget.html)
 + [My Logos](logos/)
 + [Elements](elements/)

@@ -38,9 +38,10 @@ ___
     - [Code Wars](exercises/codewars/)
 
 + Tutorials
+    - [_Python Crash Course_](first_steps/pcc/)
+    - [_Head First Python_](pybooks/head_first_py/)
     - [Basics](first_steps/basics/)
     - [_Solo Learn_](exercises/solo_learn/)
-    - [_Python Crash Course_](first_steps/pcc/)
     - [_Python for Kids_ course](pybooks/python4kids/)
     - [_Programming for Kids_ course](pybooks/programmingForKids/)
 

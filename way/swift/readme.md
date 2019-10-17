@@ -20,7 +20,7 @@ ___
 
 #### Table of contents -- Содержание:
 
-+ [**Metanit** course](metanit/ "2019 March")
-+ [**Solo Learn** course](sololearn/ "2019 March")
++ [**Metanit** course](metanit/ "2019")
++ [**Solo Learn** course](sololearn/ "2019")
 
 

@@ -1,7 +1,5 @@
 ## Python for Kids
 
-> june - july 2019
-
 #### Table of contents:
 + Exercises
     + [Favorites](exercises/e01_favorites.py)

@@ -1,7 +1,5 @@
 ## Solo Learn
 
-> Apr 2019
-
 #### Content:
 + [Basic Concepts](basics/)
     - [Hello World](basics/hello_world.py)

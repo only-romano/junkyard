@@ -1,7 +1,5 @@
 ## PyCheck.io
 
-> dec 2017 - jan 2018
-
 #### Content:
 + [Correct Sentence v.1](checkio000.py)
 + [Correct Sentence v.2](checkio001.py)

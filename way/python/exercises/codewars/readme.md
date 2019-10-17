@@ -1,7 +1,5 @@
 ## Code Wars (Python)
 
-> dec 2017 - jan 2018
-
 #### Content:
 + [Sentence from words with digits](codewars001.py)
 + [Series Sum](codewars002.py)

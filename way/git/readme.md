@@ -20,7 +20,7 @@ ___
 
 #### Table of contents -- Содержание:
 
-+ [Hello **git**; jan 2018](gitpics/)
-+ [Интерактивный курс **Git Demo**; jan 2018](git_demo/)
-+ [Курс **git How-To**; jan 2018](git_how_to/)
++ [Hello **git**](gitpics/)
++ [Интерактивный курс **Git Demo**](git_demo/)
++ [Курс **git How-To**](git_how_to/)
 
