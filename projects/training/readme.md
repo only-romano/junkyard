@@ -25,6 +25,7 @@ ___
 + [Github repository-preset checker; __Vue.js__](github_commits/ "2018") + [online](https://ripssr.github.io/git_grub/)
 + [_ToDo_ app from vue cookbook; __Vue.js__](todo/ "2018") + [online](https://ripssr.github.io/vue_todo/)
 + [_Markdown Online Editor_ from vue cookbook; __Vue.js__](marked/ "2018") + [online](https://ripssr.github.io/vue_mark/)
++ [Chat server; __Python__](chat_server.py "2019")
 + [Text editor with wxPython; __Python__](simple_text_editor/ "2019")
 + [HTML custom markup; __Python__](instant_markup/ "2019")
 + [XML parser; __Python__](xml_constructor/ "2019")
