@@ -24,6 +24,7 @@ ___
 
 + [Data Scraper + Reportlab PDF-plot drawer (with RUB to USB example); __Python__](pdf_plot/ "2019")
 + [Procent Calculator; __Frontend__](proc_calc/ "2019") + [online](https://ripssr.github.io/proc_calc/)
++ [Tkinter Simple Clock; __Python__](my_clock.py "2019")
 + [Console Writer App - ASCII-art from users words; __Python__](console_writer.py "2019")
 + [Raindrops Animated; __Python__](raindrops/ "2018")
 + [Heart ASCII; __Swift__](app_heart/ "2019")
