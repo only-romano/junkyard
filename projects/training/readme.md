@@ -32,5 +32,6 @@ ___
 + [SVG diagram from vue cookbook; __Vue.js__](svg_diagram/ "2018") + [online](https://ripssr.github.io/svg_diagram/)
 + [Temperature converter, GUI PyQT; __Python__](temp_converter/ "2019")
 + [Deepstream example from vue cookbook; __Vue.js__](deepstream/ "2018") + [online](https://ripssr.github.io/vue_deep/)
++ [CGI File Editor; __Python__](remote_editing_cgi/ "2019")
 + [_Seconds to 2018 New Year Eve_ - MY FIRST TRAINING PROJECT EVER ! 29-30 dec 2017; __Python__](new_year/ "2018")
 
