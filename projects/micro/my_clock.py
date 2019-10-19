@@ -6,6 +6,7 @@ time = ''
 
 clock = Label(window, font=('monospace', 66, 'bold'), bg='bisque')
 clock.pack(fill=BOTH, expand=1)
+window.wm_attributes("-topmost", 1)
 
 def tick():
     global time
