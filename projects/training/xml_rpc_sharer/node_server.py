@@ -92,7 +92,7 @@ class Node:
         """
         Used internally to start the XML-RPC server.
         """
-        s = SimpleXMLRPCServer(("", getPort(self.url)), logRequest=False)
+        s = SimpleXMLRPCServer(("", getPort(self.url)), logRequests=False)
         s.register_instance(self)
         s.serve_forever()
 

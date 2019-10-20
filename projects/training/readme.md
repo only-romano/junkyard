@@ -27,6 +27,7 @@ ___
 + [_Markdown Online Editor_ from vue cookbook; __Vue.js__](marked/ "2018") + [online](https://ripssr.github.io/vue_mark/)
 + [Chat server; __Python__](chat_server.py "2019")
 + [Text editor with wxPython; __Python__](simple_text_editor/ "2019")
++ [File Sharing Client; __Python__](xml_rpc_sharer/ "2019")
 + [HTML custom markup; __Python__](instant_markup/ "2019")
 + [XML parser; __Python__](xml_constructor/ "2019")
 + [SVG diagram from vue cookbook; __Vue.js__](svg_diagram/ "2018") + [online](https://ripssr.github.io/svg_diagram/)
