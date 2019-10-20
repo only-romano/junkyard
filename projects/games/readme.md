@@ -40,6 +40,7 @@ ___
     * ["__Bubbles Hunter__"](py_games/bubles_hunter.py "2018")
     * ["__Virtual Pet__"](py_games/virtual_pet/ "2019")
     * ["__Smiley Pop__"](py_games/smiley_pop/ "2019")
+    * ["__Desperate Banana__"](py_games/arcade_game/ "2019")
     * ["__Guess the number__" GUI version python2](py_games/py2.7_vers_gui/ "2018")
 
 + Console (terminal, command line) games:

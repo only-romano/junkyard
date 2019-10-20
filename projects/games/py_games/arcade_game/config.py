@@ -14,7 +14,7 @@ splash_image = 'mass.png'
 screen_size = 1280, 720
 background_color = 255, 255, 255
 margin = 30
-full_screen = 1
+full_screen = 0
 font_size = 48
 
 # These affect the behavior of the game:
