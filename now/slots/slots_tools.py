@@ -1,3 +1,7 @@
+import pickle
+from init_slots import init_slots
+
+
 def create_today_file(slots):
     pass
 
@@ -13,9 +17,9 @@ def load_slots():
     """Loads current available slots"""
     return {"day": 9}
 
-def write_slots(period):
+def write_slots(period, slots):
     """Saves slots state after maden decisions"""
     pass
 
 
-__ALL__ = ["get_activity", "RESET_SLOTS", "load_slots", "write_slots"]
+__ALL__ = ["create_today_file", "get_activity", "RESET_SLOTS", "load_slots", "write_slots"]

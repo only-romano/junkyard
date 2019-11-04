@@ -65,4 +65,4 @@ SLOTS = [
 ]
 
 create_today_file(SLOTS)
-write_slots(period)
+write_slots(period, SLOTS)
