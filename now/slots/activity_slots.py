@@ -1,44 +1,39 @@
 """
-1. create empty SLot object (must have add, remove methods)
-2. fill in with activities, videos, audios, time
+Init new slots instance, fill it up with activities.
+Module used to create default chain of activities for every start period.
+Activities modifications is allowed.
 """
-from init_slots import init_slots
+from slots_class import Slots
+from custom_slot import create_custom_slots
+from activities.wake_up import WAKE_UP
+from activities.morning import MORNING
+from activities.day_early import EARLY_DAY
+from activities.midday import MIDDAY
+from activities.day_late import LATEDAY
+from activities.evening import EVENING
+from activities.night_early import NIGHT
+from activities.night_late import LATE_NIGHT
 
-Slots = init_slots() # must initialize slots class
+slots = Slots() # initialize Slots class instance
 
-Slots.add(slot_01)
+# Wake up activities (until 7:00)
+slots.add(WAKE_UP)
+# Morning activities (until morning training min-finish time [07:00 - 10:00])
+slots.add(MORNING)
+# Early daytime activities (until midday siesta [not included, 10:00 - 13:00])
+slots.add(EARLY_DAY)
+# Midday activites (until second dinner [included, 13:00 - 15:30])
+slots.add(MIDDAY)
+# Late daytime activities (until evening siesta [not included, 15:30 - 19:00])
+slots.add(LATE_DAY)
+# Evening activities (until night siesta [included, 19:00 - 22:00])
+slots.add(EVENING)
+# Night activities (until possible sleep start [not included, 22:00 - 00:30])
+slots.add(NIGHT)
+# Late night activities (until required sleep [not included, 00:30 - 03:30])
+slots.add(LATE_NIGHT)
 
-slot_01 = None
-slot_02 = None
-slot_03 = None
-slot_04 = None
-slot_05 = None
-slot_06 = None
-slot_07 = None
-slot_08 = None
-slot_09 = None
-slot_10 = None
-slot_11 = None
-slot_12 = None
-slot_13 = None
-slot_14 = None
-slot_15 = None
-slot_16 = None
-slot_17 = None
-slot_18 = None
-slot_19 = None
-slot_20 = None
-slot_21 = None
-slot_22 = None
-slot_23 = None
-slot_24 = None
-slot_25 = None
-slot_26 = None
-slot_27 = None
-slot_28 = None
-slot_29 = None
-slot_30 = None
-slot_31 = None
-slot_32 = None
-slot_33 = None
-slot_34 = None
+# interactive slots creation tool
+slots = create_custom_slots(slots)
+
+__all__ = ['slots']

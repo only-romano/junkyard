@@ -21,4 +21,7 @@ def write_slots(period, slots):
     pass
 
 
-__ALL__ = ["create_today_file", "get_activity", "RESET_SLOTS", "load_slots", "write_slots"]
+__all__ = [
+    "create_today_file", "get_activity",
+    "RESET_SLOTS", "load_slots", "write_slots"
+    ]

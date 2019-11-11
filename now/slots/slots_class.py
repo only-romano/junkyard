@@ -2,20 +2,36 @@
 Slots class
 """
 class Slots:
-    def __init__(self, slots=False, start=15, end=1290):
+    def __init__(self, slots=False, start=375, end=1650):
         self._slots = []
         if slots:
             self.add(slots)
         self.start = start
         self.end = end
+        self.zero_time = 1440
+        self.now_time = start
+        self.max_attn = 5
+
+    def __call__(self):
+        return self._slots
 
     def __iter__(self):
+        self.now_time = self.start
         for slot in self._slots:
             yield slot
+            self.now_time += slot["length"]
 
     def __add__(self, value):
         self.add(value)
         return self
+
+    def time(self, slot):
+        time = self.now_time
+        if time > self.zero_time:
+            time -= self.zero_time
+        hours = time // 60
+        minutes = time % 60
+        return "%.2i:%.2i" % (hours, minutes)
 
     def add(self, slots):
         """
@@ -53,9 +69,10 @@ class Slots:
         def wrapper(activity):
             option = {
                 "name": activity[0],
-                "attn": activity[1],
-                "count":activity[2],
-                "last": activity[3],
+                "count":activity[1],
+                "last": activity[2],
+                "attn": activity[3],
+                "choosen": False,
                 }
             if not isinstance(function, Slots):
                 # fix for functionless calls
@@ -66,7 +83,7 @@ class Slots:
     @staticmethod
     @_option
     def _create_video_option(video):
-        return {"available_audio": video[0]}
+        return {"available": video[0]}
 
     @staticmethod
     @_option
@@ -83,5 +100,8 @@ if __name__ == '__main__':
     slots += [[["slot 3 act", 1 , 2, True, [23, 15], False]], None, "Only audio", 4]
 
     for slot in slots:
+        print(slots.time(slot))
         for key in slot:
             print(key, " - ", slot[key], "\n")
+    for slot in slots:
+        print(slots.time(slot))
