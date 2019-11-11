@@ -1,3 +1,17 @@
+"""
+Picker is a module to create MY everyday schedule files.
+For your schedule and activities - wait a Call-n-Done app (2020).
+to do next:
+- init_slots module for activity_slots (inits slots default condition)
+- write in default slots (video and audio as an array, max length as int)
+- create pickle file with default slots (for testing purpose only)
+- load_slots function from slots_tools (loads current available slots from file)
+- get_videos function for slot_tools (get available videos for activity)
+- get_audio function for slot_tools (get available audios for activity & video)
+- get_max_length for slot_tools (get max length for activity, video or audio)
+- slot_tools: RESET_SLOTS, get_activity, create_today_file, write_slots
+- GUI
+"""
 from activity_slots import *
 from slots_tools import *
 

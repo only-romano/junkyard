@@ -1,5 +1,4 @@
 import pickle
-from init_slots import init_slots
 
 
 def create_today_file(slots):
