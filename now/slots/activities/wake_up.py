@@ -44,22 +44,22 @@ slot_06 = [
         ["Разминка Программиста", 5, True, [0,2,3,v6[0],v6[1]]],
         ["Зарядка для ума (задачи)", 4, True, [v6[2],v6[3],v6[4],v6[5]]],
         ["Фантазии под музыку", 2, True, [a6[0],a6[1]], True],
-        ["Фантазии под клипы", 1, True, [1]],
+        AT.act("Фантазии под клипы", last=True, available=[1]),
         AT.default("Бритьё"),
         AT.default("Стирка"),
         AT.game("Заработало!"),
     ],[ # video activities
-        AT.v_prs(1),
-        ["YouTube (клипы)", 1, True, None],
-        ["YouTube (awesome people)", 2, True, [a6[2],a6[3]]],
-        AT.v_theme(5, [0,0,a6[4],a6[5],a6[6]]),
-        AT.v_play([a6[7]]),
+        AT.v_prs(),
+        AT.video("YouTube (клипы)"),
+        AT.video("YouTube (awesome people)", 2, available=[a6[2],a6[3]]),
+        AT.v_theme(5, available=[0,0,a6[4],a6[5],a6[6]]),
+        AT.v_play(available=[a6[7]]),
     ],[ # audio activities
         AT.ab_story(2),
-        AT.m_theme(3, True),
+        AT.m_theme(3, last=True),
         AT.m_hits(2),
         AT.m_fresh(2),
-        AT.radio(1),
+        AT.radio(),
     ], 10]
 
 

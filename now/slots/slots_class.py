@@ -113,6 +113,8 @@ class Slots:
         return {"available": basic[0], "audio_only": len(basic) > 1}
 
 
+__all__ = ['Slots']
+
 if __name__ == '__main__':
     slots = Slots([[["activity 1", 2, False, [1,2,3], False], ["activity 2", 1, True, [2], True]],
         [["video 1", 2, False, [1,2,3]], ["video 2", 1, True, [2]]],

@@ -7,7 +7,7 @@ from slots_class import Slots
 from custom_slot import create_custom_slots
 from activities.wake_up import WAKE_UP
 from activities.morning import MORNING
-#from activities.day_early import EARLY_DAY
+from activities.day_early import EARLY_DAY
 #from activities.midday import MIDDAY
 #from activities.day_late import LATEDAY
 #from activities.evening import EVENING
@@ -21,7 +21,7 @@ slots.add(WAKE_UP)
 # Morning activities (until morning training min-finish time [07:00 - 10:00])
 slots.add(MORNING)
 # Early daytime activities (until midday siesta [not included, 10:00 - 13:00])
-#slots.add(EARLY_DAY)
+slots.add(EARLY_DAY)
 # Midday activites (until second dinner [included, 13:00 - 15:30])
 #slots.add(MIDDAY)
 # Late daytime activities (until evening siesta [not included, 15:30 - 19:00])
