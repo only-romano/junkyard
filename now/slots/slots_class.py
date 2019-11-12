@@ -25,6 +25,18 @@ class Slots:
         self.add(value)
         return self
 
+    def __str__(self):
+        def slot_str(slot):
+            slot_str = str(slot["activities"])
+            if (slot["video"]):
+                video = str(slot["video"])
+                slot_str += "\t\t(VIDEO: %s)" % video
+            if (slot["audio"]):
+                slot_str += "\t\t(AUDIO: %s)" % str(slot["audio"])
+            return slot_str
+
+        return "\n".join(["%s - %s" % (self.time(s), slot_str(s)) for s in self])
+
     def time(self, slot):
         time = self.now_time
         if time > self.zero_time:
@@ -44,6 +56,18 @@ class Slots:
             slots = [slots]
         for slot in slots:
             self._slots.append(self._create_slot_object(slot))
+
+    def _next(self, index):
+        index += 1
+        if len(self._slots) > index:
+            return self._slots[index]
+
+    def _choosen(self, option, type, index):
+        if option["last"]: return
+        next_slot = self._next(index)
+        if next_slot:
+            for item in next_slot[type]:
+                item['previous'] = item['name'] == option[name]
 
     def _create_slot_object(self, slot):
         slot_object = {
@@ -71,12 +95,12 @@ class Slots:
                 "name": activity[0],
                 "count":activity[1],
                 "last": activity[2],
-                "attn": activity[3],
                 "choosen": False,
+                "previous": False,
                 }
             if not isinstance(function, Slots):
                 # fix for functionless calls
-                option.update(function(activity[4:]))
+                option.update(function(activity[3:]))
             return option
         return wrapper
 
@@ -88,16 +112,16 @@ class Slots:
     @staticmethod
     @_option
     def _create_basic_option(basic):
-        return {"available": basic[0], "audio_only": basic[1]}
+        return {"available": basic[0], "audio_only": len(basic) > 1}
 
 
 if __name__ == '__main__':
-    slots = Slots([[["activity 1", 5, 2, False, [1,2,3], False], ["activity 2", 1, 1, True, [2], True]],
-        [["video 1", 2, 2, False, [1,2,3]], ["video 2", 1, 1, True, [2]]],
-        [["audio 1", 2, 2, False], ["audio 2", 1, 1, True]], 1])
+    slots = Slots([[["activity 1", 2, False, [1,2,3], False], ["activity 2", 1, True, [2], True]],
+        [["video 1", 2, False, [1,2,3]], ["video 2", 1, True, [2]]],
+        [["audio 1", 2, False], ["audio 2", 1, True]], 1])
 
-    slots += [[["slot 2 act", 1 , 2, True, [23, 15], False]], [["slot 2 video", 2, 3, False, [0,1]]], [["slot 2 audio", 2,3,False]], 4]
-    slots += [[["slot 3 act", 1 , 2, True, [23, 15], False]], None, "Only audio", 4]
+    slots += [[["slot 2 act", 2, True, [23, 15], False]], [["slot 2 video", 3, False, [0,1]]], [["slot 2 audio", 3,False]], 4]
+    slots += [[["slot 3 act", 2, True, [23, 15], False]], None, "Only audio", 4]
 
     for slot in slots:
         print(slots.time(slot))
