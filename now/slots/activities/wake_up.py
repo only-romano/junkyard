@@ -13,28 +13,32 @@ else:
     import activities.activity_templates as AT
 
 
-# shuffles section
-v6 = sample([2,3,3,3,3,4], 6)       # 6-th slot video shuffle
-a6 = sample([1,1,1,2,2,3,3,4], 8)   # 6-th slot audio shuffle
-#print(v6, a6)
-
-
 # 1-st slot - current - wake-up timespace slot
 slot_01 = ["Wake Up", None, None, 5]
+
 
 # 2-nd slot - current - wake-up-exercises slot
 slot_02 = ["Зарядка", None, "Песня Дня", 5]
 
+
 # 3-rd slot - current - morning shower slot
 slot_03 = ["Душ", None, None, 10]
+
 
 # 4-th slot - current - picker schedule file creation slot
 slot_04 = ["To-Do-List на сегодня", None, None, 5]
 
+
 # 5-th slot - current - materials/resources updates slot
 slot_05 = ["Materials/Resources Updates", None, "Подкаст - English", 10]
 
+
 # 6-th slot - current - micro-activity slot
+# shuffles section
+v6 = sample([2,3,3,3,3,4], 6)       # 6-th slot video shuffle
+a6 = sample([1,1,1,2,2,3,3,4], 8)   # 6-th slot audio shuffle
+#print(v6, a6)
+# slot
 slot_06 = [
     [   # basic activities
         ["Разминка Программиста", 5, True, [0,2,3,v6[0],v6[1]]],
