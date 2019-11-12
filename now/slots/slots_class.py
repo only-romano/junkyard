@@ -10,7 +10,6 @@ class Slots:
         self.end = end
         self.zero_time = 1440
         self.now_time = start
-        self.max_attn = 5
 
     def __call__(self):
         return self._slots
@@ -29,8 +28,7 @@ class Slots:
         def slot_str(slot):
             slot_str = str(slot["activities"])
             if (slot["video"]):
-                video = str(slot["video"])
-                slot_str += "\t\t(VIDEO: %s)" % video
+                slot_str += "\t\t(VIDEO: %s)" % str(slot["video"])
             if (slot["audio"]):
                 slot_str += "\t\t(AUDIO: %s)" % str(slot["audio"])
             return slot_str
@@ -67,7 +65,7 @@ class Slots:
         next_slot = self._next(index)
         if next_slot:
             for item in next_slot[type]:
-                item['previous'] = item['name'] == option[name]
+                item["previous"] = item["name"] == option["name"]
 
     def _create_slot_object(self, slot):
         slot_object = {

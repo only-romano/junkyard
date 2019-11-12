@@ -5,11 +5,18 @@
  - 5 slots with constant basic/video/audio activities
  - 1 micro-slot with modular activities
 """
+from random import sample
 # import fix
 if __name__ == '__main__':
     import activity_templates as AT
 else:
     import activities.activity_templates as AT
+
+
+# shuffles section
+v6 = sample([2,3,3,3,3,4], 6)       # 6-th slot video shuffle
+a6 = sample([1,1,1,2,2,3,3,4], 8)   # 6-th slot audio shuffle
+#print(v6, a6)
 
 
 # 1-st slot - current - wake-up timespace slot
@@ -30,9 +37,9 @@ slot_05 = ["Materials/Resources Updates", None, "Подкаст - English", 10]
 # 6-th slot - current - micro-activity slot
 slot_06 = [
     [   # basic activities
-        ["Разминка Программиста", 5, True, [0,2,3,3,4]],
-        ["Зарядка для ума (задачи)", 4, True, [2,3,3,3]],
-        ["Фантазии под музыку", 2, True, [1,3], True],
+        ["Разминка Программиста", 5, True, [0,2,3,v6[0],v6[1]]],
+        ["Зарядка для ума (задачи)", 4, True, [v6[2],v6[3],v6[4],v6[5]]],
+        ["Фантазии под музыку", 2, True, [a6[0],a6[1]], True],
         ["Фантазии под клипы", 1, True, [1]],
         AT.default("Бритьё"),
         AT.default("Стирка"),
@@ -40,9 +47,9 @@ slot_06 = [
     ],[ # video activities
         AT.v_prs(1),
         ["YouTube (клипы)", 1, True, None],
-        ["YouTube (awesome people)", 2, True, [2,4]],
-        AT.v_theme(5, [0,0,1,2,3]),
-        AT.v_play([1]),
+        ["YouTube (awesome people)", 2, True, [a6[2],a6[3]]],
+        AT.v_theme(5, [0,0,a6[4],a6[5],a6[6]]),
+        AT.v_play([a6[7]]),
     ],[ # audio activities
         AT.ab_story(2),
         AT.m_theme(3, True),

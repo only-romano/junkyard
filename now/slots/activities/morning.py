@@ -7,11 +7,17 @@ Morning activities (until morning training min-finish time [07:00 - 10:00])
  - 2 standard slots
  - constant Morning Training 1.5 h slot
 """
+from random import sample
 # import fix
 if __name__ == '__main__':
     import activity_templates as AT
 else:
     import activities.activity_templates as AT
+
+
+# shuffles section
+v7 = sample([2,3,3,3,3,4], 6)       # 6-th slot video shuffle
+a7 = sample([1,1,1,2,2,3,3,4], 8)   # 6-th slot audio shuffle
 
 
 # 1-st slot - current - mini-activity slot
@@ -44,21 +50,21 @@ x=1
 # 3-rd slot - current - standard slot
 slot_09 = [
     [   # basic activities
-        ["PRS (закрепление пройденного)", 5, True, [x,x,x,x,x]],
-        ["PRS (идеи для проектов)", 1, False, [x]],
-        ["Математика", 1, False, [x]],
-        ["Физика", 1, False, [x]],
+        ["PRS (закрепление пройденного)", 5, True, [1,1,3,4,5]],
+        ["PRS (идеи для проектов)", 1, False, [4]],
+        ["Математика", 1, False, [2]],
+        ["Физика", 1, False, [4]],
         AT.default("АВТОР - О личном здоровье"),
-        ["Car Mechanic Simulator (с фоном)", 4, False, [x,x,x,x]],
+        ["Car Mechanic Simulator (с фоном)", 4, False, [0,4,5,6]],
         ["Car Mechanic Simulator", 2, False, None],
     ],[ # video activities
         AT.movie('Код "ГИАС" R2'),
         AT.v_prs(2),
         AT.v_edu(1, True),
         AT.v_doc(1),
-        AT.v_theme(4, [x,x,x,x]),
-        ["YouTube (подборки)", 2, True, [x,x]],
-        AT.v_play([x]),
+        AT.v_theme(4, [0,1,3,5]),
+        ["YouTube (подборки)", 2, True, [2,6]],
+        AT.v_play([4]),
     ],[ # audio activities   []
         AT.ab_roman(1),
         AT.ab_story(1),
@@ -73,21 +79,21 @@ slot_09 = [
 slot_10 = [
     [   # basic activities
         AT.train_m(3, [4,4,4]),
-        ["PRS (новый язык)", 5, True, [x,x,x,x,x]],
+        ["PRS (новый язык)", 5, True, [1,1,4,x,x]],
         ["PRS (идеи для проектов)", 1, True, [x]],
         ["Математика", 1, True, [x]],
         ["Физика", 1, True, [x]],
         AT.default("АВТОР - О борьбе с агорафобией"),
-        ["Car Mechanic Simulator (с фоном)", 3, True, [x,x,x]],
-    ],[ # video activities
+        ["Car Mechanic Simulator (с фоном)", 3, True, [0,x,x]],
+    ],[ # video activities  [0,1,1,4,4,4,4]
         AT.movie('Новенькая'),
         AT.v_prs(2, True),
         AT.v_doc(1, True),
         ["YouTube (клипы)", 1, True, None],
-        AT.v_theme(6, [0,0,0,x,x,x]),
+        AT.v_theme(6, [0,0,0,1,x,x]),
         ["YouTube (красота)", 2, True, [x,x]],
         AT.v_play([x], True),
-    ],[ # audio activities   []
+    ],[ # audio activities   [0,0,0,1]
         AT.ab_roman(3),
         AT.ab_story(1, True),
         AT.a_prs(1, True),
