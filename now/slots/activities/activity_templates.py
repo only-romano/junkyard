@@ -88,7 +88,7 @@ randomize = Randomize_and_pop_on_call
 default = Activity(last=False)
 default_last = Activity()
 sound_only = Activity(audio=None)
-edu = sport = hobby = game = default
+edu = sport = hobby = default
 act = default_last
 # video
 movie = default

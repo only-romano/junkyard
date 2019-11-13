@@ -22,7 +22,7 @@ v7 = AT.randomize([2,2,3,3,4])       # video, 7th slot randomized
 slot_07 = [
     [   # basic activities
         AT.act("Уборка", 5, available=[{3:0},0,1,v7(),v7()]),
-        AT.hobby("Оригами", 2, last=True, available=[{3:0},v7()]),
+        AT.hobby("Оригами", 2, available=[{3:0},v7()], last=True),
         AT.act("Новости", available=[v7()]),
         AT.act("uCrazy.ru", available=[v7()]),
         AT.author("Моя Вселенная", short=True),
@@ -48,27 +48,27 @@ slot_08 = ["Завтрак", "Букашки", None, 10]
 
 # 3-rd slot of module (9th at all) - current - standard slot
 # randomizer
-a9 = randomize([2,3,4,5,6])         # audio, 9th slot randomized
-v9 = randomize([3,4,4,4,5,5,6])     # video, 9th slot randomized
-v9e = randomize([2,4])              # educational video, 9th slot randomized
+a9 = AT.randomize([3,4,5,6])      # audio, 9th slot randomized
+v9 = AT.randomize([5,5,6])          # video, 9th slot randomized
+v9b = AT.randomize([{4,0},3])       # audiobook/ documental video
+v9e = AT.randomize([2,4])           # educational video / theme video
 # slot
 slot_09 = [
     [   # basic activities
-        AT.prs("Повторение", 5, last=True, available=[x,x,x,x,x]),
-        AT.prs("Идеи для Проектов", available=[x]),
+        AT.prs("Повторение", 5, available=[{4:2},1,1,v9b(),v9()], last=True),
+        AT.prs("Идеи для Проектов", available=[v9()]),
         AT.math(available=[v9e()]),
         AT.edu("Физика", available=[v9e()]),
         AT.thought("О личном здоровье"),
-        AT.game("Car Mechanic Simulator (с фоном)", 4, short=True, available=[x,x,x,x]),
-        AT.game("Car Mechanic Simulator", 2, short=True),
+        *AT.game("Car Mechanic Simulator", 6, available=[{4:1},0,v9b(),v9()], short=True),
     ],[ # video activities
         AT.anime('Код "ГИАС" R2'),
         AT.video_prs(2),
         AT.video_edu(last=True),
         AT.video_doc(),
-        AT.vid_theme(4, available=[x,x,x,x]),
-        AT.youtube("Подборка", 2, available=[x,x]),
-        AT.vid_letsplay(available=[x]),
+        AT.vid_theme(4, available=[{0:4},{1:4},{2:4},a9()]),
+        AT.youtube("Подборка", 2, available=[a9(),a9()]),
+        AT.vid_letsplay(available=[a9()]),
     ],[ # audio activities
         AT.abook_novel(),
         AT.abook_short(),
@@ -82,35 +82,35 @@ slot_09 = [
 
 # 4-th slot of module (10th at all) - current - standard slot
 # randomizer
-a10 = sample([2,3,4,5,6], 5)        # 10-th slot audio shuffle
-v10s = sample([4,4,5,6], 4)         # 10-th slot simple video shuffle
-v10h = sample([2,3,4,5], 4)         # 10-th slot high-attention video shuffle
+a10 = AT.randomize([3,4,5,6])       # 10-th slot audio shuffle
+v10s = AT.randomize([4,5])      # 10-th slot simple video shuffle
+v10h = AT.randomize([2,3,5,6])      # 10-th slot high-attention video shuffle
 # slot
 slot_10 = [
     [   # basic activities
-        AT.train_m(3, [4,4,4]),
-        ["PRS (новый язык)", 5, True, [1,1,v10h[0],v10s[0],v10s[1]]],
-        ["PRS (идеи для проектов)", 1, True, [v10h[1]]],
-        ["Математика", 1, True, [v10s[2]]],
-        ["Физика", 1, True, [v10s[3]]],
-        AT.default("АВТОР - О борьбе с агорафобией"),
-        ["Car Mechanic Simulator (с фоном)", 3, True, [0,v10h[2],v10h[3]]],
+        AT.sport("УТРЕННЯЯ ТРЕНИРОВКА", 3, available=[{4:0},{4:0},{4:0}]),
+        AT.prs("Новый Язык", 5, available=[{4:2},1,1,v10h(),v10h()], last=True),
+        AT.prs("Идеи для Проектов", available=[v10h()], last=True),
+        AT.math(available=[v10s()], last=True),
+        AT.edu("Физика", available=[v10s()], last=True),
+        AT.thought("О борьбе с агорафобией"),
+        AT.game("Car Mechanic Simulator", 3, available=[{4:1},0,v10h()], short=True),
     ],[ # video activities
-        AT.movie('Новенькая'),
-        AT.v_prs(2, True),
-        AT.v_doc(1, True),
-        ["YouTube (клипы)", 1, True, None],
-        AT.v_theme(6, [0,0,0,1,a10[0],a10[1]]),
-        ["YouTube (красота)", 2, True, [a10[2],a10[3]]],
-        AT.v_play([a10[4]], True),
+        AT.tv('Новенькая'),
+        AT.video_prs(2, last=True),
+        AT.video_doc(1, last=True),
+        AT.video("Клипы"),
+        AT.vid_theme(6, available=[{0:4},{0:4},{0:4},{1:4},{2:4},a10()]),
+        AT.youtube("Красота", 2, available=[a10(),a10()]),
+        AT.vid_letsplay(available=[a10()], last=True),
     ],[ # audio activities   [0,0,0,1]
-        AT.ab_roman(3),
-        AT.ab_story(1, True),
-        AT.a_prs(1, True),
-        AT.m_theme(1, True),
-        AT.m_hits(1, True),
-        AT.m_fresh(1, True),
-        AT.radio(1, True),
+        AT.abook_novel(3),
+        AT.abook_short(last=True),
+        AT.podcast_prs(last=True),
+        AT.music_theme(last=True),
+        AT.music_fresh(last=True),
+        AT.music_hits(last=True),
+        AT.music_radio(last=True),
     ], 30] # length
 
 
