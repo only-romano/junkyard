@@ -5,7 +5,6 @@
  - 5 slots with constant basic/video/audio activities
  - 1 micro-slot with modular activities
 """
-from random import sample
 # import fix
 if __name__ == '__main__':
     import activity_templates as AT
@@ -32,34 +31,33 @@ slot_04 = ["To-Do-List на сегодня", None, None, 5]
 # 5-th slot - current - materials/resources updates slot
 slot_05 = ["Materials/Resources Updates", None, "Подкаст - English", 10]
 
-
 # 6-th slot - current - micro-activity slot
 # shuffles section
-v6 = sample([2,3,3,3,3,4], 6)       # 6-th slot video shuffle
-a6 = sample([1,1,1,2,2,3,3,4], 8)   # 6-th slot audio shuffle
+a6 = AT.randomize([1,1,1,2,2,3,3,4])   # 6-th slot audio randomized
+v6 = AT.randomize([2,2,3,3,3,4])       # 6-th slot video randomized
 #print(v6, a6)
 # slot
 slot_06 = [
     [   # basic activities
-        ["Разминка Программиста", 5, True, [0,2,3,v6[0],v6[1]]],
-        ["Зарядка для ума (задачи)", 4, True, [v6[2],v6[3],v6[4],v6[5]]],
-        ["Фантазии под музыку", 2, True, [a6[0],a6[1]], True],
-        AT.act("Фантазии под клипы", last=True, available=[1]),
-        AT.default("Бритьё"),
-        AT.default("Стирка"),
-        AT.game("Заработало!"),
+        AT.act("Разминка Программиста", 5, available=[{3:0},{3:0},0,v6(),v6()]),
+        AT.act("Зарядка для ума (задачи)", 4, available=[v6(),v6(),v6(),v6()]),
+        AT.sound_only("Фантазии под музыку", 2, available=[a6(),a6()]),
+        AT.act("Фантазии под клипы", available=[1]),
+        AT.act("Бритьё"),
+        AT.act("Стирка"),
+        AT.game("Заработало!", short=True),
     ],[ # video activities
-        AT.v_prs(),
+        AT.video_prs(),
         AT.video("YouTube (клипы)"),
-        AT.video("YouTube (awesome people)", 2, available=[a6[2],a6[3]]),
-        AT.v_theme(5, available=[0,0,a6[4],a6[5],a6[6]]),
-        AT.v_play(available=[a6[7]]),
+        AT.video("YouTube (awesome people)", 2, available=[a6(),a6()]),
+        AT.vid_theme(5, available=[{0:3},{0:3},a6(),a6(),a6()]),
+        AT.vid_letsplay(available=[a6()]),
     ],[ # audio activities
-        AT.ab_story(2),
-        AT.m_theme(3, last=True),
-        AT.m_hits(2),
-        AT.m_fresh(2),
-        AT.radio(),
+        AT.abook_short(2),
+        AT.music_theme(3, last=True),
+        AT.music_fresh(2),
+        AT.music_hits(2),
+        AT.music_radio(),
     ], 10]
 
 

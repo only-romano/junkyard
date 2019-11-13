@@ -7,7 +7,6 @@ Morning activities (until morning training min-finish time [07:00 - 10:00])
  - 2 standard slots
  - constant Morning Training 1.5 h slot
 """
-from random import sample
 # import fix
 if __name__ == '__main__':
     import activity_templates as AT
@@ -17,12 +16,12 @@ else:
 
 # 1-st slot of module (7th at all) - current - mini-activity slot
 # shuffles section
-v7 = sample([2,2,2,3,3,4], 6)       # 7-th slot video shuffle
-a7 = sample([1,1,2,2,3], 5)         # 7-th slot audio shuffle
+a7 = AT.randomize([1,1,2,2,3])         # 7-th slot audio shuffle
+v7 = AT.randomize([2,2,2,3,3,4])       # 7-th slot video shuffle
 # slot
 slot_07 = [
     [   # basic activities
-        ["Уборка", 5, True, [0,1,2,v7[0],v7[1]]],
+        AT.act("Уборка", 5, [x,x,x,x,x]),
         ["Оригами", 2, True, [v7[2],v7[3]]],
         ["Новости", 1, True, [v7[4]]],
         ["uCrazy.ru", 1, True, [v7[5]]],

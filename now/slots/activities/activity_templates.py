@@ -1,4 +1,5 @@
 from functools import partial
+from random import sample
 
 # PLACEHOLDERS
 PLACEHOLDER = ["Activity", "Video", "Audio", 30]    # for unfilled slots
@@ -68,6 +69,19 @@ class Activity:
         return result
 
 
+# Randomizer for available lists
+class Randomize_and_pop_on_call:
+    # created only to ease-up code a little
+    def __init__(self, array):
+        self.array = sample(array, len(array))
+
+    def __call__(self):
+        return len(self.array) and self.array.pop() or None
+
+# alias
+randomize = Randomize_and_pop_on_call
+
+
 # BASE ACTIVITY INSTANCES
 # basic
 default = Activity(last=False)
@@ -115,8 +129,9 @@ __all__ = [
     'abook_novel', 'abook_short', 'act', 'anime', 'author', 'cartoon',
     'default', 'edu', 'game', 'hobby', 'math', 'movie', 'music_fresh',
     'music_hits' 'music_radio', 'music_theme', 'PLACEHOLDER', 'podcast_prs',
-    'project', 'prs', 'sport', 'THEME', 'thought', 'tv', 'vid_letsplay',
-    'vid_theme', 'video', 'video_doc', 'video_edu', 'video_prs',
+    'project', 'prs', 'Randomize_and_pop_on_call', 'randomize', 'sound_only',
+    'sport', 'THEME', 'thought', 'tv', 'vid_letsplay', 'vid_theme', 'video',
+    'video_doc', 'video_edu', 'video_prs',
     ]
 
 if __name__ == '__main__':
@@ -124,3 +139,6 @@ if __name__ == '__main__':
     print(prs("Hello"))
     print(project(3, last=True))
     print(prs("Cat", 4, True, available=[1,2,3]))
+    # randomizer check
+    ar = Randomize_and_pop_on_call([1,2,3,4,5])
+    print(ar(), ar(), ar(), ar(), ar(), ar())
