@@ -14,10 +14,10 @@ else:
     import activities.activity_templates as AT
 
 
-# 1-st slot of module (7th at all) - current - mini-activity slot
-# shuffles section
-a7 = AT.randomize([1,2,2,3])         # 7-th slot audio shuffle
-v7 = AT.randomize([2,2,3,3,4])       # 7-th slot video shuffle
+# 1-st slot of the module (7th at all) - current - mini-activity slot
+# randomizer section
+a7 = AT.randomize([1,2,2,3])         # audio, 7th slot randomized
+v7 = AT.randomize([2,2,3,3,4])       # video, 7th slot randomized
 # slot
 slot_07 = [
     [   # basic activities
@@ -25,7 +25,7 @@ slot_07 = [
         AT.hobby("Оригами", 2, last=True, available=[{3:0},v7()]),
         AT.act("Новости", available=[v7()]),
         AT.act("uCrazy.ru", available=[v7()]),
-        AT.author("Моя Вселенная"),
+        AT.author("Моя Вселенная", short=True),
         AT.game("Бесконечное Лето", 3, short=True),
         AT.game("Tempest", 2, short=True),
     ],[ # video activities
@@ -47,41 +47,41 @@ slot_08 = ["Завтрак", "Букашки", None, 10]
 
 
 # 3-rd slot of module (9th at all) - current - standard slot
-# shuffles
-a9 = sample([2,3,4,5,6], 5)         # 9-th slot audio shuffle
-v9 = sample([3,4,4,4,5,5,6], 7)     # 9-th slot video shuffle
-v9e = sample([2,4], 2)              # 9-th slot educational shuffle
+# randomizer
+a9 = randomize([2,3,4,5,6])         # audio, 9th slot randomized
+v9 = randomize([3,4,4,4,5,5,6])     # video, 9th slot randomized
+v9e = randomize([2,4])              # educational video, 9th slot randomized
 # slot
 slot_09 = [
     [   # basic activities
-        ["PRS (закрепление пройденного)", 5, True, [1,1,v9[0],v9[1],v9[2]]],
-        ["PRS (идеи для проектов)", 1, False, [v9[3]]],
-        ["Математика", 1, False, [v9e[0]]],
-        ["Физика", 1, False, [v9e[1]]],
-        AT.default("АВТОР - О личном здоровье"),
-        ["Car Mechanic Simulator (с фоном)", 4, False, [0,v9[4],v9[5],v9[6]]],
-        ["Car Mechanic Simulator", 2, False, None],
+        AT.prs("Повторение", 5, last=True, available=[x,x,x,x,x]),
+        AT.prs("Идеи для Проектов", available=[x]),
+        AT.math(available=[v9e()]),
+        AT.edu("Физика", available=[v9e()]),
+        AT.thought("О личном здоровье"),
+        AT.game("Car Mechanic Simulator (с фоном)", 4, short=True, available=[x,x,x,x]),
+        AT.game("Car Mechanic Simulator", 2, short=True),
     ],[ # video activities
-        AT.movie('Код "ГИАС" R2'),
-        AT.v_prs(2),
-        AT.v_edu(1, True),
-        AT.v_doc(1),
-        AT.v_theme(4, [0,1,a9[0],a9[1]]),
-        ["YouTube (подборки)", 2, True, [a9[2],a9[3]]],
-        AT.v_play([a9[4]]),
+        AT.anime('Код "ГИАС" R2'),
+        AT.video_prs(2),
+        AT.video_edu(last=True),
+        AT.video_doc(),
+        AT.vid_theme(4, available=[x,x,x,x]),
+        AT.youtube("Подборка", 2, available=[x,x]),
+        AT.vid_letsplay(available=[x]),
     ],[ # audio activities
-        AT.ab_roman(1),
-        AT.ab_story(1),
-        AT.a_prs(1),
-        AT.m_theme(1),
-        AT.m_hits(1),
-        AT.m_fresh(1),
-        AT.radio(1),
+        AT.abook_novel(),
+        AT.abook_short(),
+        AT.podcast_prs(),
+        AT.music_theme(),
+        AT.music_fresh(),
+        AT.music_hits(),
+        AT.music_radio(),
     ], 30] # length
 
 
 # 4-th slot of module (10th at all) - current - standard slot
-# shuffles
+# randomizer
 a10 = sample([2,3,4,5,6], 5)        # 10-th slot audio shuffle
 v10s = sample([4,4,5,6], 4)         # 10-th slot simple video shuffle
 v10h = sample([2,3,4,5], 4)         # 10-th slot high-attention video shuffle

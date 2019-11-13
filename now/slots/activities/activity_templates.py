@@ -46,6 +46,7 @@ class Activity:
         # order is - kwargs -> args -> default value, 'till first match
         name = 'name' in kwargs and kwargs['name'] or name or self.name
         count = 'count' in kwargs and kwargs['count'] or count or self.count
+
         if 'last' in kwargs:
             last = kwargs['last']
         elif 'long' in kwargs:
@@ -103,6 +104,26 @@ def prs(*args, keyname="Программирование", **kwargs):
 
 def author(*args, **kwargs):
     return default('АВТОР - "%s"' % args[0], *args[1:], **kwargs)
+
+def game(*args, **kwargs):
+    count = 1
+    for arg in args:
+        if isinstance(arg, int) and arg > 1:
+            count = arg
+            break
+    only_game = count
+    ambient = 0
+    if 'available' in kwargs:
+        length = len(kwargs['available'])
+        only_game -= length
+        ambient += length
+        ambient = default(args[0]+" (с фоном)",*args[1:],**kwargs,count=ambient)
+        del kwargs['available']
+    if only_game > 0:
+        only_game = default(*args, **kwargs, count=only_game, available=None)
+        return (ambient, only_game) if ambient else only_game
+    return ambient
+
 
 # PARTIAL CALLS
 # basic
