@@ -32,10 +32,10 @@ slot_04 = ["To-Do-List на сегодня", None, None, 5]
 slot_05 = ["Materials/Resources Updates", None, "Подкаст - English", 10]
 
 # 6-th slot - current - micro-activity slot
-# shuffles section
-a6 = AT.randomize([1,1,1,2,2,3,3,4])   # 6-th slot audio randomized
-v6 = AT.randomize([2,2,3,3,3,4])       # 6-th slot video randomized
-#print(v6, a6)
+# randomizer section
+a6 = AT.randomize([1,1,1,2,3,3,4])      # audio, 6th randomized
+v6 = AT.randomize([2,2,3,3,3,4])        # video, 6th randomized
+#print(a6, v6)
 # slot
 slot_06 = [
     [   # basic activities
@@ -48,9 +48,9 @@ slot_06 = [
         AT.game("Заработало!", short=True),
     ],[ # video activities
         AT.video_prs(),
-        AT.video("YouTube (клипы)"),
-        AT.video("YouTube (awesome people)", 2, available=[a6(),a6()]),
-        AT.vid_theme(5, available=[{0:3},{0:3},a6(),a6(),a6()]),
+        AT.video("Клипы"),
+        AT.youtube("Awesome People", 2, available=[a6(),a6()]),
+        AT.vid_theme(5, available=[{0:3},{0:3},2,a6(),a6()]),
         AT.vid_letsplay(available=[a6()]),
     ],[ # audio activities
         AT.abook_short(2),

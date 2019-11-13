@@ -16,29 +16,29 @@ else:
 
 # 1-st slot of module (7th at all) - current - mini-activity slot
 # shuffles section
-a7 = AT.randomize([1,1,2,2,3])         # 7-th slot audio shuffle
-v7 = AT.randomize([2,2,2,3,3,4])       # 7-th slot video shuffle
+a7 = AT.randomize([1,2,2,3])         # 7-th slot audio shuffle
+v7 = AT.randomize([2,2,3,3,4])       # 7-th slot video shuffle
 # slot
 slot_07 = [
     [   # basic activities
-        AT.act("Уборка", 5, [x,x,x,x,x]),
-        ["Оригами", 2, True, [v7[2],v7[3]]],
-        ["Новости", 1, True, [v7[4]]],
-        ["uCrazy.ru", 1, True, [v7[5]]],
-        AT.default("АВТОР - Моя Вселенная"),
-        AT.game("Бесконечное Лето", 3),
-        AT.game("Tempest", 2),
+        AT.act("Уборка", 5, available=[{3:0},0,1,v7(),v7()]),
+        AT.hobby("Оригами", 2, last=True, available=[{3:0},v7()]),
+        AT.act("Новости", available=[v7()]),
+        AT.act("uCrazy.ru", available=[v7()]),
+        AT.author("Моя Вселенная"),
+        AT.game("Бесконечное Лето", 3, short=True),
+        AT.game("Tempest", 2, short=True),
     ],[ # video activities
-        AT.v_prs(1),
-        AT.v_doc(1),
-        AT.v_theme(4, [0,0,a7[0],a7[1]]),
-        ["YouTube (происшествия)", 2, True, [a7[2],a7[3]]],
-        AT.v_play([a7[4]]),
-    ],[ # audio activities   []
-        AT.ab_story(2),
-        AT.m_hits(2),
-        AT.m_fresh(2),
-        AT.radio(1),
+        AT.video_prs(),
+        AT.video_doc(),
+        AT.youtube("Происшествия", 2, available=[a7(),a7()]),
+        AT.vid_theme(4, available=[{0:3},{0:3},1,a7()]),
+        AT.vid_letsplay(available=[a7()]),
+    ],[ # audio activities
+        AT.abook_short(2),
+        AT.music_fresh(2),
+        AT.music_hits(2),
+        AT.music_radio(1),
     ], 20] # length
 
 

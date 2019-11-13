@@ -91,7 +91,7 @@ edu = sport = hobby = game = default
 act = default_last
 # video
 movie = default
-video = tv = anime = cartoon = default_last
+tv = anime = cartoon = default_last
 # audio
 audio = Activity(audio=True, last=False)
 
@@ -113,8 +113,10 @@ math = partial(default, "Математика")
 video_prs = partial(default, "Видео по программированию")
 video_edu = partial(default, "Видео по предмету")
 video_doc = partial(default, "Документальное видео")
-vid_theme = partial(default, "YouTube (%s)" % THEME)
-vid_letsplay = partial(default, "YouTube (летсплей)")
+video = partial(prs, keyname="Видео", short=True)
+vid_theme = partial(video, THEME, short=False)
+youtube = partial(prs, keyname="YouTube", short=True)
+vid_letsplay = partial(youtube, "летсплей", short=False)
 # audio
 abook_novel = partial(audio, "АУДИОКНИГА - Роман")
 abook_short = partial(audio, "АУДИОКНИГА - Рассказ")
@@ -131,7 +133,7 @@ __all__ = [
     'music_hits' 'music_radio', 'music_theme', 'PLACEHOLDER', 'podcast_prs',
     'project', 'prs', 'Randomize_and_pop_on_call', 'randomize', 'sound_only',
     'sport', 'THEME', 'thought', 'tv', 'vid_letsplay', 'vid_theme', 'video',
-    'video_doc', 'video_edu', 'video_prs',
+    'video_doc', 'video_edu', 'video_prs', 'youtube',
     ]
 
 if __name__ == '__main__':
