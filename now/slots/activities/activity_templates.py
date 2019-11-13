@@ -64,7 +64,7 @@ class Activity:
             result.append(available)
             if self.audio == None:
                 # flag for audio only basic activities
-                # available consist of audio, not video
+                # the "available" of this element consist of audio, not video
                 result.append(True)
 
         return result
@@ -77,7 +77,7 @@ class Randomize_and_pop_on_call:
         self.array = sample(array, len(array))
 
     def __call__(self):
-        return len(self.array) and self.array.pop() or None
+        return self.array.pop() if len(self.array) else None
 
 # alias
 randomize = Randomize_and_pop_on_call

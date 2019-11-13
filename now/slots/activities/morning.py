@@ -48,7 +48,7 @@ slot_08 = ["Завтрак", "Букашки", None, 10]
 
 # 3-rd slot of module (9th at all) - current - standard slot
 # randomizer
-a9 = AT.randomize([3,4,5,6])      # audio, 9th slot randomized
+a9 = AT.randomize([3,4,5,6])        # audio, 9th slot randomized
 v9 = AT.randomize([5,5,6])          # video, 9th slot randomized
 v9b = AT.randomize([{4,0},3])       # audiobook/ documental video
 v9e = AT.randomize([2,4])           # educational video / theme video
@@ -82,9 +82,9 @@ slot_09 = [
 
 # 4-th slot of module (10th at all) - current - standard slot
 # randomizer
-a10 = AT.randomize([3,4,5,6])       # 10-th slot audio shuffle
-v10s = AT.randomize([4,5])      # 10-th slot simple video shuffle
-v10h = AT.randomize([2,3,5,6])      # 10-th slot high-attention video shuffle
+a10 = AT.randomize([3,4,5,6])   # audio, 10th slot, randomized
+v10s = AT.randomize([4,5])      # simple video, 10th slot, randomized
+v10h = AT.randomize([2,3,5,6])  # high-attention video, 10th slot, randomized
 # slot
 slot_10 = [
     [   # basic activities
