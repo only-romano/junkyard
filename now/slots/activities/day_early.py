@@ -11,7 +11,7 @@ else:
     import activities.activity_templates as AT
 
 
-# 1-th slot of module (12th at all) - current - standard slot
+# 1-st slot of module (12th at all) - current - standard slot
 # randomizer
 a12 = AT.randomize([1,2,2])         # audio, 12th slot, randomized
 v12 = AT.randomize([1,4,6])         # video, 12th slot, randomized
@@ -41,7 +41,7 @@ slot_12 = [
     ], 30] # length
 
 
-# 2-th slot of module (13th at all) - current - standard slot
+# 2-nd slot of module (13th at all) - current - standard slot
 # randomizer
 a13 = AT.randomize([1,2,2])         # audio, 13th slot, randomized
 v13 = AT.randomize([2,4,5,6])       # video, 13th slot, randomized
@@ -49,7 +49,7 @@ v13t = AT.randomize([0,1])          # tv/prs video
 # slot
 slot_13 = [
     [   # basic activities
-        AT.sport("УТРЕННЯЯ ТРЕНИРОВКА", 3, [{4:0},{4:0},{4:0}]),
+        AT.sport("УТРЕННЯЯ ТРЕНИРОВКА", 3, [{4:0},{4:0},{4:0}], last=True),
         AT.prs(3, available=[1,v13(),v13t()]),
         AT.project("PyMath", 3, available=[v13(),v13(),v13t()]),
         AT.hobby("Hardware", available=[v13()], last=True),
@@ -71,7 +71,7 @@ slot_13 = [
     ], 30] # length
 
 
-# 3-th slot of module (14th at all) - current - standard slot
+# 3-rd slot of module (14th at all) - current - standard slot
 # randomizer
 a14 = AT.randomize([2,3,3,3])       # audio, 14th slot, randomized
 v14 = AT.randomize([4,4,5,6])       # video, 14th slot, randomized

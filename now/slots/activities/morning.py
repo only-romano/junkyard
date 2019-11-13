@@ -62,7 +62,7 @@ slot_09 = [
         AT.thought("О личном здоровье"),
         *AT.game("Car Mechanic Simulator", 6, available=[{4:1},0,v9b(),v9()], short=True),
     ],[ # video activities
-        AT.anime('Код "ГИАС" R2'),
+        AT.anime('Код ГИАС R2'),
         AT.video_prs(2),
         AT.video_edu(last=True),
         AT.video_doc(),
@@ -115,7 +115,7 @@ slot_10 = [
 
 
 # 5-th slot of module (11th at all) - current - morning training slot
-slot_11 = ["УТРЕННЯЯ ТРЕНИРОВКА", "YouTube (%s)" % AT.THEME, "АУДИОКНИГА - Роман", 90]
+slot_11 = ["УТРЕННЯЯ ТРЕНИРОВКА", "Видео (%s)" % AT.THEME, "АУДИОКНИГА - Роман", 90]
 
 
 # exported variable

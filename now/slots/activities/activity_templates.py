@@ -1,5 +1,5 @@
 from functools import partial
-from random import sample
+from random import sample, randint
 
 # PLACEHOLDERS
 PLACEHOLDER = ["Activity", "Video", "Audio", 30]    # for unfilled slots
@@ -83,6 +83,10 @@ class Randomize_and_pop_on_call:
 randomize = Randomize_and_pop_on_call
 
 
+# random radio
+random_broadcast = "Евгеника" if randint(1, 4) == 1 else "Маяк"
+
+
 # BASE ACTIVITY INSTANCES
 # basic
 default = Activity(last=False)
@@ -91,7 +95,6 @@ sound_only = Activity(audio=None)
 edu = sport = hobby = default
 act = default_last
 # video
-movie = default
 tv = anime = cartoon = default_last
 # audio
 audio = Activity(audio=True, last=False)
@@ -131,6 +134,7 @@ project = partial(prs, keyname="Проект")
 thought = partial(author, short=True)
 math = partial(default, "Математика")
 # video, video_* - with sound; vid_* - without sound
+movie = partial(default, "ФИЛЬМ")
 video_prs = partial(default, "Видео по программированию")
 video_edu = partial(default, "Видео по предмету")
 video_doc = partial(default, "Документальное видео")
@@ -152,9 +156,10 @@ __all__ = [
     'abook_novel', 'abook_short', 'act', 'anime', 'author', 'cartoon',
     'default', 'edu', 'game', 'hobby', 'math', 'movie', 'music_fresh',
     'music_hits' 'music_radio', 'music_theme', 'PLACEHOLDER', 'podcast_prs',
-    'project', 'prs', 'Randomize_and_pop_on_call', 'randomize', 'sound_only',
-    'sport', 'THEME', 'thought', 'tv', 'vid_letsplay', 'vid_theme', 'video',
-    'video_doc', 'video_edu', 'video_prs', 'youtube',
+    'project', 'prs', 'random_broadcast', 'Randomize_and_pop_on_call',
+    'randomize', 'sound_only', 'sport', 'THEME', 'thought', 'tv',
+    'vid_letsplay', 'vid_theme', 'video', 'video_doc', 'video_edu',
+    'video_prs', 'youtube',
     ]
 
 if __name__ == '__main__':

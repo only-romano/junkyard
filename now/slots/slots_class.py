@@ -1,6 +1,8 @@
 """
 Slots class
 """
+from random import randint
+
 class Slots:
     def __init__(self, slots=False, start=375, end=1650):
         self._slots = []
@@ -32,8 +34,8 @@ class Slots:
             if (slot["audio"]):
                 slot_str += "\t\t(AUDIO: %s)" % str(slot["audio"])
             return slot_str
-
-        return "\n".join(["%s - %s" % (self.time(s), slot_str(s)) for s in self])
+        return "\n".join(["%s - %s" % (self.time(s), slot_str(s)) for s in self]) \
+            .replace("radiobroadcast", "Радиопередача - %s" % self._radio_broadcast())
 
     def time(self, slot):
         time = self.now_time
@@ -54,6 +56,9 @@ class Slots:
             slots = [slots]
         for slot in slots:
             self._slots.append(self._create_slot_object(slot))
+
+    def _radio_broadcast(self):
+        return "Евгеника" if randint(1,4) == 1 else "Маяк"
 
     def _next(self, index):
         index += 1

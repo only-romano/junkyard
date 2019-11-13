@@ -3,14 +3,15 @@ Init new slots instance, fill it up with activities.
 Module used to create default chain of activities for every start period.
 Activities modifications is allowed.
 """
+# Deprecated
+#from custom_slot import create_custom_slots
 from slots_class import Slots
-from custom_slot import create_custom_slots
 from activities.wake_up import WAKE_UP
 from activities.morning import MORNING
 from activities.day_early import EARLY_DAY
 from activities.midday import MIDDAY
-#from activities.day_late import LATEDAY
-#from activities.evening import EVENING
+from activities.day_late import LATEDAY
+from activities.evening import EVENING
 #from activities.night_early import NIGHT
 #from activities.night_late import LATE_NIGHT
 
@@ -25,16 +26,17 @@ slots.add(EARLY_DAY)
 # Midday activites (until second dinner [included, 13:00 - 15:30])
 slots.add(MIDDAY)
 # Late daytime activities (until evening siesta [not included, 15:30 - 19:00])
-#slots.add(LATE_DAY)
+slots.add(LATEDAY)
 # Evening activities (until night siesta [included, 19:00 - 22:00])
-#slots.add(EVENING)
+slots.add(EVENING)
 # Night activities (until possible sleep start [not included, 22:00 - 00:30])
 #slots.add(NIGHT)
 # Late night activities (until required sleep [not included, 00:30 - 03:30])
 #slots.add(LATE_NIGHT)
 
 # interactive slots creation tool
-slots = create_custom_slots(slots)
+# Deprecated
+#slots = create_custom_slots(slots)
 
 __all__ = ['slots']
 
