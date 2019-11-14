@@ -8,48 +8,52 @@
 # import fix
 if __name__ == '__main__':
     import activity_templates as AT
+    import activity_placeholders as P
+    from activity_randomizer import randomize
 else:
     import activities.activity_templates as AT
+    import activities.activity_placeholders as P
+    from activities.activity_randomizer import randomize
 
 
 # 1-st slot - current - wake-up timespace slot
-slot_01 = ["Wake Up", None, None, 5]
+slot_01 = [P.START, None, None, 5]
 
 
 # 2-nd slot - current - wake-up-exercises slot
-slot_02 = ["Зарядка", None, "Песня Дня", 5]
+slot_02 = [P.SPORT_WAKEUP, None, P.SONG_OF_THE_DAY, 5]
 
 
 # 3-rd slot - current - morning shower slot
-slot_03 = ["Душ", None, None, 10]
+slot_03 = [P.SHOWER, None, None, 10]
 
 
 # 4-th slot - current - picker schedule file creation slot
-slot_04 = ["To-Do-List на сегодня", None, None, 5]
+slot_04 = [P.TODO_LIST, None, None, 5]
 
 
 # 5-th slot - current - materials/resources updates slot
-slot_05 = ["Materials/Resources Updates", None, "Подкаст - English", 10]
+slot_05 = [P.TODO_UPDATE, None, P.PODCAST_ENGLISH, 10]
 
 # 6-th slot - current - micro-activity slot
 # randomizer section
-a6 = AT.randomize([1,1,1,2,3,3,4])      # audio, 6th randomized
-v6 = AT.randomize([2,2,3,3,3,4])        # video, 6th randomized
+a6 = randomize([1,1,1,2,3,3,4])      # audio, 6th randomized
+v6 = randomize([2,2,3,3,3,4])        # video, 6th randomized
 #print(a6, v6)
 # slot
 slot_06 = [
     [   # basic activities
-        AT.act("Разминка Программиста", 5, available=[{3:0},{3:0},0,v6(),v6()]),
-        AT.act("Зарядка для ума (задачи)", 4, available=[v6(),v6(),v6(),v6()]),
-        AT.sound_only("Фантазии под музыку", 2, available=[a6(),a6()]),
-        AT.act("Фантазии под клипы", available=[1]),
-        AT.act("Бритьё"),
-        AT.act("Стирка"),
-        AT.game(AT.GAME_BRAIN, short=True),
+        AT.act(P.PRS_WAKEUP, 5, available=[{3:0},{3:0},0,v6(),v6()]),
+        AT.act(P.BRAIN_WAKEUP, 4, available=[v6(),v6(),v6(),v6()]),
+        AT.sound_only(P.RELAX_WAKEUP_1, 2, available=[a6(),a6()]),
+        AT.act(P.RELAX_WAKEUP_2, available=[1]),
+        AT.act(P.SHAVING),
+        AT.act(P.ACT_WAKEUP),
+        AT.game(P.GAME_BRAIN, short=True),
     ],[ # video activities
         AT.video_prs(),
-        AT.video("Клипы"),
-        AT.youtube("Awesome People", 2, available=[a6(),a6()]),
+        AT.video(P.CLIPS),
+        AT.youtube(P.YOUTUBE_WAKEUP, 2, available=[a6(),a6()]),
         AT.vid_theme(5, available=[{0:3},{0:3},2,a6(),a6()]),
         AT.vid_letsplay(available=[a6()]),
     ],[ # audio activities
