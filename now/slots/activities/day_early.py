@@ -25,7 +25,7 @@ slot_12 = [
         AT.hobby("Hardware", available=[2]),
         AT.hobby("Поделки", available=[v12()]),
         AT.author("Новелла"),
-        AT.game("Grim Fandango", 3),
+        AT.game(AT.GAME_STORY, 3),
     ],[ # video activities
         AT.video_prs(2),
         AT.video_doc(1),
@@ -55,7 +55,7 @@ slot_13 = [
         AT.hobby("Hardware", available=[v13()], last=True),
         AT.hobby("Поделки", available=[3], last=True),
         AT.author("Новелла"),
-        AT.game("Grim Fandango", 3),
+        AT.game(AT.GAME_STORY, 3),
     ],[ # video activities
         AT.tv('Новенькая'),
         AT.video_prs(2),
@@ -85,7 +85,7 @@ slot_14 = [
         AT.hobby("Вокал", available=[3]),
         AT.hobby("Шитьё", available=[0]),
         AT.author("Новелла"),
-        *AT.game("Grim Fandango", 4, available=[v14()], last=True),
+        *AT.game(AT.GAME_STORY, 4, available=[v14()], last=True),
     ],[ # video activities
         AT.tv('Новенькая'),
         AT.video_prs(2),
@@ -114,7 +114,7 @@ slot_15 = [
         AT.hobby("Шитьё", available=[0], last=True),
         AT.author("Новелла", last=True),
         AT.author("Поэзия"),
-        AT.game("The Walking Deads", 3),
+        AT.game(AT.GAME_STORY2, 3),
     ],[ # video activities
         AT.anime('Трогательный Комплекс', 5),
         AT.video_prs(),
@@ -138,7 +138,7 @@ slot_16 = [
         AT.hobby("Рисование", available=[0]),
         AT.author("Поэзия"),
         AT.author("Здоровая Жизнь"),
-        AT.game("The Walking Deads", 3),
+        AT.game(AT.GAME_STORY2, 3),
     ],[ # video activities
         AT.cartoon('Тимон и Пумба', 5),
         AT.video_prs(),
@@ -165,7 +165,7 @@ slot_17 = [
         AT.hobby("Рисование", available=[2], last=True),
         AT.author("Поэзия", last=True),
         AT.author("Здоровая Жизнь", last=True),
-        AT.game("The Walking Deads", 3, last=True),
+        AT.game(AT.GAME_STORY2, 3, last=True),
     ],[ # video activities
         AT.anime('Код ГИАС R2'),
         AT.video_prs(last=True),

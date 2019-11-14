@@ -25,7 +25,7 @@ slot_25 = [
         AT.edu("Физика", available=[v25()]),
         AT.hobby("Создание Музыки", available=[2]),
         AT.author("Рассказ"),
-        AT.game("This War of Mine", 3, available=[{3:1},0,v25()], last=True),
+        AT.game(AT.GAME_COMPLEX, 3, available=[{3:1},0,v25()], last=True),
     ],[ # video activities
         AT.movie(5),
         AT.video_prs(2),
@@ -55,7 +55,7 @@ slot_26 = [
         AT.edu("Физика", available=[v26e()]),
         AT.hobby("Создание Музыки", available=[v26()], last=True),
         AT.author("Рассказ"),
-        AT.game("Заработало!", 4, available=[{3:1},0,v26(),v26()], short=True),
+        AT.game(AT.GAME_BRAIN, 4, available=[{3:1},0,v26(),v26()], short=True),
     ],[ # video activities
         AT.movie(5),
         AT.video_prs(2, last=True),
@@ -86,7 +86,7 @@ slot_27 = [
         AT.edu("Физика", available=[v27e()], last=True),
         AT.edu("Экономика", available=[v27e()], last=True),
         AT.author("Рассказ", last=True),
-        AT.game("Заработало!", 4, available=[0,3,v27(),v27()], short=True),
+        AT.game(AT.GAME_BRAIN, 4, available=[0,3,v27(),v27()], short=True),
     ],[ # video activities
         AT.movie(3, last=True),
         AT.video_edu(last=True),
@@ -121,7 +121,7 @@ slot_29 = [
         AT.math(2, available=[2,v29()]),
         AT.act("Ремонт", available=[v29h()],long=True),
         AT.hobby("Фокусы", available=[3]),
-        AT.game("Бесконечное Лето", 2),
+        AT.game(AT.GAME_NOVEL, 2),
     ],[ # video activities
         AT.tv("Новенькая"),
         AT.video_prs(2),
@@ -140,9 +140,9 @@ slot_29 = [
 
 # 6-st slot of module (30th at all) - current - standard slot
 # randomizer
-a30 = AT.randomize([1,1,2,3])           # audio, 30th slot, randomized
-v30 = AT.randomize([4,5,6])             # video, 30th slot, randomized
-v30h = AT.randomize([0,4])        # tv / audiobook / music
+a30 = AT.randomize([1,1,2,3])       # audio, 30th slot, randomized
+v30 = AT.randomize([4,5,6])         # video, 30th slot, randomized
+v30h = AT.randomize([0,4])          # tv / audiobook / music
 # slot
 slot_30 = [
     [   # basic activities
@@ -152,7 +152,7 @@ slot_30 = [
         AT.act("Ремонт", available=[3]),
         AT.hobby("Фокусы", available=[{4:0}], last=True),
         AT.thought("Об Идеальном Партнёре"),
-        AT.game("Бесконечное Лето", 2, last=True),
+        AT.game(AT.GAME_NOVEL, 2, last=True),
     ],[ # video activities
         AT.tv("Новенькая"),
         AT.video_prs(2, last=True),

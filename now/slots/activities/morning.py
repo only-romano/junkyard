@@ -26,8 +26,8 @@ slot_07 = [
         AT.act("Новости", available=[v7()]),
         AT.act("uCrazy.ru", available=[v7()]),
         AT.author("Моя Вселенная", short=True),
-        AT.game("Бесконечное Лето", 3, short=True),
-        AT.game("Tempest", 2, short=True),
+        AT.game(AT.GAME_NOVEL, 3, short=True),
+        AT.game(AT.GAME_ADVENTURE, 2, short=True),
     ],[ # video activities
         AT.video_prs(),
         AT.video_doc(),
@@ -60,7 +60,7 @@ slot_09 = [
         AT.math(available=[v9e()]),
         AT.edu("Физика", available=[v9e()]),
         AT.thought("О личном здоровье"),
-        *AT.game("Car Mechanic Simulator", 6, available=[{4:1},0,v9b(),v9()], short=True),
+        *AT.game(AT.GAME_MORNING, 6, available=[{4:1},0,v9b(),v9()], short=True),
     ],[ # video activities
         AT.anime('Код ГИАС R2'),
         AT.video_prs(2),
@@ -94,7 +94,7 @@ slot_10 = [
         AT.math(available=[v10s()], last=True),
         AT.edu("Физика", available=[v10s()], last=True),
         AT.thought("О борьбе с агорафобией"),
-        AT.game("Car Mechanic Simulator", 3, available=[{4:1},0,v10h()], short=True),
+        AT.game(AT.GAME_MORNING, 3, available=[{4:1},0,v10h()], short=True),
     ],[ # video activities
         AT.tv('Новенькая'),
         AT.video_prs(2, last=True),

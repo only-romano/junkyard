@@ -2,8 +2,20 @@ from functools import partial
 from random import sample, randint
 
 # PLACEHOLDERS
+# global
 PLACEHOLDER = ["Activity", "Video", "Audio", 30]    # for unfilled slots
 THEME = "тематика"                                  # current theme
+# games
+GAME_MAIN = "Assassin's Creed"
+GAME_PARENTS = "The Walking Deads"
+GAME_STORY = "Grim Fandango"
+GAME_STORY2 = GAME_PARENTS
+GAME_COMPLEX = "This War of Mine"
+GAME_MORNING = "Car Mechanic Simulator"
+GAME_BRAIN = "Заработало!"
+GAME_RELAX = "Cuphead"
+GAME_NOVEL = "Бесконечное Лето"
+GAME_ADVENTURE = "Tempest"
 
 # BASE ACTIVITY CLASS
 class Activity:

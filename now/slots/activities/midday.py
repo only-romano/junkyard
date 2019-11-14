@@ -30,7 +30,7 @@ slot_19 = [
         AT.sound_only("Готовка", available=[0,a19()]),
         AT.act("Танцы", available=[1,2,4,4,v19d()]),
         AT.act("Ощущение Своего Тела"),
-        AT.game("Cuphead", 2, available=[v19(),v19()], short=True),
+        AT.game(AT.GAME_RELAX, 2, available=[v19(),v19()], short=True),
     ],[ # video activities
         AT.cartoon('По другую сторону изгороди'),
         AT.video("Хореография"),
@@ -64,7 +64,7 @@ slot_21 = [
         AT.edu("Биология", available=[v21d()]),
         AT.edu("Химия", available=[v21d()]),
         AT.thought("О Музыке"),
-        AT.game("This War of Mine", 3, available=[{4:0},0,v21()]),
+        AT.game(AT.GAME_COMPLEX, 3, available=[{4:0},0,v21()]),
     ],[ # video activities
         AT.movie(5),
         AT.anime('Код ГИАС R2'),
@@ -95,7 +95,7 @@ slot_22 = [
         AT.edu("Биология", available=[v22d()], last=True),
         AT.edu("Химия", available=[v22d()], last=True),
         AT.thought("Об Актёрстве"),
-        AT.game("This War of Mine", 3, available=[{4:0},0,v22()]),
+        AT.game(AT.GAME_COMPLEX, 3, available=[{4:0},0,v22()]),
     ],[ # video activities
         AT.movie(5),
         AT.anime('Код ГИАС R2'),
@@ -126,7 +126,7 @@ slot_23 = [
         AT.edu("Социология", available=[v23d()], last=True),
         AT.edu("Обществознание", available=[v23d()], last=True),
         AT.thought("О Путешествиях"),
-        AT.game("This War of Mine", 3, available=[{4:0},0,v23()]),
+        AT.game(AT.GAME_COMPLEX, 3, available=[{4:0},0,v23()]),
     ],[ # video activities
         AT.movie(5),
         AT.anime('Код ГИАС R2'),

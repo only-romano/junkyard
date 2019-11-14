@@ -45,7 +45,7 @@ slot_06 = [
         AT.act("Фантазии под клипы", available=[1]),
         AT.act("Бритьё"),
         AT.act("Стирка"),
-        AT.game("Заработало!", short=True),
+        AT.game(AT.GAME_BRAIN, short=True),
     ],[ # video activities
         AT.video_prs(),
         AT.video("Клипы"),
