@@ -1,0 +1,1 @@
+from write_slots import load, write

@@ -13,6 +13,7 @@ class Slots:
         self.zero_time = 1440
         self.now_time = start
         self.day = 0
+        self.justify = 40
 
     def __call__(self):
         return self._slots
@@ -48,6 +49,114 @@ class Slots:
         minutes = time % 60
         return "%.2i:%.2i" % (hours, minutes)
 
+    def create_todo_list(self):
+        todo_list = []
+        slot_index = 0
+        for slot in self:
+            todo_element = {}
+            todo_element['time'] = self.time()
+            print("\nВыбираем основное занятие на %s:" % self.time())
+            todo_element.update(self.get_activity(slot, slot_index))
+            todo_list.append(todo_element)
+            slot_index += 1
+        self.day += 1
+        return todo_list
+
+    def get_activity(self, slot, slot_index):
+        while True:
+            self.print_all(slot)
+            activity, activity_index, available = self.get_option(slot, 'activities', slot_index)
+            if not activity: continue
+            video, video_index, available = self.get_option(slot, 'video', slot_index, available)
+            if not video: continue
+            audio, audio_index, a = self.get_option(slot, 'audio', slot_index, available)
+            if not audio: continue
+            else: break
+        delete_option(slot_index, 'activities', activity_index)
+        delete_option(slot_index, 'video', video_index)
+        delete_option(slot_index, 'audio', audio_index)
+        return {'activity': activity, 'video': video, 'audio': audio}
+
+    def get_option(self, slot, type, index, available=True):
+        if isinstance(slot[type], str):
+            return slot[type], None, True
+        if available is None:
+            return None, None, None
+        if available is True:
+            to_choose = slot[type]
+        else:
+            to_choose = []
+            to_choose_list = slot[type]
+            for i in available:
+                if isinstance(available[i], dict):
+        print_options(to_choose)
+        choosen_index = int(input("Номер опции: ")) - 1
+        yes = input("Вы уверены? (любой символ для подтверждения, пустая строка для отмены): ")
+        option = to_choose[choosen_index]
+        if len(yes):
+            self._choosen(option, type, index)
+            avlb = None
+            if 'available' in option:
+                avlb = option['available']
+            return (option['name'], choosen_index, avlb)
+
+    def print_options(self, options):
+        print("Введите номер желаемой опции:")
+        index = 1
+        for option in options:
+            print("%i. %s" % (index, option['name']))
+
+    def delete_option(self, slot_index, type, option_index=None):
+        if option_index is None: return
+        options = self._slots[slot_index][type]
+        if isinstance(options, list):
+            option = options[option_index]
+            option["count"] -= 1
+            if option['count'] == 0:
+                del self._slots[slot_index][type][option_index]
+
+    def _choosen(self, option, type, index):
+        if option["last"]: return
+        next_slot = self._next(index)
+        if next_slot:
+            for item in next_slot[type]:
+                item["previous"] = item["name"] == option["name"]
+
+    def j(self, string):
+        return string.ljust(self.justify)
+
+    def print_all(self, slot):
+        j = self.j
+        result = j("ACTIVITIES") + j("VIDEO") + "AUDIO" + "\n\n"
+        if isinstance(slot['activities'], str):
+            result += j(slot['activities']) + j(slot['video']) + slot['audio'] + '\n\n'
+        else:
+            for i in range(9):
+                result += get_option_text(slot, 'activities', i)
+                result += get_option_text(slot, 'video', i)
+                result += get_option_text(slot, 'audio', i)
+                result += "\n"
+        print(result)
+        input("Нажмите enter, чтобы продолжить")
+
+    def get_option_text(self, slot, type, index):
+        activity = ""
+        if len(slot[type]) > index:
+            activity = self.get_now_text(slot[type], index)
+        return self.j(activity)
+
+    def get_now_text(self, options, index):
+        now = options[i]
+        now_text = now['name']
+        if now["previous"]:
+            now_text += " (P)"
+        return now_text
+
+    def _next(self, index):
+        index += 1
+        if len(self._slots) > index:
+            return self._slots[index]
+
     def add(self, slots):
         """
         Slots must be a list of slot_list - to create one - use interactive
@@ -60,29 +169,8 @@ class Slots:
         for slot in slots:
             self._slots.append(self._create_slot_object(slot))
 
-    def delete_option(self, slot_index, type, option_index=None):
-        options = self._slots[slot_index][type]
-        if isinstance(options, list):
-            option = options[option_index]
-            option["count"] -= 1
-            if option == 0:
-                del self._slots[slot_index][type][option_index]
-        return self
-
     def _radio_broadcast(self):
         return "Евгеника" if randint(1,4) == 1 else "Маяк"
-
-    def _next(self, index):
-        index += 1
-        if len(self._slots) > index:
-            return self._slots[index]
-
-    def _choosen(self, option, type, index):
-        if option["last"]: return
-        next_slot = self._next(index)
-        if next_slot:
-            for item in next_slot[type]:
-                item["previous"] = item["name"] == option["name"]
 
     def _create_slot_object(self, slot):
         slot_object = {
@@ -141,8 +229,10 @@ if __name__ == '__main__':
     slots += [[["slot 3 act", 2, True, [23, 15], False]], None, "Only audio", 4]
 
     for slot in slots:
-        print(slots.time(slot))
+        print(slots.time())
         for key in slot:
             print(key, " - ", slot[key], "\n")
     for slot in slots:
-        print(slots.time(slot))
+        print(slots.time())
+
+    print("ACTIVITIES".ljust(33) + "VIDEO".ljust(33) + "AUDIO".ljust(33))
