@@ -54,6 +54,7 @@ HOBBY_RELAX     = "Шитьё и Вышивание"
 HOBBY_FUN       = "Фокусы"
 
 # author
+AUTHOR_BOOK     = "Роман"
 AUTHOR_NOVEL    = "Новелла"
 AUTHOR_STORY    = "Рассказ"
 AUTHOR_POEM     = "Поэзия"
@@ -71,6 +72,7 @@ THOUGHT_NIGHT_1     = "О Карьере Программиста"
 THOUGHT_NIGHT_2     = "О Жизни в России"
 THOUGHT_NIGHT_3     = "О Переезде Заграницу"
 THOUGHT_NIGHT_4     = "О Лучшей Жизни"
+THOUGHT_SLEEP       = "О борьбе с одиночеством"
 
 # games
 GAME_MAIN       = "Assassin's Creed"
@@ -123,6 +125,7 @@ YOUTUBE_EVENINIG_1  = "Страны"
 YOUTUBE_EVENINIG_2  = "Мифы"
 YOUTUBE_EVENINIG_3  = "Внеземная Жизнь"
 YOUTUBE_EVENINIG_4  = "Семья"
+YOUTUBE_NIGHT       = "Спокойствие"
 XXX = "X-Rated"
 
 

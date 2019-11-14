@@ -51,6 +51,7 @@ def prs(*args, keyname="Программирование", **kwargs):
 # basic
 math = partial(default, "Математика")
 project = partial(prs, keyname="Проект")
+sleep = partial(default, "СОН")
 thought = partial(author, short=True)
 # video, video_* - with sound; vid_* - without sound
 movie = partial(default, "ФИЛЬМ")

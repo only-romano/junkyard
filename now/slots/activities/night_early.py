@@ -30,7 +30,7 @@ v41e = randomize([1,4,5])       # tv / educational video / documental video
 # slot
 slot_41 = [
     [   # basic activities
-        AT.prs(5, available=[{6:0},{6:1},3,3,3]),
+        AT.prs(5, available=[3,3,3,6,6]),
         AT.project(P.PROJECT_NIGHT, 3, available=[0,2,7]),
         AT.math(available=[v41e()]),
         AT.edu(P.SUBJECT_11, available=[v41e()]),
@@ -44,7 +44,7 @@ slot_41 = [
         AT.video_prs(3),
         AT.video_edu(short=True),
         AT.video_doc(),
-        AT.vid_theme(2, available=[{0:6},{1:6}]),
+        AT.vid_theme(2, available=[0,1]),
         AT.vid_letsplay(available=[2]),
     ],[ # audio activities
         AT.abook_novel(),
@@ -59,7 +59,7 @@ v42e = randomize([1,4,5])       # tv / educational video / documental video
 # slot
 slot_42 = [
     [   # basic activities
-        AT.prs(5, available=[{6:0},{6:1},3,3,3]),
+        AT.prs(5, available=[3,3,3,6,6]),
         AT.project(P.PROJECT_NIGHT, 3, available=[0,2,7]),
         AT.math(available=[v42e()]),
         AT.edu(P.SUBJECT_11, available=[v42e()]),
@@ -73,7 +73,7 @@ slot_42 = [
         AT.video_prs(3),
         AT.video_edu(short=True),
         AT.video_doc(),
-        AT.vid_theme(2, available=[{0:6},{1:6}]),
+        AT.vid_theme(2, available=[0,1]),
         AT.vid_letsplay(available=[2]),
     ],[ # audio activities
         AT.abook_novel(),
@@ -88,7 +88,7 @@ v43e = randomize([1,4,5])       # tv / educational video / documental video
 # slot
 slot_43 = [
     [   # basic activities
-        AT.prs(5, available=[{6:0},{6:1},3,3,3]),
+        AT.prs(5, available=[3,3,3,6,6]),
         AT.project(P.PROJECT_NIGHT, 3, available=[0,2,7]),
         AT.math(available=[v43e()]),
         AT.edu(P.SUBJECT_12, available=[v43e()]),
@@ -102,7 +102,7 @@ slot_43 = [
         AT.video_prs(3),
         AT.video_edu(short=True),
         AT.video_doc(),
-        AT.vid_theme(2, available=[{0:6},{1:6}]),
+        AT.vid_theme(2, available=[0,1]),
         AT.vid_letsplay(available=[2]),
     ],[ # audio activities
         AT.abook_novel(),
@@ -117,7 +117,7 @@ v44e = randomize([1,4,5])       # tv / educational video / documental video
 # slot
 slot_44 = [
     [   # basic activities
-        AT.prs(5, available=[{6:0},{6:1},3,3,3]),
+        AT.prs(5, available=[3,3,3,6,6]),
         AT.project(P.PROJECT_FREE, 3, available=[0,2,7]),
         AT.math(available=[v43e()]),
         AT.edu(P.SUBJECT_12, available=[v43e()]),
@@ -131,7 +131,7 @@ slot_44 = [
         AT.video_prs(3),
         AT.video_edu(short=True),
         AT.video_doc(),
-        AT.vid_theme(2, available=[{0:6},{1:6}]),
+        AT.vid_theme(2, available=[0,1]),
         AT.vid_letsplay(available=[2]),
     ],[ # audio activities
         AT.abook_novel(),
