@@ -127,15 +127,15 @@ slot_36 = [
 # 7-th slot of module (37th at all) - current - standard slot
 slot_37 = [
     [   # basic activities
-        AT.prs(6, available=[1,2,2,2,2,3]),
-        AT.math(4, available=[0,2,3,3]),
-        AT.edu(P.SUBJECT_1, available=[0]),
-        AT.edu(P.SUBJECT_7, available=[0]),
-        AT.edu(P.SUBJECT_10, available=[0]),
-        AT.game(P.GAME_RELAX, available=[3]),
-        AT.game(P.GAME_ADVENTURE, available=[0]),
+        AT.prs(6, available=[1,2,2,2,2,3], last=True),
+        AT.math(4, available=[0,2,3,3], last=True),
+        AT.edu(P.SUBJECT_1, available=[0], last=True),
+        AT.edu(P.SUBJECT_7, available=[0], last=True),
+        AT.edu(P.SUBJECT_10, available=[0], last=True),
+        AT.game(P.GAME_RELAX, available=[3], last=True),
+        AT.game(P.GAME_ADVENTURE, available=[0], last=True),
     ],[ # video activities
-        AT.movie(5),
+        AT.movie(5, last=True),
         AT.tv(P.TV_BRAIN),
         AT.tv(P.TV_EASY, 5),
         AT.tv(P.TV_FUNNY, 4),

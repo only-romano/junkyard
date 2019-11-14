@@ -1,5 +1,4 @@
 from functools import partial
-# for testing purpose only
 try:
     from activity_class import Activity
     from activity_placeholders import THEME
@@ -7,12 +6,11 @@ except ImportError:
     from activities.activity_class import Activity
     from activities.activity_placeholders import THEME
 
-
 # BASE ACTIVITY INSTANCES
-# basic
 default = Activity(last=False)
 default_last = Activity()
 sound_only = Activity(audio=None)
+# basic
 edu = sport = hobby = default
 act = default_last
 # video
@@ -21,11 +19,6 @@ tv = anime = cartoon = default_last
 audio = Activity(audio=True, last=False)
 
 # ADDITIONAL TEMPLATES
-def prs(*args, keyname="Программирование", **kwargs):
-    if len(args) and isinstance(args[0], str):
-        return default("%s (%s)" % (keyname, args[0]), *args[1:], **kwargs)
-    return default(keyname, *args, **kwargs)
-
 def author(*args, **kwargs):
     return default('АВТОР - "%s"' % args[0], *args[1:], **kwargs)
 
@@ -48,19 +41,24 @@ def game(*args, **kwargs):
         return (ambient, only_game) if ambient else only_game
     return ambient
 
+def prs(*args, keyname="Программирование", **kwargs):
+    if len(args) and isinstance(args[0], str):
+        return default("%s (%s)" % (keyname, args[0]), *args[1:], **kwargs)
+    return default(keyname, *args, **kwargs)
+
 
 # PARTIAL CALLS
 # basic
+math = partial(default, "Математика")
 project = partial(prs, keyname="Проект")
 thought = partial(author, short=True)
-math = partial(default, "Математика")
 # video, video_* - with sound; vid_* - without sound
 movie = partial(default, "ФИЛЬМ")
-video_prs = partial(default, "Видео по программированию")
-video_edu = partial(default, "Видео по предмету")
-video_doc = partial(default, "Документальное видео")
 video = partial(prs, keyname="Видео", short=True)
 vid_theme = partial(video, THEME, short=False)
+video_doc = partial(default, "Документальное видео")
+video_edu = partial(default, "Видео по предмету")
+video_prs = partial(default, "Видео по программированию")
 youtube = partial(prs, keyname="YouTube", short=True)
 vid_letsplay = partial(youtube, "летсплей", short=False)
 # audio

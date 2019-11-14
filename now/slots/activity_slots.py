@@ -12,8 +12,8 @@ from activities.day_early import EARLY_DAY
 from activities.midday import MIDDAY
 from activities.day_late import LATEDAY
 from activities.evening import EVENING
-#from activities.night_early import NIGHT
-#from activities.night_late import LATE_NIGHT
+from activities.night_early import NIGHT
+from activities.night_late import LATE_NIGHT
 
 slots = Slots() # initialize Slots class instance
 
@@ -30,9 +30,9 @@ slots.add(LATEDAY)
 # Evening activities (until night siesta [included, 19:00 - 22:00])
 slots.add(EVENING)
 # Night activities (until possible sleep start [not included, 22:00 - 00:30])
-#slots.add(NIGHT)
+slots.add(NIGHT)
 # Late night activities (until required sleep [not included, 00:30 - 03:30])
-#slots.add(LATE_NIGHT)
+slots.add(LATE_NIGHT)
 
 # interactive slots creation tool
 # Deprecated

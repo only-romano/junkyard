@@ -42,6 +42,8 @@ class Slots:
         if time > self.zero_time:
             time -= self.zero_time
         hours = time // 60
+        if hours > 23:
+            hours -= 24
         minutes = time % 60
         return "%.2i:%.2i" % (hours, minutes)
 
