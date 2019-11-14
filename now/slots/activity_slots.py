@@ -41,4 +41,9 @@ slots.add(LATE_NIGHT)
 __all__ = ['slots']
 
 if __name__ == '__main__':
-    print(slots)
+    from random import choice
+    for slot in slots:
+        activity = slot['activities']
+        if isinstance(activity, list):
+            activity = choice(activity)['name']
+        print(slots.time(), activity)

@@ -12,6 +12,7 @@ class Slots:
         self.end = end
         self.zero_time = 1440
         self.now_time = start
+        self.day = 0
 
     def __call__(self):
         return self._slots
@@ -34,10 +35,10 @@ class Slots:
             if (slot["audio"]):
                 slot_str += "\t\t(AUDIO: %s)" % str(slot["audio"])
             return slot_str
-        return "\n".join(["%s - %s" % (self.time(s), slot_str(s)) for s in self]) \
+        return "\n".join(["%s - %s" % (self.time(), slot_str(s)) for s in self]) \
             .replace("radiobroadcast", "Радиопередача - %s" % self._radio_broadcast())
 
-    def time(self, slot):
+    def time(self):
         time = self.now_time
         if time > self.zero_time:
             time -= self.zero_time
@@ -58,6 +59,15 @@ class Slots:
             slots = [slots]
         for slot in slots:
             self._slots.append(self._create_slot_object(slot))
+
+    def delete_option(self, slot_index, type, option_index=None):
+        options = self._slots[slot_index][type]
+        if isinstance(options, list):
+            option = options[option_index]
+            option["count"] -= 1
+            if option == 0:
+                del self._slots[slot_index][type][option_index]
+        return self
 
     def _radio_broadcast(self):
         return "Евгеника" if randint(1,4) == 1 else "Маяк"
