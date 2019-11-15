@@ -43,6 +43,7 @@ __all__ = ['slots']
 if __name__ == '__main__':
     from random import choice
     for slot in slots:
+        print(slot)
         activity = slot['activities']
         if isinstance(activity, list):
             activity = choice(activity)['name']

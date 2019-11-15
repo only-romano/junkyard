@@ -13,22 +13,34 @@ class Slots:
         self.zero_time = 1440
         self.now_time = start
         self.day = 0
-        self.justify = 40
+        self.justify = 30
+        self._str_flag = 0
 
     def __call__(self):
         return self._slots
 
     def __iter__(self):
-        self.now_time = self.start
-        for slot in self._slots:
-            yield slot
-            self.now_time += slot["length"]
+        if self._str_flag == 1:
+            self.now_time = self.start
+            for slot in self._slots:
+                yield slot
+                self.now_time += slot['length']
+        else:
+            self.now_time = self.start
+            index = 0
+            for slot in self._slots:
+                activity = self._get_activity(slot, index)
+                self._slots[index] = activity['slot']
+                yield activity['result']
+                self.now_time += slot["length"]
+                index += 1
 
     def __add__(self, value):
         self.add(value)
         return self
 
     def __str__(self):
+        self._str_flag = 1
         def slot_str(slot):
             slot_str = str(slot["activities"])
             if (slot["video"]):
@@ -36,8 +48,252 @@ class Slots:
             if (slot["audio"]):
                 slot_str += "\t\t(AUDIO: %s)" % str(slot["audio"])
             return slot_str
-        return "\n".join(["%s - %s" % (self.time(), slot_str(s)) for s in self]) \
+        string = "\n".join(["%s - %s" % (self.time(), slot_str(s)) for s in self]) \
             .replace("radiobroadcast", "Радиопередача - %s" % self._radio_broadcast())
+        self._str_flag = 0
+        return string
+
+    def _get_activity(self, slot, index):
+        if isinstance(slot['activities'], str):
+            result = {
+                'time': self.time(),
+                'basic': slot['activities'],
+                'video': slot['video'],
+                'audio': slot['audio'],
+                }
+        else:
+            self._show_all_activities(slot)
+            self._show_basic_activities(slot)
+            choice_basic = self._choice(len(slot['activities']))
+            choosen_basic = slot['activities'][choice_basic]
+            choosen_basic['choosen'] = "yes" # set choosen property to "yes"
+            choosen_basic['count'] -= 1
+            available = choosen_basic['available']
+            choosen_video = None
+            choosen_audio = None
+            if available is not None and isinstance(available, list) and len(available):
+                if choosen_basic['audio_only']:
+                    audio = [slot['audio'][x] for x in available]
+                    self._show_audio_activities(audio)
+                    choice_audio = self._choice(len(audio))
+                    choosen_audio = audio[choice_audio]
+                    choosen_audio['choosen'] = "yes"
+                    index_audio = available[choice_audio]
+                    del choosen_basic['available'][choice_audio]
+                    choosen_audio['count'] -= 1
+                    result = {
+                        'time': self.time(),
+                        'basic': choosen_basic['name'],
+                        'video': None,
+                        'audio': choosen_audio['name'],
+                        }
+                    self._choosen(choosen_basic, 'activities', index)
+                    self._choosen(choosen_audio, 'audio', index)
+                    choosen_basic['choosen'] = False
+                    choosen_audio['choosen'] = False
+                    if choosen_basic['count'] == 0:
+                        del slot['activities'][choice_basic]
+                    else:
+                        slot['activities'][choice_basic] = choosen_basic
+                    slot['audio'][index_audio] = choosen_audio if choosen_audio['count'] > 0 else None
+
+                else:
+                    video = [slot['video'][x] if isinstance(x, int) \
+                        else slot['video'][list(x.keys())[0]].update({"dict": x})
+                            or slot['video'][list(x.keys())[0]] \
+                                for x in available]
+                    self._show_video_activities(slot, video)
+                    choice_video = self._choice(len(video))
+                    video_index = available[choice_video]
+                    del choosen_basic['available'][choice_video]
+                    choosen_video = video[choice_video]
+                    choosen_video['choosen'] = "yes"
+                    choosen_video['count'] -= 1
+                    available = choosen_video['available']
+                    if available is not None and isinstance(available, list) and len(available):
+                        if 'dict' in choosen_video:
+                            choosen_audio = slot['audio'][list(choosen_video['dict'].values())[0]]
+                            choosen_audio['choosen'] = 'yes'
+                            choosen_audio['count'] -= 1
+                            choosen_video['available'].remove({
+                                list(choosen_video['dict'].values())[0]: list(choosen_video['dict'].keys())[0]
+                                })
+                            result = {
+                                'time': self.time(),
+                                'basic': choosen_basic['name'],
+                                'video': choosen_video['name'],
+                                'audio': choosen_audio['name'],
+                                }
+                            self._choosen(choosen_basic, 'activities', index)
+                            self._choosen(choosen_video, 'video', index)
+                            self._choosen(choosen_audio, 'audio', index)
+                            choosen_basic['choosen'] = False
+                            choosen_video['choosen'] = False
+                            choosen_audio['choosen'] = False
+                            if choosen_basic['count'] == 0:
+                                del slot['activities'][choice_basic]
+                            else:
+                                slot['activities'][choice_basic] = choosen_basic
+                            slot['audio'][list(choosen_video['dict'].values())[0]] = choosen_audio if choosen_audio['count'] > 0 else None
+                            del choosen_video['dict']
+                            if isinstance(video_index, dict):
+                                video_index = list(video_index.keys())[0]
+                            slot['video'][video_index] = choosen_video if choosen_video['count'] > 0 else None
+                        else:
+                            audio = [slot['audio'][x] for x in available if isinstance(x, int)]
+                            self._show_audio_activities(audio)
+                            choice_audio = self._choice(len(audio))
+                            choosen_audio = audio[choice_audio]
+                            choosen_audio['choosen'] = "yes"
+                            index_audio = available[choice_audio]
+                            choosen_video['available'].remove(index_audio)
+                            choosen_audio['count'] -= 1
+                            result = {
+                                'time': self.time(),
+                                'basic': choosen_basic['name'],
+                                'video': choosen_video['name'],
+                                'audio': choosen_audio['name'],
+                                }
+                            self._choosen(choosen_basic, 'activities', index)
+                            self._choosen(choosen_video, 'video', index)
+                            self._choosen(choosen_audio, 'audio', index)
+                            choosen_basic['choosen'] = False
+                            choosen_video['choosen'] = False
+                            choosen_audio['choosen'] = False
+                            if choosen_basic['count'] == 0:
+                                del slot['activities'][choice_basic]
+                            else:
+                                slot['activities'][choice_basic] = choosen_basic
+                            slot['audio'][index_audio] = choosen_audio if choosen_audio['count'] > 0 else None
+                            slot['video'][video_index] = choosen_video if choosen_video['count'] > 0 else None
+                    else:
+                        result = {
+                            'time': self.time(),
+                            'basic': choosen_basic['name'],
+                            'video': choosen_video['name'],
+                            'audio': None,
+                            }
+                        self._choosen(choosen_basic, 'activities', index)
+                        self._choosen(choosen_video, 'video', index)
+                        choosen_basic['choosen'] = False
+                        choosen_video['choosen'] = False
+                        if choosen_basic['count'] == 0:
+                            del slot['activities'][choice_basic]
+                        else:
+                            slot['activities'][choice_basic] = choosen_basic
+                        slot['video'][video_index] = choosen_video if choosen_video['count'] > 0 else None
+            else:
+                result = {
+                    'time': self.time(),
+                    'basic': choosen_basic['name'],
+                    'video': None,
+                    'audio': None,
+                        }
+        return {
+            'slot': slot,
+            'result': result
+            }
+
+    def _show_all_activities(self, slot):
+        j = self._justify
+        print("\n", '-'*80)
+        print("\nВРЕМЯ - %s" % self.time(), "\n")
+        print("Для этого слота доступно:")
+        result = j("ACTIVITIES") + j("VIDEO") + "AUDIO" + "\n"
+        for i in range(8):
+                temp, flag = self._get_option_line(slot, i)
+                if flag:
+                    result += temp + "\n"
+        print(result)
+
+    def _show_basic_activities(self, slot):
+        basic = slot['activities']
+        if len(basic) > 1:
+            print("Выберете базовое занятие:")
+            for i in range(len(basic)):
+                option = basic[i]
+                if option == None:
+                    continue
+                print("%i. %s (%s: %s)" % (i+1,
+                    self._get_option_text(basic, i),
+                        "audio" if option['audio_only'] else "video",
+                            self._get_availables(slot, option)))
+
+    def _show_video_activities(self, slot, video):
+        print("\nВыберете видео:")
+        for i in range(len(video)):
+            option = video[i]
+            if option == None: continue
+            print("%i. %s (%s: %s)" % (i+1,
+                self._get_option_text(video, i),
+                    "audio",
+                        self._get_availables(slot, option) if 'dict' not in option \
+                            else slot['audio'][list(option['dict'].values())[0]]['name']))
+
+    def _show_audio_activities(self, audio):
+        print("\nВыберете аудио:")
+        for i in range(len(audio)):
+            option = audio[i]
+            if option == None: continue
+            print("%i. %s" % (i+1, self._get_option_text(audio, i)))
+
+    def _get_availables(self, slot, option):
+        if option['available'] == None: return "---"
+        if 'audio_only' in option and not option['audio_only']:
+            return ", ".join([slot['video'][x]['name'] if isinstance(x, int) \
+                else slot['video'][list(x.keys())[0]]['name'] + "+" + \
+                    slot['audio'][x[list(x.keys())[0]]]['name'] \
+                        for x in option['available']]) or "---"
+        else:
+            return ", ".join([slot['audio'][x]['name'] if isinstance(x, int) \
+                else slot['audio'][list(x.keys())[0]]['name'] \
+                    for x in option['available']]) or "---"
+
+    def _justify(self, string):
+        return string.ljust(self.justify)
+
+    def _get_option_line(self, slot, index):
+        line = ""
+        temp, flag = self._get_option_tab(slot, index, 'activities')
+        line += temp
+        temp, flag = self._get_option_tab(slot, index, 'video', flag)
+        line += temp
+        temp, flag = self._get_option_tab(slot, index, 'audio', flag)
+        line += temp
+        return line, flag
+
+    def _get_option_tab(self, slot, index, type, flag=False):
+        tab = ""
+        if len(slot[type]) > index:
+            tab = self._get_option_text(slot[type], index)
+        if tab or flag:
+            flag = True
+        return self._justify(tab), flag
+
+    def _get_option_text(self, options, index):
+        now = options[index]
+        if now == None:
+            return "---"
+        now_text = now['name']
+        if now["previous"]:
+            now_text += " (P)"
+        return now_text
+
+    def _choice(self, max):
+        yes = True
+        if max > 1:
+            while yes:
+                try:
+                    choice = int(input("Выберете номер: "))
+                    if choice > max:
+                        raise Exception
+                except Exception:
+                    choice = 1
+                print("Текущий выбор - %i." % choice)
+                yes = ""
+        else:
+            return 0
+        return choice-1
 
     def time(self):
         time = self.now_time
@@ -65,92 +321,96 @@ class Slots:
     def get_activity(self, slot, slot_index):
         while True:
             self.print_all(slot)
-            activity, activity_index, available = self.get_option(slot, 'activities', slot_index)
+            activity, activity_index, available, a = self.get_option(slot, 'activities', slot_index)
             if not activity: continue
-            video, video_index, available = self.get_option(slot, 'video', slot_index, available)
+            video, video_index, available, v_ind = self.get_option(slot, 'video', slot_index, available)
             if not video: continue
-            audio, audio_index, a = self.get_option(slot, 'audio', slot_index, available)
+            audio, audio_index, a, a_ind = self.get_option(slot, 'audio', slot_index, available)
             if not audio: continue
             else: break
-        delete_option(slot_index, 'activities', activity_index)
-        delete_option(slot_index, 'video', video_index)
-        delete_option(slot_index, 'audio', audio_index)
+        self.update_availables(slot_index, activity_index, video_index, audio_index, v_ind, a_ind)
         return {'activity': activity, 'video': video, 'audio': audio}
+
+    def update_availables(self, slot_index, act_index, v_index, a_index, act_ind, v_ind, a_ind):
+        if act_index:
+            del self._slots[slot_index]['activities'][act_index]['available'][v_ind]
+            self.delete_option(slot_index, 'activities', act_index)
+        if v_index:
+            del self._slots[slot_index]['activities'][v_index]['available'][a_ind]
+            self.delete_option(slot_index, 'video', v_index)
+        self.delete_option(slot_index, 'audio', a_index)
 
     def get_option(self, slot, type, index, available=True):
         if isinstance(slot[type], str):
-            return slot[type], None, True
-        if available is None:
-            return None, None, None
+            return slot[type], None, True, None
+        if available is None or slot[type] is None: return True, None, None, None
         if available is True:
             to_choose = slot[type]
         else:
             to_choose = []
             to_choose_list = slot[type]
-            for i in available:
-                if isinstance(available[i], dict):
-        print_options(to_choose)
-        choosen_index = int(input("Номер опции: ")) - 1
-        yes = input("Вы уверены? (любой символ для подтверждения, пустая строка для отмены): ")
+            item_index = 0
+            for item in available:
+                if item == 'sound':
+                    if type == 'video': return True, None, available, None
+                    else: continue
+                if isinstance(item, dict):
+                    if type == 'video':
+                        for key in item:
+                            opt_to_choose = to_choose_list[key]
+                            opt_to_choose['dict'] = item
+                            opt_to_choose['name'] += " (+ %s)" % slot['audio'][key]['name']
+                            break
+                    else: continue
+                else:
+                    opt_to_choose = to_choose_list[i]
+                opt_to_choose['index'] = item_index
+                to_choose.append(opt_to_choose)
+                item_index += 1
+        self.print_options(to_choose)
+        if len(to_choose) > 1:
+            choosen_index = int(input("Номер опции: ")) - 1
+            yes = input("Отменить? (любой символ для отмены, пустая строка для продолжения): ")
+        else:
+            choosen_index, yes = 0, ""
         option = to_choose[choosen_index]
-        if len(yes):
+        is_dict = 'dict' in option
+        if not len(yes):
             self._choosen(option, type, index)
             avlb = None
-            if 'available' in option:
+            if is_dict:
+                if type == 'video':
+                    avlb = [option['dict']]
+            elif 'available' in option:
                 avlb = option['available']
-            return (option['name'], choosen_index, avlb)
+                if type == 'activities' and option['audio_only']:
+                    avlb.append('sound')
+            return (option['name'], choosen_index, avlb, option['index'])
+        else:
+            return False, None, None
 
     def print_options(self, options):
         print("Введите номер желаемой опции:")
         index = 1
         for option in options:
             print("%i. %s" % (index, option['name']))
+            index+=1
 
     def delete_option(self, slot_index, type, option_index=None):
         if option_index is None: return
         options = self._slots[slot_index][type]
         if isinstance(options, list):
-            option = options[option_index]
-            option["count"] -= 1
-            if option['count'] == 0:
-                del self._slots[slot_index][type][option_index]
+            self._slots[slot_index][type][option_index]["count"] -= 1
+            if self._slots[slot_index][type][option_index]["count"] == 0:
+                self._slots[slot_index][type][option_index] = None
 
     def _choosen(self, option, type, index):
         if option["last"]: return
         next_slot = self._next(index)
-        if next_slot:
+        if next_slot and isinstance(next_slot[type], list):
             for item in next_slot[type]:
+                if item is None: continue
                 item["previous"] = item["name"] == option["name"]
-
-    def j(self, string):
-        return string.ljust(self.justify)
-
-    def print_all(self, slot):
-        j = self.j
-        result = j("ACTIVITIES") + j("VIDEO") + "AUDIO" + "\n\n"
-        if isinstance(slot['activities'], str):
-            result += j(slot['activities']) + j(slot['video']) + slot['audio'] + '\n\n'
-        else:
-            for i in range(9):
-                result += get_option_text(slot, 'activities', i)
-                result += get_option_text(slot, 'video', i)
-                result += get_option_text(slot, 'audio', i)
-                result += "\n"
-        print(result)
-        input("Нажмите enter, чтобы продолжить")
-
-    def get_option_text(self, slot, type, index):
-        activity = ""
-        if len(slot[type]) > index:
-            activity = self.get_now_text(slot[type], index)
-        return self.j(activity)
-
-    def get_now_text(self, options, index):
-        now = options[i]
-        now_text = now['name']
-        if now["previous"]:
-            now_text += " (P)"
-        return now_text
 
     def _next(self, index):
         index += 1
@@ -221,8 +481,8 @@ class Slots:
 __all__ = ['Slots']
 
 if __name__ == '__main__':
-    slots = Slots([[["activity 1", 2, False, [1,2,3], False], ["activity 2", 1, True, [2], True]],
-        [["video 1", 2, False, [1,2,3]], ["video 2", 1, True, [2]]],
+    slots = Slots([[["activity 1", 2, False, [0,1]], ["activity 2", 1, True, [1], True]],
+        [["video 1", 2, False, [0,1]], ["video 2", 1, True, [1]]],
         [["audio 1", 2, False], ["audio 2", 1, True]], 1])
 
     slots += [[["slot 2 act", 2, True, [23, 15], False]], [["slot 2 video", 3, False, [0,1]]], [["slot 2 audio", 3,False]], 4]
@@ -236,3 +496,5 @@ if __name__ == '__main__':
         print(slots.time())
 
     print("ACTIVITIES".ljust(33) + "VIDEO".ljust(33) + "AUDIO".ljust(33))
+
+    slots.create_todo_list()

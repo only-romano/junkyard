@@ -119,9 +119,9 @@ slot_44 = [
     [   # basic activities
         AT.prs(5, available=[3,3,3,6,6]),
         AT.project(P.PROJECT_FREE, 3, available=[0,2,7]),
-        AT.math(available=[v43e()]),
-        AT.edu(P.SUBJECT_12, available=[v43e()]),
-        AT.edu(P.SUBJECT_13, available=[v43e()]),
+        AT.math(available=[v44e()]),
+        AT.edu(P.SUBJECT_12, available=[v44e()]),
+        AT.edu(P.SUBJECT_13, available=[v44e()]),
         AT.thought(P.THOUGHT_NIGHT_4),
         AT.game(P.GAME_MAIN, 3),
     ],[ # video activities

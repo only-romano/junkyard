@@ -53,7 +53,7 @@ slot_08 = [P.BREAKFAST, P.CARTOON_BREAKFAST, None, 10]
 # randomizer
 a9 = randomize([3,4,5,6])        # audio, 9th slot randomized
 v9 = randomize([5,5,6])          # video, 9th slot randomized
-v9b = randomize([{4,0},3])       # audiobook/ documental video
+v9b = randomize([{4:0},3])       # audiobook/ documental video
 v9e = randomize([2,4])           # educational video / theme video
 # slot
 slot_09 = [
