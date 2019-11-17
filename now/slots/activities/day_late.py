@@ -49,7 +49,7 @@ slot_25 = [
 # randomizer
 a26 = randomize([2,3,4])         # audio, 26th slot, randomized
 v26 = randomize([0,4,5])         # video, 26th slot, randomized
-v26e = randomize([2,4])          # educational video / music
+v26e = randomize([2,3])          # educational video / music
 # slot
 slot_26 = [
     [   # basic activities

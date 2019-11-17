@@ -2,6 +2,7 @@
 Slots class
 """
 from random import randint
+from copy import deepcopy
 
 class Slots:
     def __init__(self, slots=False, start=375, end=1650):
@@ -13,8 +14,20 @@ class Slots:
         self.zero_time = 1440
         self.now_time = start
         self.day = 0
-        self.justify = 30
+        self.justify = 40
         self._str_flag = 0
+        # all-time values
+        self.days_at_all = 0
+        self.diet_day = 0
+        self.smoke = 0
+        self.diet = []
+        self.diet_done = []
+        self.weight = []
+        self.muscle = []
+        self.water = []
+        self.fat = []
+        self.good_things = []
+        self.new_things = []
 
     def __call__(self):
         return self._slots
@@ -99,9 +112,8 @@ class Slots:
 
                 else:
                     video = [slot['video'][x] if isinstance(x, int) \
-                        else slot['video'][list(x.keys())[0]].update({"dict": x})
-                            or slot['video'][list(x.keys())[0]] \
-                                for x in available]
+                        else self._copy_and_update(slot['video'], x)
+                            for x in available]
                     self._show_video_activities(slot, video)
                     choice_video = self._choice(len(video))
                     video_index = available[choice_video]
@@ -112,11 +124,11 @@ class Slots:
                     available = choosen_video['available']
                     if available is not None and isinstance(available, list) and len(available):
                         if 'dict' in choosen_video:
-                            choosen_audio = slot['audio'][list(choosen_video['dict'].values())[0]]
+                            choosen_audio = slot['audio'][choosen_video['value']]
                             choosen_audio['choosen'] = 'yes'
                             choosen_audio['count'] -= 1
                             choosen_video['available'].remove({
-                                list(choosen_video['dict'].values())[0]: list(choosen_video['dict'].keys())[0]
+                                choosen_video['value']: choosen_video['key']
                                 })
                             result = {
                                 'time': self.time(),
@@ -134,8 +146,10 @@ class Slots:
                                 del slot['activities'][choice_basic]
                             else:
                                 slot['activities'][choice_basic] = choosen_basic
-                            slot['audio'][list(choosen_video['dict'].values())[0]] = choosen_audio if choosen_audio['count'] > 0 else None
+                            slot['audio'][choosen_video['value']] = choosen_audio if choosen_audio['count'] > 0 else None
                             del choosen_video['dict']
+                            del choosen_video['key']
+                            del choosen_video['value']
                             if isinstance(video_index, dict):
                                 video_index = list(video_index.keys())[0]
                             slot['video'][video_index] = choosen_video if choosen_video['count'] > 0 else None
@@ -145,7 +159,7 @@ class Slots:
                             choice_audio = self._choice(len(audio))
                             choosen_audio = audio[choice_audio]
                             choosen_audio['choosen'] = "yes"
-                            index_audio = available[choice_audio]
+                            index_audio = self._get_true_index_audio(available, choice_audio)
                             choosen_video['available'].remove(index_audio)
                             choosen_audio['count'] -= 1
                             result = {
@@ -189,16 +203,36 @@ class Slots:
                     'video': None,
                     'audio': None,
                         }
+                self._choosen(choosen_basic, 'activities', index)
+                choosen_basic['choosen'] = False
+                if choosen_basic['count'] == 0:
+                    del slot['activities'][choice_basic]
+                else:
+                    slot['activities'][choice_basic] = choosen_basic
         return {
             'slot': slot,
             'result': result
             }
 
+    def _copy_and_update(self, options, dict_map):
+        key = list(dict_map.keys())[0]
+        value = list(dict_map.values())[0]
+        option_copy = deepcopy(options[key])
+        option_copy.update({"dict": dict_map, "key": key, "value": value})
+        return option_copy
+
+    def _get_true_index_audio(self, available, choice_audio):
+        for i in range(len(available)):
+            if isinstance(available[i], int):
+                choice_audio -= 1
+                if choice_audio == -1:
+                    return available[i]
+
     def _show_all_activities(self, slot):
         j = self._justify
         print("\n", '-'*80)
         print("\nВРЕМЯ - %s" % self.time(), "\n")
-        print("Для этого слота доступно:")
+        print("Для этого слота доступно:\n")
         result = j("ACTIVITIES") + j("VIDEO") + "AUDIO" + "\n"
         for i in range(8):
                 temp, flag = self._get_option_line(slot, i)
@@ -209,7 +243,7 @@ class Slots:
     def _show_basic_activities(self, slot):
         basic = slot['activities']
         if len(basic) > 1:
-            print("Выберете базовое занятие:")
+            print("Выберите базовое занятие:")
             for i in range(len(basic)):
                 option = basic[i]
                 if option == None:
@@ -220,7 +254,7 @@ class Slots:
                             self._get_availables(slot, option)))
 
     def _show_video_activities(self, slot, video):
-        print("\nВыберете видео:")
+        print("\nВыберите видео:")
         for i in range(len(video)):
             option = video[i]
             if option == None: continue
@@ -231,23 +265,26 @@ class Slots:
                             else slot['audio'][list(option['dict'].values())[0]]['name']))
 
     def _show_audio_activities(self, audio):
-        print("\nВыберете аудио:")
+        print("\nВыберите аудио:")
         for i in range(len(audio)):
             option = audio[i]
             if option == None: continue
             print("%i. %s" % (i+1, self._get_option_text(audio, i)))
 
     def _get_availables(self, slot, option):
-        if option['available'] == None: return "---"
-        if 'audio_only' in option and not option['audio_only']:
-            return ", ".join([slot['video'][x]['name'] if isinstance(x, int) \
-                else slot['video'][list(x.keys())[0]]['name'] + "+" + \
-                    slot['audio'][x[list(x.keys())[0]]]['name'] \
-                        for x in option['available']]) or "---"
+        if option['available'] == None:
+            return "---"
+        elif 'audio_only' in option and not option['audio_only']:
+            return ", ".join({self._get_option_text(slot['video'], x) if isinstance(x, int) \
+                else self._get_option_text(slot['video'], list(x.keys())[0]) + "+" + \
+                self._get_option_text(slot['audio'], list(x.values())[0]) if isinstance(x, dict) \
+                    else "---"
+                        for x in option['available']}) or "---"
         else:
-            return ", ".join([slot['audio'][x]['name'] if isinstance(x, int) \
-                else slot['audio'][list(x.keys())[0]]['name'] \
-                    for x in option['available']]) or "---"
+            return ", ".join({self._get_option_text(slot['audio'], x) if isinstance(x, int) \
+                else self._get_option_text(slot['audio'], list(x.keys())[0]) if isinstance(x, dict) \
+                    else "---"
+                        for x in option['available']}) or "---"
 
     def _justify(self, string):
         return string.ljust(self.justify)
@@ -280,19 +317,16 @@ class Slots:
         return now_text
 
     def _choice(self, max):
-        yes = True
         if max > 1:
-            while yes:
-                try:
-                    choice = int(input("Выберете номер: "))
-                    if choice > max:
-                        raise Exception
-                except Exception:
-                    choice = 1
-                print("Текущий выбор - %i." % choice)
-                yes = ""
+            try:
+                choice = int(input("Выберите номер: "))
+                if choice > max:
+                    raise Exception
+            except Exception:
+                choice = 1
+            print("Текущий выбор - %i." % choice)
         else:
-            return 0
+            choice = 1
         return choice-1
 
     def time(self):
@@ -304,97 +338,6 @@ class Slots:
             hours -= 24
         minutes = time % 60
         return "%.2i:%.2i" % (hours, minutes)
-
-    def create_todo_list(self):
-        todo_list = []
-        slot_index = 0
-        for slot in self:
-            todo_element = {}
-            todo_element['time'] = self.time()
-            print("\nВыбираем основное занятие на %s:" % self.time())
-            todo_element.update(self.get_activity(slot, slot_index))
-            todo_list.append(todo_element)
-            slot_index += 1
-        self.day += 1
-        return todo_list
-
-    def get_activity(self, slot, slot_index):
-        while True:
-            self.print_all(slot)
-            activity, activity_index, available, a = self.get_option(slot, 'activities', slot_index)
-            if not activity: continue
-            video, video_index, available, v_ind = self.get_option(slot, 'video', slot_index, available)
-            if not video: continue
-            audio, audio_index, a, a_ind = self.get_option(slot, 'audio', slot_index, available)
-            if not audio: continue
-            else: break
-        self.update_availables(slot_index, activity_index, video_index, audio_index, v_ind, a_ind)
-        return {'activity': activity, 'video': video, 'audio': audio}
-
-    def update_availables(self, slot_index, act_index, v_index, a_index, act_ind, v_ind, a_ind):
-        if act_index:
-            del self._slots[slot_index]['activities'][act_index]['available'][v_ind]
-            self.delete_option(slot_index, 'activities', act_index)
-        if v_index:
-            del self._slots[slot_index]['activities'][v_index]['available'][a_ind]
-            self.delete_option(slot_index, 'video', v_index)
-        self.delete_option(slot_index, 'audio', a_index)
-
-    def get_option(self, slot, type, index, available=True):
-        if isinstance(slot[type], str):
-            return slot[type], None, True, None
-        if available is None or slot[type] is None: return True, None, None, None
-        if available is True:
-            to_choose = slot[type]
-        else:
-            to_choose = []
-            to_choose_list = slot[type]
-            item_index = 0
-            for item in available:
-                if item == 'sound':
-                    if type == 'video': return True, None, available, None
-                    else: continue
-                if isinstance(item, dict):
-                    if type == 'video':
-                        for key in item:
-                            opt_to_choose = to_choose_list[key]
-                            opt_to_choose['dict'] = item
-                            opt_to_choose['name'] += " (+ %s)" % slot['audio'][key]['name']
-                            break
-                    else: continue
-                else:
-                    opt_to_choose = to_choose_list[i]
-                opt_to_choose['index'] = item_index
-                to_choose.append(opt_to_choose)
-                item_index += 1
-        self.print_options(to_choose)
-        if len(to_choose) > 1:
-            choosen_index = int(input("Номер опции: ")) - 1
-            yes = input("Отменить? (любой символ для отмены, пустая строка для продолжения): ")
-        else:
-            choosen_index, yes = 0, ""
-        option = to_choose[choosen_index]
-        is_dict = 'dict' in option
-        if not len(yes):
-            self._choosen(option, type, index)
-            avlb = None
-            if is_dict:
-                if type == 'video':
-                    avlb = [option['dict']]
-            elif 'available' in option:
-                avlb = option['available']
-                if type == 'activities' and option['audio_only']:
-                    avlb.append('sound')
-            return (option['name'], choosen_index, avlb, option['index'])
-        else:
-            return False, None, None
-
-    def print_options(self, options):
-        print("Введите номер желаемой опции:")
-        index = 1
-        for option in options:
-            print("%i. %s" % (index, option['name']))
-            index+=1
 
     def delete_option(self, slot_index, type, option_index=None):
         if option_index is None: return
