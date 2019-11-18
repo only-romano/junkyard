@@ -1,8 +1,15 @@
 try:
-    from my_values import IDEAL_WEIGHT
+    from my_values import my_values_preset as MVP
 except ImportError:
-    # put your ideal weight here
-    IDEAL_WEIGHT = 66.6
+    from diet_patterns import get_MVP
+    # put your values here
+    height =  180               # your height in sm (inches * 2.54)
+    age = 25                    # your age
+    gender = "M"                # i'm sorry but to correct formula gender needed (available options: "M" for male, "F" for female, "T" for transgender)
+    muscle = False              # a lot of muscles?
+    desirable_weight = None     # leave None to auto-calculate else input float
+    MVP = get_MVP(height, age, gender, muscle, desirable_weight)
+
 
 def DIET(slots):
     """
@@ -32,3 +39,13 @@ def DIET(slots):
         return DP.STAGE_ANOREXY(slots)
     """
     return "ДИЕТА"
+
+
+def get_MVP(height, age, gender, muscle, desirable_weight=None):
+    return {
+        "weight": None,
+        "muscle": None,
+        "fat": None,
+        "water": None,
+        "IMT": None,
+        }

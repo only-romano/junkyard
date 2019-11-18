@@ -4,16 +4,6 @@ from datetime import date
 from diet_patterns import DIET
 
 
-def is_smoked(slots):
-    no = input("Вы курили вчера? (оставьте пустым если да) \n")
-    if no:
-        slots.smoke += 1
-    else:
-        print("И зря")
-        slots.smoke = 0
-    return { "smoke": slots.smoke }
-
-
 def weight_and_things(slots):
     yesterday = _load_yesterday_file()
     # weight's params
@@ -25,8 +15,10 @@ def weight_and_things(slots):
     good_things = _operate_good_things(slots, yesterday)
     new_things = _operate_new_things(slots, yesterday)
     # diet params
-    diet_done = _operate_diet_done(slots)
+    diet_done = _operate_diet_done(slots, yesterday)
     diet = DIET(slots)
+    # etc params
+    smoke = _operate_smoke(slots, yesterday)
     # return object
     return {
         "weight": weight,
@@ -37,6 +29,7 @@ def weight_and_things(slots):
         "new_things": new_things,
         "diet_done": diet_done,
         "diet": diet,
+        "smoke": smoke,
         }
 
 
@@ -56,28 +49,28 @@ def _yesterday():
 
 def _operate_weight(slots, file):
     return _operate(slots.weight, file,
-        pattern=r"Мой вес:[ |_]*(\d+[\.|,]?\d*)[ |_]*кГ",
+        pattern=r"Мой вес[ ]*:[ |_]*(\d+[\.|,]?\d*)[ |_]*кГ",
         question="Вы вчера измеряли свой вес? Если да, то введите значение: "
         )
 
 
 def _operate_muscle(slots, file):
     return _operate(slots.muscle, file,
-        pattern=r"Мои мышцы:[ |_]*(\d+[\.|,]?\d*)[ |_]*кГ",
+        pattern=r"Мои мышцы[ ]*:[ |_]*(\d+[\.|,]?\d*)[ |_]*кГ",
         question="А мышцы измеряли? Введите значение, если да: "
         )
 
 
 def _operate_fat(slots, file):
     return _operate(slots.fat, file,
-        pattern=r"Мой жир:[ |_]*(\d+[\.|,]?\d*)[ |_]*%",
+        pattern=r"Мой жир[ ]*:[ |_]*(\d+[\.|,]?\d*)[ |_]*%",
         question="Что насчёт жира? Есть цифферки? "
         )
 
 
 def _operate_water(slots, file):
     return _operate(slots.water, file,
-        pattern=r"Моя вода:[ |_]*(\d+[\.|,]?\d*)[ |_]*%",
+        pattern=r"Моя вода[ ]*:[ |_]*(\d+[\.|,]?\d*)[ |_]*%",
         question="Ну и наконец - вода, измеряли? Значение, если есть: "
         )
 
@@ -133,10 +126,40 @@ def _operate_iter(slots, file, pat_st, pat_in, pat_end, question):
     return result
 
 
-def _operate_diet_done(slots):
-    diet_done = len(input("Придерживались диеты? Если да, то введи что-то: ")) > 0
-    slots.diet_done.append(diet_done)
-    return diet_done
+def _operate_diet_done(slots, file):
+    result = None
+    if file:
+        search = re.search(r"Я придерживался диеты:[ |_|\t]*(.*)\n", file)
+        if search:
+            result = search[1].lower().replace(' ', '').replace('_', '').replace('\t', '')
+    if result:
+        result = result.replace('-', '').replace('нет', '').replace('no', '').replace('курю', '')
+    else:
+        result = input("Придерживались диеты? Если да, то введи что-то: ")
+    result = len(result) > 0
+    if result:
+        slots.diet_done += 1
+    else:
+        slots.diet_done = 0
+    return slots.diet_done
+
+
+def _operate_smoke(slots, file):
+    result = None
+    if file:
+        search = re.search(r"Я сегодня не курил:[ |_|\t]*(.*)\n", file)
+        if search:
+            result = search[1].lower().replace(' ', '').replace('_', '').replace('\t', '')
+    if result:
+        result = result.replace('-', '').replace('нет', '').replace('no', '').replace('курю', '')
+    else:
+        result = input("Вы курили вчера? (оставьте пустым если да): ")
+    result = len(result) > 0
+    if result:
+        slots.smoke += 1
+    else:
+        slots.smoke = 0
+    return slots.smoke
 
 
 def _get_value(text=None, result=None):
@@ -162,4 +185,4 @@ if __name__ == '__main__':
         "Сегодня вы сделали хорошего:\n11221222   \n  \n\n")
     n = re.search(r"Сегодня вы сделали хорошего:\n((.*)|\n)*\n\n",
         "Сегодня вы сделали хорошего:\n11221222   \n  \n\n")
-    print(index[1])
+    #print(index[1])

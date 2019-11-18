@@ -1,8 +1,15 @@
 try:
-    from my_values import *
+    from my_values import my_values_preset as MVP
 except ImportError:
-    # put your ideal weight here
-    IDEAL_WEIGHT = 66.6
+    from diet_patterns import get_MVP
+    # put your values here
+    height =  180               # your height in sm (inches * 2.54)
+    age = 25                    # your age
+    gender = "M"                # i'm sorry but to correct formula gender needed (available options: "M" for male, "F" for female, "T" for transgender)
+    muscle = False              # a lot of muscles?
+    desirable_weight = None     # leave None to auto-calculate else input float
+    MVP = get_MVP(height, age, gender, muscle, desirable_weight)
+
 
 # line pattern
 LINE = "\n\n"
@@ -21,14 +28,11 @@ def separator(length=False):
 
 
 def smoke(i):
-    def get_days(x):
-        last_num = str(x)[-1]
-        if last_num == "1":
-            return "день"
-        elif last_num in ["2", "3", "4"]:
-            return "дня"
-        return "дней"
-    return "\tЯ не курю уже %i %s" % (i, get_days(i)) if i > 0 else "Зря покурили..."
+    return "Не курю уже %i %s" % (i, _get_days(i)) if i > 0 else "Зря вчера покурили..."
+
+
+def diet_done(i):
+    return "Придерживаюсь диеты без срывов уже %i %s" % (i, _get_days(i)) if i > 0 else "Вчера был срыв..."
 
 
 def good(things):
@@ -38,18 +42,19 @@ def good(things):
 def new_things(things):
     return _ul(things, "Ничего нового вчера не было...", "Вчера узнали:", NEW)
 
+
 def weight(values):
     return WEIGHT + ("\n\n\tВчерашние показатели:%s%s%s%s" % (
-        _wk("Вес  :", values['weight']),
-        _wk("Мышцы:", values['muscle']),
-        _wk("Жир  :", values['fat']),
-        _wk("Вода :", values['water']),
-        _wk("ИМТ  :", values['weight']),
+        _wk("Вес  :", values['weight'], MVP["weight"]),
+        _wk("Мышцы:", values['muscle'], MVP["muscle"]),
+        _wk("Жир  :", values['fat'], MVP["fat"], 1),
+        _wk("Вода :", values['water'], MVP["water"], 1),
         ))
 
 
 # internal use functions
 def _ul(things, ph1, ph2, template):
+    things = [x for x in things if len(x.strip())]
     if not len(things):
         things = [ph1]
     return template + ("\n\n\t%s\n\t\t* " % ph2) + "\n\t\t* ".join([x for x in things])
@@ -61,15 +66,27 @@ def _li(num):
 
 def _wk(name, value=None, ideal=None, flag=0):
     if value is None:
-        return "%s --- (нет данных)" % name
-    f = "%" if flag else "кГ"
+        return "\n\t\t%s --- (нет данных)" % name
+    f = "% " if flag else "кГ"
+    t = " "
+    if value >= 100:
+        t = ""
     if ideal is None:
-        return "\t%s: %.1f %s" % (name, value, f)
-    return "\t%s: %.1f %s ... (%.1f %% от идеала)" % (name, value, f, value/ideal*100)
+        return "\n\t\t%s: %s%.1f %s" % (name, t, value, f)
+    return "\n\t\t%s: %s%.1f %s ... (%.1f %% от идеала)" % (name, t, value, f, value/ideal*100)
 
 
 def _wt(name, flag=0):
     return "\t%.9s: __._ %s" % (name+" "*2, "%" if flag else "кГ")
+
+
+def _get_days(x):
+    last_num = str(x)[-1]
+    if last_num == "1":
+        return "день"
+    elif last_num in ["2", "3", "4"]:
+        return "дня"
+    return "дней"
 
 
 GOOD = "\tСегодня вы сделали хорошего:%s" % (_li(3))
