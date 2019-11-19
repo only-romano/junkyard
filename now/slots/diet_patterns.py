@@ -12,8 +12,11 @@ except ImportError:
 
 
 def DIET(slots):
+    weight_now = next((w for w in reversed(slots.weight) if w is not None), None)
+    muscle_now = next((m for m in reversed(slots.muscle) if m is not None), None)
+    fat_now = next((f for f in reversed(slots.fat) if f is not None), None)
+    water_now = next((w for w in reversed(slots.water) if w is not None), None)
     """
-    weight = next(w for w in reversed(slots.weights) if w is not None)
     coef = weight / IDEAL_WEIGHT
     if coef > 1.5:
         return DP.STAGE_FAT(slots)

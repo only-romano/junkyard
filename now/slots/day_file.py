@@ -7,20 +7,20 @@ FILENAME = "day_files/day_file_%d_%.2d_%.2d.md" % (d.year, d.month, d.day)
 tabs = " "*4
 
 
-def create_day_file(data):
+def create_day_file(data, slots):
     with open(FILENAME, 'w') as file:
-        file.write(_construct_file(data))
+        file.write(_construct_file(data, slots))
 
 
 # internal use functions
-def _construct_file(data):
+def _construct_file(data, slots):
     special = data.pop()
     return separator(table_len+2+len(tabs)*2).join([
         "\n\t%d/%d/%d (дневной файл)" % (d.day, d.month, d.year),
         "\tЯ сегодня не курил: __\n\t" + smoke(special['smoke']),
         good(special['good_things']),
         new_things(special['new_things']),
-        weight(special),
+        weight(special, slots),
         "\tДИЕТА\n\n\t\tЯ придерживался диеты: __\n\t\t" + diet_done(special['diet_done']) +
         "\n\n" + special['diet'],
         "\tРАСПИСАНИЕ НА СЕГОДНЯ:\n" + 

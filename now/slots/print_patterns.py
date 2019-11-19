@@ -43,12 +43,16 @@ def new_things(things):
     return _ul(things, "Ничего нового вчера не было...", "Вчера узнали:", NEW)
 
 
-def weight(values):
-    return WEIGHT + ("\n\n\tВчерашние показатели:%s%s%s%s" % (
-        _wk("Вес  :", values['weight'], MVP["weight"]),
-        _wk("Мышцы:", values['muscle'], MVP["muscle"]),
-        _wk("Жир  :", values['fat'], MVP["fat"], 1),
-        _wk("Вода :", values['water'], MVP["water"], 1),
+def weight(values, slots):
+    weight, time_weight = _get_old_value_and_time(values['weight'], slots.weight)
+    muscle, time_muscle = _get_old_value_and_time(values['muscle'], slots.muscle)
+    fat, time_fat = _get_old_value_and_time(values['fat'], slots.fat)
+    water, time_water = _get_old_value_and_time(values['water'], slots.water)
+    return WEIGHT + ("\n\n\tПрошлые показатели:%s%s%s%s" % (
+        _wk("Вес  :", weight, MVP["weight"], time_weight, flag=0),
+        _wk("Мышцы:", muscle, MVP["muscle"], time_muscle, flag=0),
+        _wk("Жир  :", fat, MVP["fat"], time_fat, flag=1),
+        _wk("Вода :", water, MVP["water"], time_water, flag=1),
         ))
 
 
@@ -64,20 +68,36 @@ def _li(num):
     return "\n\t\t" + "\n\t\t".join(["%i __________________" % i for i in range(1, num+1)])
 
 
-def _wk(name, value=None, ideal=None, flag=0):
+def _wk(name, value=None, ideal=None, time=1, flag=0):
+    result = "\n\t\t%s" % name
     if value is None:
-        return "\n\t\t%s --- (нет данных)" % name
-    f = "% " if flag else "кГ"
-    t = " "
-    if value >= 100:
-        t = ""
+        return "%s --- (нет данных)" % result
+    add_space = " " if value < 100 else ""
+    mesure = "% " if flag else "кГ"
+    result = "%s %s%.1f %s" % (result, add_space, value, mesure)
+    when = "вчера" if time == 1 else "%i %s назад" % (time, _get_days(time))
     if ideal is None:
-        return "\n\t\t%s: %s%.1f %s" % (name, t, value, f)
-    return "\n\t\t%s: %s%.1f %s ... (%.1f %% от идеала)" % (name, t, value, f, value/ideal*100)
+        return "%s (%s)" % (result, when)
+    diff = value/ideal * 100
+    add_space = " " if diff < 100 else ""
+    return "%s ... %s%.1f %% от идеала ... (%s)" % (result, add_space, diff, when)
 
 
 def _wt(name, flag=0):
     return "\t%.9s: __._ %s" % (name+" "*2, "%" if flag else "кГ")
+
+
+def _get_old_value_and_time(value, slots):
+    result = value
+    time = 1
+    if not result:
+        time = 0
+        for item in reversed(slots):
+            time += 1
+            if item:
+                result = item
+                break
+    return result, time
 
 
 def _get_days(x):
@@ -89,7 +109,7 @@ def _get_days(x):
     return "дней"
 
 
+# BASE TEMPLATES
 GOOD = "\tСегодня вы сделали хорошего:%s" % (_li(3))
 NEW = "\tСегодня вы узнали и выучили новое:%s" % (_li(3))
-
-WEIGHT = "%s\n\n\t%s\n\t%s\n\t%s" % (_wt('Мой вес'), _wt('Мои мышцы'), _wt('Мой жир',1), _wt('Моя вода',1))
+WEIGHT = "%s\n%s\n%s\n%s" % (_wt('Мой вес'), _wt('Мои мышцы'), _wt('Мой жир',1), _wt('Моя вода',1))

@@ -17,5 +17,5 @@ special_values.update({"days_at_all": slots.days_at_all})
 result.append(special_values)
 
 # create day-file and re-write slots
-create_day_file(result)
+create_day_file(result, slots)
 write(slots)
