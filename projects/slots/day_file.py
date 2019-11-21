@@ -1,15 +1,27 @@
 from datetime import datetime
 from print_patterns import *
 from random import randint
+try:
+    from my_values import DESKTOP_PATH
+except ImportError:
+    try:
+        from my_values_placeholder import DESKTOP_PATH
+    except ImportError:
+        DESKTOP_PATH = None
+
 
 d = datetime.now()
-FILENAME = "day_files/day_file_%d_%.2d_%.2d.md" % (d.year, d.month, d.day)
+FILENAME = "day_file_%d_%.2d_%.2d.md" % (d.year, d.month, d.day)
 tabs = " "*4
 
 
 def create_day_file(data, slots):
-    with open(FILENAME, 'w') as file:
-        file.write(_construct_file(data, slots))
+    to_write = _construct_file(data, slots)
+    with open("day_files/" + FILENAME, 'w') as file:
+        file.write(to_write)
+    if DESKTOP_PATH:
+        with open(DESKTOP_PATH + FILENAME, 'w') as file:
+            file.write(to_write)
 
 
 # internal use functions

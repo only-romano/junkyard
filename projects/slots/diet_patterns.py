@@ -13,10 +13,10 @@ except ImportError:
 
 
 def DIET(slots):
-    weight_now = next((w for w in reversed(slots.weight) if w is not None), None)
-    muscle_now = next((m for m in reversed(slots.muscle) if m is not None), None)
-    fat_now = next((f for f in reversed(slots.fat) if f is not None), None)
-    water_now = next((w for w in reversed(slots.water) if w is not None), None)
+    weight_now = next((w for w in reversed(slots.weight) if w is not None), MVP['weight'])
+    muscle_now = next((m for m in reversed(slots.muscle) if m is not None), MVP['muscle'])
+    fat_now = next((f for f in reversed(slots.fat) if f is not None), MVP['fat'])
+    water_now = next((w for w in reversed(slots.water) if w is not None), MVP['water'])
 
     diff = (weight_now / MVP['weight'] * 100 - 100)
     sign = -1 if diff < 0 else 1
@@ -348,6 +348,10 @@ def _get_element(min, max, weight):
             "max": int(max * 1000 / weight),
             },
         }
+
+
+# exported values
+__all__ = ['DIET', 'get_MVP']
 
 
 if __name__ == '__main__':

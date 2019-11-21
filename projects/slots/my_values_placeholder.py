@@ -1,3 +1,7 @@
+# Replace with you path to make copy of file
+# (don't forget to place it later in app folder to get values from day file)
+DESKTOP_PATH = None
+
 # MVP
 my_values_preset = {
     "weight": 66.6,      # Kg, input your ideal weight (goal to achieve)
