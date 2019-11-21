@@ -6,6 +6,7 @@ from copy import deepcopy
 
 class Slots:
     def __init__(self, slots=False, start=375, end=1650):
+        self.language = "RU"
         self._slots = []
         if slots:
             self.add(slots)

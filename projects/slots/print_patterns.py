@@ -1,14 +1,11 @@
 try:
     from my_values import my_values_preset as MVP
 except ImportError:
-    from diet_patterns import get_MVP
-    # put your values here
-    height =  180               # your height in sm (inches * 2.54)
-    age = 25                    # your age
-    gender = "M"                # i'm sorry but to correct formula gender needed (available options: "M" for male, "F" for female, "T" for transgender)
-    muscle = False              # a lot of muscles?
-    desirable_weight = None     # leave None to auto-calculate else input float
-    MVP = get_MVP(height, age, gender, muscle, desirable_weight)
+    try:
+        from my_values_placeholder import my_values_preset as MVP
+    except ImportError:
+        from diet_patterns import get_MVP
+        MVP = get_MVP()
 
 
 # line pattern
@@ -72,15 +69,14 @@ def _wk(name, value=None, ideal=None, time=1, flag=0):
     result = "\n\t\t%s" % name
     if value is None:
         return "%s --- (нет данных)" % result
-    add_space = " " if value < 100 else ""
     mesure = "% " if flag else "кГ"
-    result = "%s %s%.1f %s" % (result, add_space, value, mesure)
+    result = "%s %5.1f %s" % (result, value, mesure)
     when = "вчера" if time == 1 else "%i %s назад" % (time, _get_days(time))
     if ideal is None:
         return "%s (%s)" % (result, when)
     diff = value/ideal * 100
     add_space = " " if diff < 100 else ""
-    return "%s ... %s%.1f %% от идеала ... (%s)" % (result, add_space, diff, when)
+    return "%s ... %5.1f %% от идеала ... (%s)" % (result, diff, when)
 
 
 def _wt(name, flag=0):

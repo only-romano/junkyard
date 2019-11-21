@@ -4,14 +4,12 @@ try:
     from my_values import my_values_preset as MVP
     from my_values import celebrations, fetes, holidays, rituals
 except ImportError:
-    # put your values here
-    height =  None              # your height in sm (inches * 2.54)
-    age = None                  # your age
-    gender = None               # to correct formula gender needed (available options: "M" for male, "F" for female, "T" for transgender)
-    muscle = None               # a lot of muscles?
-    desirable_weight = None     # leave None to auto-calculate else input float
-    MVP = get_MVP(height, age, gender, muscle, desirable_weight)
-    celebrations, fetes, holidays, rituals = None, None, None, None
+    try:
+        from my_values_placeholder import my_values_preset as MVP
+        from my_values_placeholder import celebrations, fetes, holidays, rituals
+    except ImportError:
+        MVP = get_MVP()
+        celebrations, fetes, holidays, rituals = None, None, None, None
 
 
 def DIET(slots):
@@ -43,13 +41,12 @@ def DIET(slots):
     return _diet_text(_stage_constructor(stage_number, values))
 
 
-def get_MVP(height, age, gender, muscle, d_weight=None):
+def get_MVP():
     return {
         "weight": 66.6,
         "muscle": 27.5,
         "fat": 15.0,
         "water": 57.5,
-        "IMT": (d_weight / height**2 if d_weight and height else 22.5),
         }
 
 
@@ -91,7 +88,7 @@ def _stage_constructor(stage_number, values):
 
 
 def _get_element_value(label, values):
-    return "%s    %3i - %3i гр   (~ %4i - %4i мг/кГ)  -  [%.1f %%]" % (
+    return "%s    %3i - %3i гр   (~ %4i - %4i мг/кГ)  -  [%4.1f %%]" % (
             label,
             values['mass']['min'],
             values['mass']['max'],
@@ -150,7 +147,7 @@ def _get_stage_min_weight(stage_number, ideal_weight):
     elif stage_number == -4: coef = 0.70
     elif stage_number == -5: coef = 0.50
     # return
-    return ideal_weight * coef
+    return ideal_weight * coef + (0 if stage_number > 0 else 0.1)
 
 
 def _get_stage_max_weight(stage_number, ideal_weight):
@@ -166,7 +163,7 @@ def _get_stage_max_weight(stage_number, ideal_weight):
     elif stage_number == -4: coef = 0.80
     elif stage_number == -5: coef = 0.70
     # return
-    return ideal_weight * coef - 0.1
+    return ideal_weight * coef - (0 if stage_number < 0 else 0.1)
 
 
 def _get_stage_min_date(stage_number, weight_diff, ideal_weight):
@@ -180,7 +177,8 @@ def _get_stage_min_date(stage_number, weight_diff, ideal_weight):
     elif stage_number == -5: stage_coef = 30
     else: return ""
     # return
-    coef = ceil((weight_diff-stage_coef)*(ideal_weight/abs(stage_number))**0.5)
+    diff = abs(weight_diff)
+    coef = ceil((diff-stage_coef)*(ideal_weight/abs(stage_number))**0.5)
     return date.fromordinal(date.today().toordinal()+coef).strftime("%d %b %Y")
 
 
@@ -215,10 +213,10 @@ def _get_nutrients(stage_number, values):
 
 def _get_proteins(stage_number, values, swing):
     muscle_diff = (values['muscle_now'] / MVP['muscle'] * 100 - 100)
-    min_coef = 1.65 - abs(values['weight_diff'])*0.015
-    min_coef = min_coef if min_coef >= 0.5 else 0.5
-    max_coef = 2 - abs(values['weight_diff'])*0.02
-    max_coef = max_coef if max_coef >= 0.75 else 0.75
+    min_coef = 1.75 - abs(values['weight_diff'])*0.015
+    min_coef = min_coef if min_coef >= 0.4 else 0.4
+    max_coef = 2.5 - abs(values['weight_diff'])*0.027
+    max_coef = max_coef if max_coef >= 0.45 else 0.45
     p_min = values['weight_now'] * (min_coef - muscle_diff*0.01)
     p_max = values['weight_now'] * (max_coef - muscle_diff*0.02)
     if swing:
@@ -229,12 +227,15 @@ def _get_proteins(stage_number, values, swing):
 
 def _get_carbonates(stage_number, values, swing):
     diff = values['weight_diff'] if values['weight_diff'] > 0 else values['weight_diff']/4
+    fat_mass = (values['fat_now'] - MVP['fat']) * values['weight_now'] / 100
     min_coef = 3.5 - diff*0.04
-    min_coef = min_coef if min_coef >= 1 else 1
-    max_coef = 5.5 - diff*0.07
-    max_coef = max_coef if max_coef >= 1.5 else 1.5
-    c_min = values['weight_now'] * (min_coef - values['fat_now'] * 0.01)
-    c_max = values['weight_now'] * (max_coef - values['fat_now'] * 0.015)
+    max_coef = 4.5 - diff*0.05
+    min_coef = min_coef if min_coef >= 0.75 else 0.75
+    max_coef = max_coef if max_coef >= 1.25 else 1.25
+    if stage_number < 1:
+        max_coef += 1
+    c_min = values['weight_now'] * (min_coef - fat_mass * 0.0075)
+    c_max = values['weight_now'] * (max_coef - fat_mass * 0.015)
     if swing:
         c_min *= swing['carbonate']
         c_max *= swing['carbonate']
@@ -242,16 +243,24 @@ def _get_carbonates(stage_number, values, swing):
 
 
 def _get_fats(stage_number, values, swing):
-    fat_mass = values['fat_now'] * values['weight_now'] / 100
+    fat_mass = (values['fat_now'] - MVP['fat']) * values['weight_now'] / 100
     if fat_mass > 50:
         fat_mass = 50
     diff = values['weight_diff'] if values['weight_diff'] > 0 else values['weight_diff']/4
-    min_coef = 0.7 - diff*0.01
+    min_coef = 1.25 - diff*0.02
     min_coef = min_coef if min_coef >= 0.5 else 0.5
-    max_coef = 1.75 - diff*0.02
+    max_coef = 1.75 - diff*0.035
     max_coef = max_coef if max_coef >= 0.75 else 0.75
-    f_min = values['weight_now'] * (min_coef - fat_mass * 0.005)
-    f_max = values['weight_now'] * (max_coef - fat_mass * 0.0075)
+    #if stage_number == 2:
+    #    max_coef = max_coef if max_coef < 1.5 else 1.5
+    #elif stage_number == 3:
+    #    max_coef = max_coef if max_coef < 1.33 else 1.33
+    #elif stage_number == 4:
+    #    max_coef = max_coef if max_coef < 1.25 else 1.25
+    #elif stage_number == 5:
+    #    max_coef = max_coef if max_coef < 1 else 1
+    f_min = values['weight_now'] * (min_coef - fat_mass * 0.0075)
+    f_max = values['weight_now'] * (max_coef - fat_mass * 0.01)
     if swing:
         f_min *= swing['fat']
         f_max *= swing['fat']
@@ -331,11 +340,29 @@ def _swing_helper(preset, today, swing, diet_day, days_list):
 def _get_element(min, max, weight):
     return {
         "mass": {
-            "min": min,
-            "max": max,
+            "min": int(min),
+            "max": int(max),
             },
         "per_kg": {
-            "min": min * 1000 / weight,
-            "max": max * 1000 / weight,
+            "min": int(min * 1000 / weight),
+            "max": int(max * 1000 / weight),
             },
         }
+
+
+if __name__ == '__main__':
+    print("170.5", _get_proteins(5, {"muscle_now": 30.6, "weight_now": 170.5, "weight_diff": 170.5/0.888 - 100}, None))
+    print("151.5", _get_proteins(5, {"muscle_now": 31.0, "weight_now": 151.5, "weight_diff": 151.5/0.888 - 100}, None))
+    print("140.0", _get_proteins(5, {"muscle_now": 31.5, "weight_now": 140.0, "weight_diff": 140.0/0.888 - 100}, None))
+    print("130.5", _get_proteins(4, {"muscle_now": 32.0, "weight_now": 130.5, "weight_diff": 130.5/0.888 - 100}, None))
+    print("120.5", _get_proteins(4, {"muscle_now": 32.2, "weight_now": 120.5, "weight_diff": 120.5/0.888 - 100}, None))
+    print("110.5", _get_proteins(3, {"muscle_now": 32.6, "weight_now": 110.5, "weight_diff": 110.5/0.888 - 100}, None))
+    print("100.5", _get_proteins(3, {"muscle_now": 33.5, "weight_now": 100.5, "weight_diff": 100.5/0.888 - 100}, None))
+    print("96.5", _get_proteins(2, {"muscle_now": 34.6, "weight_now": 96.5, "weight_diff": 96.5/0.888 - 100}, None))
+    print("91.5", _get_proteins(1, {"muscle_now": 35.5, "weight_now": 91.5, "weight_diff": 91.5/0.888 - 100}, None))
+    print("88.8", _get_proteins(0, {"muscle_now": 37.5, "weight_now": 88.8, "weight_diff": 88.8/0.888 - 100}, None))
+    print("86.5", _get_proteins(-1, {"muscle_now": 30.5, "weight_now": 86.5, "weight_diff": 86.5/0.888 - 100}, None))
+    print("80.8", _get_proteins(-2, {"muscle_now": 27.5, "weight_now": 80.8, "weight_diff": 80.8/0.888 - 100}, None))
+    print("72.8", _get_proteins(-3, {"muscle_now": 26.5, "weight_now": 72.8, "weight_diff": 72.8/0.888 - 100}, None))
+    print("62.8", _get_proteins(-4, {"muscle_now": 25.5, "weight_now": 62.8, "weight_diff": 62.8/0.888 - 100}, None))
+    print("52.8", _get_proteins(-5, {"muscle_now": 24.5, "weight_now": 52.8, "weight_diff": 52.8/0.888 - 100}, None))

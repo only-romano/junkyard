@@ -25,6 +25,8 @@ ___
         - > Blog app with micro CMS -- блог с микро-CMS
     + ["__Soccer Heads__"](https://only-romano.github.io/soccer/ "JavaScript; 2018 Apr")
         - > Browser game -- браузерная игра
+    + ["Slots"](projects/slots/ "2019, November; Python")
+        - > Console schedule & todo-list app with diet/weight/nutrients/habbits control -- Консольное приложение для личного расписания и списка дел с контролем над диетой/весом/питательными веществами/привычками
     + [__Games__ -- __Игры__](projects/games/ "2017 - 2019")
     + [Minor Projects -- Остальные проекты](projects/minor/ "2017 - 2019")
     + [Training Projects -- Учебные проекты](projects/training/ "2018 - 2019")
