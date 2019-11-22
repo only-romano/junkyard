@@ -2,12 +2,13 @@ from datetime import datetime
 from print_patterns import *
 from random import randint
 try:
-    from my_values import DESKTOP_PATH
+    from my_values import DESKTOP_PATH, PATH_TO_FOLDER
 except ImportError:
     try:
-        from my_values_placeholder import DESKTOP_PATH
+        from my_values_placeholder import DESKTOP_PATH, PATH_TO_FOLDER
     except ImportError:
         DESKTOP_PATH = None
+        PATH_TO_FOLDER = "day_files/"
 
 
 d = datetime.now()
@@ -17,7 +18,7 @@ tabs = " "*4
 
 def create_day_file(data, slots):
     to_write = _construct_file(data, slots)
-    with open("day_files/" + FILENAME, 'w') as file:
+    with open(PATH_TO_FOLDER + FILENAME, 'w') as file:
         file.write(to_write)
     if DESKTOP_PATH:
         with open(DESKTOP_PATH + FILENAME, 'w') as file:

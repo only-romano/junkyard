@@ -1,6 +1,7 @@
 # Replace with you path to make copy of file
 # (don't forget to place it later in app folder to get values from day file)
 DESKTOP_PATH = None
+PATH_TO_FOLDER = None
 
 # MVP
 my_values_preset = {

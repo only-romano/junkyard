@@ -2,6 +2,14 @@
 import re
 from datetime import date
 from diet_patterns import DIET
+try:
+    from my_values import DESKTOP_PATH, PATH_TO_FOLDER
+except ImportError:
+    try:
+        from my_values_placeholder import DESKTOP_PATH, PATH_TO_FOLDER
+    except ImportError:
+        DESKTOP_PATH = None
+        PATH_TO_FOLDER = "day_files/"
 
 
 def weight_and_things(slots):
@@ -35,12 +43,16 @@ def weight_and_things(slots):
 
 # internal use function
 def _load_yesterday_file():
-    filename = "day_files/day_file_%s.md" % str(_yesterday()).replace('-', '_')
+    filename = "day_file_%s.md" % str(_yesterday()).replace('-', '_')
     try:
-        with open(filename, 'r') as file:
+        with open(str(DESKTOP_PATH) + filename, 'r') as file:
             return file.read()
     except FileNotFoundError:
-        return None
+        try:
+            with open(PATH_TO_FOLDER + filename, 'r') as file:
+                return file.read()
+        except FileNotFoundError:
+            return None
 
 
 def _yesterday():

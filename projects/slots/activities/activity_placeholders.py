@@ -135,10 +135,10 @@ START = "Wake Up"
 SLEEP = "СОН"
 # programming
 PRS_WAKEUP  = "Разминка Программиста"
-PRS_REPEAT  = "Повторение и Закрепление материала"
+PRS_REPEAT  = "Повторение"
 PRS_IDEAS   = "Идеи для Проектов"
-PRS_LANG    = "Взгляд на Новый Язык программирования"
-PRS_ROADMAP = "Выбор линии развития на будущее"
+PRS_LANG    = "Взгляд на Новый ЯП"
+PRS_ROADMAP = "Выбор линии развития"
 # sport
 SPORT_WAKEUP    = "Зарядка"
 SPORT_MORNING   = "УТРЕННЯЯ ТРЕНИРОВКА"
