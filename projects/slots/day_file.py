@@ -37,13 +37,21 @@ def _construct_file(data, slots):
         "\tДИЕТА\n\n\t\tЯ придерживался диеты: __\n\t\t" + diet_done(special['diet_done']) +
         "\n\n" + special['diet'],
         "\tРАСПИСАНИЕ НА СЕГОДНЯ:\n" + 
-        "\t " + "_"*table_len + "".join([_table(x) for x in data]),
+        "\t " + "_"*table_len + "".join([_table(data[x]) \
+            for x in range(len(data)) \
+                if not _previous_the_same(data, x)]),
         "\t\t\t(день %i)\n" % (special['days_at_all']+1)
         ]).replace("\t", tabs)
 
 
 def _broadcast():
     return "Евгеника" if randint(1,4) == 1 else "Маяк"
+
+
+def _previous_the_same(d, i):
+    if i == 0: return False
+    p = i-1
+    return d[i]['basic']==d[p]['basic'] and d[i]['video']==d[p]['video'] and d[i]['audio'] == d[p]['audio']
 
 
 def _table(one):
