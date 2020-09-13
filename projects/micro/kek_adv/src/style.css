@@ -1,0 +1,17 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background: url(alpha.jpg) rgba(228, 192, 228, .4) no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#ghost {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+}
