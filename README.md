@@ -48,6 +48,7 @@ ___
     + [Ceylon, hm, wait, no ... Madagascar, again, no, stop, Fiji? God damned. Oh, yes, it's __Java__](way/java/)
     + [Inglourious __Frontend__](way/frontend/)
     + [Taylor __Swift__](way/swift/)
+    + [Way to __Processing__](way/processing)
     + [Holy __Linux__](way/linux/)
     + [The Empire Strikes __Bash__](way/bash/)
     + [Never call your __regEx__ when you drunk at night and don't know what to do with your life](way/regex/)
