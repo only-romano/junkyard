@@ -25,7 +25,10 @@ def separator(length=False):
 
 
 def smoke(i):
-    return "Не курю уже %i %s" % (i, _get_days(i)) if i > 0 else "Зря вчера покурили..."
+    if i[0] > 0:
+        return "Не курю уже %i %s" % (i[0], _get_days(i[0]))
+    else:
+        return  f"Зря вчера курил...{f' ({i[1]} {_get_cigs(i[1])})' if i[1] > 0 else ''}"
 
 
 def diet_done(i):
@@ -37,7 +40,7 @@ def good(things):
 
 
 def new_things(things):
-    return _ul(things, "Ничего нового вчера не было...", "Вчера узнали:", NEW)
+    return _ul(things, "Ничего нового вчера не было...", "Вчера я узнал:", NEW)
 
 
 def weight(values, slots):
@@ -63,6 +66,13 @@ def _ul(things, ph1, ph2, template):
 
 def _li(num):
     return "\n\t\t" + "\n\t\t".join(["%i __________________" % i for i in range(1, num+1)])
+
+
+def notes(num, short=False):
+    sep = "\n\t\t\t\t...\n\t\t\t\t" if short else "\n\n\t\t...\n\t\t"
+    opener = "\n\t\t\t\t" if short else "\n\n\t\t"
+    length = basic_len + video_len if short else table_len
+    return opener + sep.join(f"{'_' * length}" for i in range(num))
 
 
 def _wk(name, value=None, ideal=None, time=1, flag=0):
@@ -105,7 +115,17 @@ def _get_days(x):
     return "дней"
 
 
+def _get_cigs(x):
+    result = "сигарет"
+    if x == 0.5 or x > 1 and x < 5:
+        return f"{result}ы"
+    elif x == 1:
+        return f"{result}а"
+    else:
+        return result
+
+
 # BASE TEMPLATES
-GOOD = "\tСегодня вы сделали хорошего:%s" % (_li(3))
-NEW = "\tСегодня вы узнали и выучили новое:%s" % (_li(3))
+GOOD = "\tХорошие поступки за сегодня:%s" % (_li(3))
+NEW = "\tНовое и интересное за сегодня:%s" % (_li(3))
 WEIGHT = "%s\n%s\n%s\n%s" % (_wt('Мой вес'), _wt('Мои мышцы'), _wt('Мой жир',1), _wt('Моя вода',1))

@@ -3,13 +3,14 @@ import re
 from datetime import date
 from diet_patterns import DIET
 try:
-    from my_values import DESKTOP_PATH, PATH_TO_FOLDER
+    from my_values import DESKTOP_PATH, PATH_TO_FOLDER, CHARSET
 except ImportError:
     try:
-        from my_values_placeholder import DESKTOP_PATH, PATH_TO_FOLDER
+        from my_values_placeholder import DESKTOP_PATH, PATH_TO_FOLDER, CHARSET
     except ImportError:
         DESKTOP_PATH = None
         PATH_TO_FOLDER = "day_files/"
+        CHARSET = 'utf-8'
 
 
 def weight_and_things(slots):
@@ -45,11 +46,11 @@ def weight_and_things(slots):
 def _load_yesterday_file():
     filename = "day_file_%s.md" % str(_yesterday()).replace('-', '_')
     try:
-        with open(str(DESKTOP_PATH) + filename, 'r') as file:
+        with open(str(DESKTOP_PATH) + filename, 'r', encoding=CHARSET) as file:
             return file.read()
     except FileNotFoundError:
         try:
-            with open(PATH_TO_FOLDER + filename, 'r') as file:
+            with open(PATH_TO_FOLDER + filename, 'r', encoding=CHARSET) as file:
                 return file.read()
         except FileNotFoundError:
             return None
@@ -100,7 +101,7 @@ def _operate(slots, file, pattern, question):
 
 def _operate_good_things(slots, file):
     return _operate_iter(slots.good_things, file,
-        pat_st=r"Сегодня вы сделали хорошего:\n",
+        pat_st=r"Хорошие поступки за сегодня:\n",
         pat_in=r"[ |\t]*\d[ |_]*(.*)\n",
         pat_end = r"\n\n",
         question="Делали что-то хорошее? (напишите что, если да) ")
@@ -108,7 +109,7 @@ def _operate_good_things(slots, file):
 
 def _operate_new_things(slots, file):
     return _operate_iter(slots.new_things, file,
-        pat_st=r"Сегодня вы узнали и выучили новое:\n",
+        pat_st=r"Новое и интересное за сегодня:\n",
         pat_in=r"[ |\t]*\d[ |_]*(.*)\n",
         pat_end = r"\n\n",
         question="Узнали что-то новое? (напишите что, если да) ")
@@ -145,7 +146,7 @@ def _operate_diet_done(slots, file):
         if search:
             result = search[1].lower().replace(' ', '').replace('_', '').replace('\t', '')
     if result:
-        result = result.replace('-', '').replace('нет', '').replace('no', '').replace('курю', '')
+        result = result.replace('-', '').replace('нет', '').replace('no', '').replace('жру', '')
     else:
         result = input("Придерживались диеты? Если да, то введи что-то: ")
     result = len(result) > 0
@@ -164,13 +165,22 @@ def _operate_smoke(slots, file):
             result = search[1].lower().replace(' ', '').replace('_', '').replace('\t', '')
     if result:
         result = result.replace('-', '').replace('нет', '').replace('no', '').replace('курю', '')
+        try:
+            result = float(result)
+            slots.smoke = [0, result]
+        except Exception:
+            slots.smoke = [slots.smoke[0]+1, 0]
     else:
-        result = input("Вы курили вчера? (оставьте пустым если да): ")
-    result = len(result) > 0
-    if result:
-        slots.smoke += 1
-    else:
-        slots.smoke = 0
+        result = input("Вы не курили вчера? (оставьте пустым если курили): ")
+        result = len(result) > 0
+        if result:
+            slots.smoke = [slots.smoke[0]+1, 0]
+        else:
+            slots.smoke[0] = 0
+            try:
+                slots.smoke[1] = float(input("Сколько сигарет вы вчера выкурили? "))
+            except Exception:
+                pass
     return slots.smoke
 
 

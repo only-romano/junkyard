@@ -133,6 +133,7 @@ XXX = "X-Rated"
 # base
 START = "Wake Up"
 SLEEP = "СОН"
+FREE = "Свободное время"
 # programming
 PRS_WAKEUP  = "Разминка Программиста"
 PRS_REPEAT  = "Повторение"

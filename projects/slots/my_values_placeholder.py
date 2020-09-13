@@ -2,13 +2,14 @@
 # (don't forget to place it later in app folder to get values from day file)
 DESKTOP_PATH = None
 PATH_TO_FOLDER = None
+CHARSET = 'utf-8'
 
 # MVP
 my_values_preset = {
-    "weight": 66.6,      # Kg, input your ideal weight (goal to achieve)
-    "muscle": 28.5,      # Kg, input your ideal muscle mass
-    "fat":    12.5,      #  %, input your ideal fat procent
-    "water":  55.0,      #  %, input your ideal water procent
+    "weight": 88.8,      # Kg, input your ideal weight (goal to achieve)
+    "muscle": 40.0,      # Kg, input your ideal muscle mass
+    "fat":     5.0,      #  %, input your ideal fat procent
+    "water":  57.5,      #  %, input your ideal water procent
     "IMT":     0.0,      # deprecated
 }
 

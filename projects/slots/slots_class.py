@@ -20,7 +20,7 @@ class Slots:
         self._str_flag = 0
         # all-time values
         self.days_at_all = 0
-        self.smoke = 0
+        self.smoke = [0, 0]
         self.diet_day = 0
         self.diet_done = 0
         self.diet = []
