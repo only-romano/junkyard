@@ -22,6 +22,7 @@ ___
 #### Table of contents -- Содержание:
 
 + [_Birthday Card_; __Vue.js__](bday/ "2019") + [online](https://ripssr.github.io/hbk_n/)
++ [_Telegram Chat-Bot_; __Python__](kek_bot/ "2020")
 + [_Birthday-card_, yes, another one; __Frontend__](birthday/ "2018") + [online](https://ripssr.github.io/birthday/)
 + [C# interactive educational console app; __C#__](csharpapp/ "2018")
 + [_Little Brush_ micro paint app; __Java__](littlebrush/ "2018")
