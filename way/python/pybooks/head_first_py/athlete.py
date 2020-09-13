@@ -1,47 +1,49 @@
 from re import sub
 
-class Athlete:
-    def __init__(self, name):
+class AthleteList(list):
+    def __init__(self, name, dob=None, a_times=[]):
+        list.__init__([])
         self.filename = 'coach/' + name + '.txt'
         self.name = None
         self.birth = None
-        self.results = None
         self.best_results = None
         self.load_file()
 
     def top3(self):
         name = self.name
         if name:
-            best = sorted({i for i in self.results})[:3]
-            print("%s's fastest times are: %s, %s, %s" % (name, *best))
+            print("%s's fastest times are: %s, %s, %s" % (name, *self.get_top3()))
         else:
             print("There is no such Athlete.")
+
+    def get_top3(self):
+        return sorted({i for i in self})[:3]
 
     def load_file(self):
         try:
             with open(self.filename, 'r') as file:
                 info = file.read().split(',')
                 self.update_values(info)
-        except Exception:
+        except IOError:
             pass
 
     def update_values(self, info):
         self.name = info[0]
         self.birth = info[1]
-        self.results = [sub('-|\.', ':', i).strip() for i in info[2:]]
+        self.extend([sub('-|\.', ':', i).strip() for i in info[2:]])
 
     def add_time(self, *times):
         for time in times:
-            self.results.append(sub('-|\.',':',time))
+            self.append(sub('-|\.',':',time))
 
 
-
-[Athlete(name).top3() for name in ('james','julie','mikey','sarah', 'bummy')]
-jamie = Athlete('james')
-jamie.add_time('1:21')
-jamie.top3()
-jamie.add_time('1:22', '2:15')
-jamie.top3()
+if __name__ == "__main__":
+    [AthleteList(name).top3() for name in ('james','julie','mikey','sarah', 'bummy')]
+    jamie = AthleteList('james')
+    jamie.add_time('1:21')
+    jamie.top3()
+    jamie.add_time('1:22', '2:15')
+    jamie.top3()
 
 
 
