@@ -1,0 +1,49 @@
+html {
+    color: #2f1f4f;
+    background: rgba(155, 0, 0, .075)
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    font-size: 1.25em;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid black;
+    background: rgba(127, 127, 127, .1);
+}
+
+td, th {
+    border: 1px solid black;
+    min-width: 200px;
+    padding: 10px;
+}
+
+form {
+    margin: 2% 25%;
+    min-width: 0;
+    display: block;
+    border: 2px solid black;
+    text-align: center;
+}
+
+form p {
+    font-size: 1.25em;
+    margin: 10px;
+}
+
+form table {
+    width: 100%;
+}
+
+form input[type='submit'] {
+    font-size: 2em;
+    background: rgba(122, 196, 122, .25);
+    padding: 10px;
+}
+
+form input[type='submit']:hover {
+    background: rgba(122, 196, 122, .5);
+}
