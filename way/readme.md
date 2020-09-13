@@ -19,6 +19,7 @@ ___
 + [Use your magic to amaze people](javascript/)
 + [Dance with Thai Go-go girls](go/)
 + [Find true Okama's Razor](csharp/)
++ [Throw your damn Eye out, you C?](clang/)
 + [Wait a minute, I'm not done yet!](java/)
 + [Resolve Eve's inheritance](swift/)
 + [Ask Mirror, Mirror on the wall](frontend/)

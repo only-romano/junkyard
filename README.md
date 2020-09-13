@@ -44,6 +44,7 @@ ___
     + [Assassin's __JavaScript__](way/javascript/)
     + [Ara-__Go__-rn](way/go/)
     + [You see Bosch, I __C#__](way/csharp/)
+    + [I feel - you can __C__ it!](way/clang/)
     + [Ceylon, hm, wait, no ... Madagascar, again, no, stop, Fiji? God damned. Oh, yes, it's __Java__](way/java/)
     + [Inglourious __Frontend__](way/frontend/)
     + [Taylor __Swift__](way/swift/)

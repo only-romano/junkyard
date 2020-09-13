@@ -1,0 +1,1 @@
+void display_calories(float weight, float distnace, float coeff);
