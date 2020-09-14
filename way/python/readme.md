@@ -44,4 +44,5 @@ ___
     - [_Solo Learn_](exercises/solo_learn/)
     - [_Python for Kids_ course](pybooks/python4kids/)
     - [_Programming for Kids_ course](pybooks/programmingForKids/)
+    - [_Easy Python_](pybooks/easy_python/)
 
