@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    padding: calc(25vh - 25px) 0 0;
+}
+
+button {
+    padding: 8px 10px;
+    border: 1px solid rgba(196, 196, 196, .8);
+    background: rgba(188, 255, 188, .4);
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px 1px rgba(188, 188, 255, .5);
+    transition: 2s;
+    color: rgba(66, 66, 66, .6);
+}
+
+button:hover {
+    background: rgba(128, 128, 196, .8);
+    color: bisque;
+    text-shadow: 1px 1px 1px black;
+    animation: animate 1s infinite;
+}
+
+@keyframes animate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}

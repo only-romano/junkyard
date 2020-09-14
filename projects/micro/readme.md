@@ -31,6 +31,7 @@ ___
 + [Heart ASCII; __Swift__](app_heart/ "2019")
 + [Naughty Flower; __Python__](flower.py "2019")
 + [Trolley; MY FIRST WEBSITE EVER, 22-23 Nov 2017; __HTML__](trolley/ "2017") + [online](https://ripssr.github.io/trolley/)
-+ [Minimal Telegram Bot](kek.py "2020")
-+ [Flask letter in phrase finder](web_app_vsearch/ "2020")
++ [Minimal Telegram Bot; __Python__](kek.py "2020")
++ [Flask letter in phrase finder; __Python__, __MySQL__](web_app_vsearch/ "2020")
++ [Browser clock; __Frontend__](browser_clock/ "2019")
 
