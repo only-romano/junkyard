@@ -181,7 +181,7 @@ print(search_intersection("hello", 'alalaol'))
 
 
 # diy 17
-import vsearch
+import vovels_module.vsearch as vsearch
 print(vsearch.search4letters("whello", "el"))
 
 
@@ -208,3 +208,47 @@ print(numbers)
 
 change(numbers)
 print(numbers)
+
+
+# diy 19
+class CountFromBy:
+
+    def __init__(self, v:int=0, i:int=1) -> None:
+        self.val = v
+        self.incr = i
+
+    def __repr__(self) -> str:
+        return str(self.val)
+
+    def increase(self) -> None:
+        self.val += self.incr
+
+    def set_value(self, v:int) -> None:
+        self.val = v
+
+    def set_increment(self, i:int) -> None:
+        self.incr = i
+
+j = CountFromBy(100, 10)
+print(j, type(j), hex(id(j)))
+
+
+# diy 20
+data = range(1,9)
+evens = [x for x in data if not x % 2]
+print(evens)
+
+data = [1, 'one', 2, 'two', 3, 'three', 4, 'four']
+words = [x for x in data if isinstance(x, str)]
+print(words)
+
+data = list('So long and thanks for all the fish'.split())
+title = [x.title() for x in data]
+print(title)
+
+
+# diy 21
+#import requests
+#urls = ('http://headfirstlabs.com', 'http://oreilly.com', 'http://twitter.com')
+#(print(f'{len(resp.content)}->{resp.status_code}->{resp.url}') for resp in (get(url) for url in urls))
+
