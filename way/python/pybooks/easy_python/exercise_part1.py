@@ -354,4 +354,165 @@ print(re.findall(' m(?=ight)', source))
 
 
 # ex 25
+blist = [1, 2, 3, 255]
+the_bytes = bytes(blist)
+print(the_bytes) 
+the_byte_array = bytearray(range(0, 256))
+print(the_byte_array)
 
+import struct
+print(struct.pack('>L', 154))
+
+import binascii
+valid_png_header = b'\x89PNG\r\n\x1a\n'
+print(binascii.hexlify(valid_png_header))
+print(binascii.unhexlify(b'89504e470d0a1a0a'))
+
+a = 0b1001
+b = 0b0011
+print(a & b, a | b, a ^ b, ~a, a << 1, a >> 1)
+
+
+# ex 26
+mystery = '\U0001f4a9'
+print(mystery, unicodedata.name(mystery))
+
+pop_bytes = bytes(mystery.encode('utf-8'))
+print(pop_bytes)
+pop_string = pop_bytes.decode('utf-8')
+print(pop_string)
+
+print('''My kitty cat likes %s
+My kitty cat likes %s
+My kitty cat fell on his %s
+And now thinks he's a %s''' % ('roast beef', 'ham', 'head', 'clam'))
+
+response = {
+    'salutation': 'howdy-how',
+    'name': 'Romeo',
+    'product': 'love potion',
+    'verbed': 'spoiled the show',
+    'room': 'gym-class',
+    'animals': 'peacock',
+    'amount': '5 pounds',
+    'percent': '93',
+    'spokesman': 'Doggy Dog',
+    'job_title': 'Mayor of California'
+}
+
+letter = '''Dear {salutation} {name}.
+Thank you for your letter. We are sorry that our {product} {verbed} in your
+{room}. Please note that it should never be used in a {room}, especially
+near any {animals}.
+Send us your receipt and {amount} for shipping and handling. We will send
+you another {product} that, in our tests, is {percent}% less likely to
+have {verbed}.
+Thank you for your support.
+Sincerely,
+{spokesman}
+{job_title}'''.format(**response)
+print(letter)
+
+mammoth = '''
+We have seen thee, queen of cheese,
+Lying quietly at your ease,
+Gently fanned by evening breeze,
+Thy fair form no flies dare seize.
+All gaily dressed soon you'll go
+To the great Provincial show,
+To be admired by many a beau
+In the city of Toronto.
+Cows numerous as a swarm of bees,
+Or as the leaves upon the trees,
+It did require to make thee please,
+And stand unrivalled, queen of cheese.
+May you not receive a scar as
+We have heard that Mr. Harris
+Intends to send you off as far as
+The great world's show at Paris.
+Of the youth beware of these,
+For some of them might rudely squeeze
+And bite your cheek, then songs or glees
+We could not sing, oh! queen of cheese.
+We'rt thou suspended from balloon,
+You'd cast a shade even at noon,
+Folks would think it was the moon
+About to fall and crush them soon
+'''
+
+print(re.findall(r'\bc[\w]*', mammoth))
+print(re.findall(r'\bc[\w]{3}\b', mammoth))
+print(re.findall(r'\br[\w]*', mammoth))
+print(re.findall(r'\b[\w]*[aeiou]{3}[\w]*\b', mammoth))
+
+gif = binascii.unhexlify('4749463839610100010080000000000ffffff21f9' + 
+    '0401000000002c00000000100010000020144003b')
+print(gif, binascii.hexlify(gif[6:8]), binascii.hexlify(gif[8:10]))
+
+
+# ex 27
+import csv
+
+villians = (
+    ('Doctor', 'No'),
+    ('Rosa', 'Klebb'),
+    ('Mister', 'Big'),
+    ('Auric', 'Goldfinger'),
+    ('Ernst', 'Blofeld')
+)
+
+with open('villians.csv', 'wt') as fout:
+    csvout = csv.writer(fout)
+    csvout.writerows(villians)
+
+with open('villians.csv', 'rt') as fin:
+    cin = csv.reader(fin)
+    villains = [row for row in cin]
+
+with open('villians.csv', 'rt') as fin:
+    cin = csv.DictReader(fin, fieldnames=['first', 'last'])
+    dic_villains = [row for row in cin]
+
+print(villains, villians)
+pprint(dic_villains)
+
+
+# ex 28
+import xml.etree.ElementTree as et
+
+tree = et.ElementTree(file='menu.xml')
+root = tree.getroot()
+list_dict = {}
+print(root.tag)
+for child in root:
+    print(child.tag, ": ", child.attrib)
+    list_dict[child.tag] = child.attrib
+    for gradndchild in child:
+        list_dict[child.tag].update({gradndchild.text: gradndchild.attrib})
+        print(f'\t{gradndchild.tag}: {gradndchild.attrib}')
+
+
+# ex 29
+import json
+from datetime import datetime
+
+menu_json = json.dumps(list_dict)
+print(menu_json)
+
+menu2 = json.loads(menu_json)
+print(menu2)
+
+now = datetime.utcnow()
+print(now)
+
+json.dumps(str(now))
+
+
+# ex 30
+import dbm
+db = dbm.open('definitions', 'c')
+db['mustard'] = 'yellow'
+db['ketchup'] = 'red'
+db['pesto'] = 'green'
+print(len(db), db['pesto'])
+db.close()
