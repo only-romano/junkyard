@@ -1,8 +1,7 @@
 # required sql-alchemy
 import sqlalchemy as sa
-from sqlalchemy import creaate_engine
 
-conn = creaate_engine('sqlite://')
+conn = sa.create_engine('sqlite://')
 meta = sa.MetaData()
 zoo = sa.Table('zoo', meta,
     sa.Column('critter', sa.String, primary_key=True),
@@ -22,7 +21,7 @@ print(rows)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-conn1 = sa.creaate_engine('sqlite:///zoo.db')
+conn1 = sa.create_engine('sqlite:///zoo.db')
 Base = declarative_base()
 
 class Zoo(Base):

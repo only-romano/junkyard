@@ -81,4 +81,4 @@ print(conn.sunion('zoo', 'better_zoo')) # union
 conn.sunionstore('fabulous_zoo', 'zoo', 'better_zoo') # union saved to fabulous_zoo
 print(conn.smembers('fabulous_zoo'))
 
-print(conn.sdiff('zoo', 'better_zoo'))  # subt
+print(conn.sdiff('zoo', 'better_zoo'))  # 
