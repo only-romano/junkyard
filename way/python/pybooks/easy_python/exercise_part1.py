@@ -527,3 +527,21 @@ with open('test.txt', 'r') as file:
     test2 = file.read()
     print(test1 == test2)
 
+
+# ex 32
+import os
+
+fout = open('oops.txt', wt)
+print('Oops, I created a file', file=fout)
+fout.close()
+
+print(os.path.exists('oops.txt'), os.path.exists('./oops.txt'))
+name = 'oops.txt'
+print(os.path.isfile(name), os.path.isdir(name), os.path.isdir('.'))
+print(os.path.isabs(name), os.path.isabs('/big/fake/name'))
+
+import shutil
+
+shutil.copy('oops.txt', 'ohno.txt')
+shutil.move('ohno.txt', 'ohyes.txt')
+os.rename("ohyes.txt", 'ohwell.txt')
