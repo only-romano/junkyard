@@ -516,3 +516,14 @@ db['ketchup'] = 'red'
 db['pesto'] = 'green'
 print(len(db), db['pesto'])
 db.close()
+
+
+# ex 31
+test1 = 'This is a test of the emergency text system'
+with open('test.txt', 'w') as file:
+    file.write(test1)
+
+with open('test.txt', 'r') as file:
+    test2 = file.read()
+    print(test1 == test2)
+

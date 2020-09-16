@@ -26,6 +26,10 @@ ___
 	* [Algorithmes](useful_py/pyalgos/)
 	* [Encoding and decoding](useful_py/pyencode/)
 
++ [Web Frameworks]
+    * [Django](django/)
+    * [Flask](flask/)
+
 + [Various Micro-pojects](exercises/various/)
 
 + [My very first steps in programming -- Мои первые шаги в программировании](first_steps/)
