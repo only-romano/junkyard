@@ -531,7 +531,7 @@ with open('test.txt', 'r') as file:
 # ex 32
 import os
 
-fout = open('oops.txt', wt)
+fout = open('oops.txt', 'wt')
 print('Oops, I created a file', file=fout)
 fout.close()
 
@@ -545,3 +545,5 @@ import shutil
 shutil.copy('oops.txt', 'ohno.txt')
 shutil.move('ohno.txt', 'ohyes.txt')
 os.rename("ohyes.txt", 'ohwell.txt')
+os.link('oops.txt', 'yikes.txt')
+# os.symlink('oops.txt', 'jeepers.txt')  - can't do on windows
